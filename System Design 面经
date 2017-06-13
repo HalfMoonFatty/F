@@ -4,3 +4,14 @@ download all urls from 1000 hosts. Imagine all the urls are graph.
 Requirement: Each host has bad internet connection among each other, Has to download url exacly once.
 
 设计一个单机的KV缓存
+
+
+设计一个FB的搜索系统， 自我感觉讨论不错， 然并卵 
+从requriment开始： 要搜索什么？ people,post, event ....
+constraint ， 用户多少，数据多少之类；. from: 1point3acres.com/bbs 
+UI 怎么搞， 怎样提高用户体验， typehead, 不同label分类
+总体怎么设计， 前段， server， 数据，画一画.鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
+workflow 怎样，写个流程， 一个请求怎么完成 
+webservice怎么设计？ API， operation是怎么定义， 把restful讲讲
+数据库， 搜索的数据结构都怎么存，SQL table啦，还有 trie啦， bloom filter 啦， inverted table都讲讲。  
+CAP那一套说一说，怎么balance， 怎么Partion， 怎么保证consistence, cache怎么存-g
