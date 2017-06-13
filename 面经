@@ -265,6 +265,7 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 
 
 1. 给2D平面上的N个点，求离原点最近的K个点
+   Given some points in two dimensional space, find k points out of all points which are nearest to origin(0,0)
 
 
 
