@@ -25,6 +25,12 @@ Design twitter feed system
 
 
 
+Tiny URL
+
+
+
+
+
 问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
 这些具体的问题还是值得思考一下的，我给大家列一下，希望能帮到后面的人：
 1. top n hot key word怎么生成，问了下map reduce的东西 
