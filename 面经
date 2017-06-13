@@ -274,6 +274,9 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 1 2 4 _ _ _ 2 3 5 _ _ _ 3，也就是13个单位的时间基于1，给出最优的排列，使得字符串最短。
 
 
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=188881&extra=page%3D2%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D2%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+
 
 3. 给一个tree，每个node 有很多children，找到所有最深的nodes 的common  ancestor, 比如只有一个点最深，那返回他自己。
 Similar to 236. Lowest Common Ancestor of a Binary Tree
