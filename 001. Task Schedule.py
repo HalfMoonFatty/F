@@ -33,8 +33,8 @@ def taskSchedule(tasks, cooldown):
         result += str(t)
         index_map[t] = len(result)
 
-
     return result
+
 
 t1 = [1, 1, 2, 1]
 k1 = 2
