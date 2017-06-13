@@ -323,7 +323,8 @@ print taskSchedule(t3, k3)
    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
    * follow up 指向母点的指针 
 
-
+   跟二叉树一样，不用先求深度，可以one pass。   
+   对于root，每个孩子遍历一遍，如果孩子深度大于max，就更新max，然后返回的是孩子，如果等于max，说明有多个孩子深度一样，那么返回root
 
         class Result {
                 int depth;
