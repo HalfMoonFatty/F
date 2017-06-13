@@ -827,6 +827,10 @@ recursive build tree and inorder traverse是o(n)的
 
 
 
+52. Even Tree
+even tree is a hackrank problem:
+You are given a tree (a simple connected graph with no cycles). The tree has  nodes numbered from  to  and is rooted at node .
+Find the maximum number of edges you can remove from the tree to get a forest such that each connected component of the forest contains an even number of vertices.
 
 
 
