@@ -809,7 +809,8 @@ public static List<Character> mostContinuous(String s) {
 
 
 49. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
-
+recursive build tree and inorder traverse是o(n)的
+用一个stack也可以省去Buildtree的过程了. leetcode 255 stack 解法的思想 第一个是根节点， 然后找根的右字数开始的点，根和右字数开始这中间是左子树，然后分开处理
 
 
 
