@@ -459,9 +459,36 @@ otherwise, A is from the head of the list.
 35. find number of palindrom in a string
 
 
+
 36. partition array sum
     给定一个array 返回一个partition point可以返回该index左边的和和右边的和一样，没有就返回-1，这个要求时间空间最优
-  
-  
+    
+    
+    
+37.给一个string， 判断是不是数字
+
+
+
+38.给一个2d matrix，每个里面值要么是1要么是0， 假如出现1，后面的数都是1.
+找出最左边是1的列
+[[0, 0, 1, 1, 1],
+[0, 1, 1, 1, 1],
+[0, 0, 1, 1, 1],
+[0, 0, 0, 0, 0]]
+
+int left = matrix[0].length;
+for (int i = 0; i < matrix.length; i++) . 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+    for (int j = 0; j < left; j++) {
+          if (matrix[i][j] == 1) {. from: 1point3acres.com/bbs 
+                 left = j;
+                 break;
+          }
+    }
+
+return left;
+}
+
+
+
 https://instant.1point3acres.com/thread/197099
 http://www.1point3acres.com/bbs/thread-203983-1-1.html
