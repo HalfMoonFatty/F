@@ -1,1 +1,0 @@
-coding 给定一个array 返回一个partition point可以返回该index左边的和和右边的和一样，没有就返回-1，这个要求时间空间最优
