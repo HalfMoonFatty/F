@@ -260,6 +260,7 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 
 
 
+shuffle一个1 million的数组，让所有数在所有位置的概率相等
 
 
 
@@ -804,6 +805,17 @@ public static List<Character> mostContinuous(String s) {
 
 
 
+
+
+
+49. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
+
+
+
+
+
+50. 给一个字符串，如果是相邻字母是一样的话就称为一个桥，把桥之间的字符替换成加号
+    --a-d*-d-a-b 变成 --a-++++-a-b
 
 
 
