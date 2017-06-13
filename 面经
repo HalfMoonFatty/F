@@ -289,29 +289,37 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 # Output: 18  (1 2 3 4 5 6 _ _ 2 _ 4 _ 6 1 _ 2 _ 4)
 */
 
+def taskSchedule(tasks, cooldown):
+    result = ''
+    index_map = {}
+    for t in tasks:
+        while index_map.has_key(t) and index_map[t] + cooldown > len(result):
+            result += '_'
 
-static class CoolDown{
-    static String getStr(String s, int k) {
-      Map<Character, Integer> map = new HashMap<Character, Integer>();
-      StringBuilder sb = new StringBuilder();
-      for (char c : s.toCharArray()) {
-        int idx = map.getOrDefault(c, -k);
-        while(sb.length() - k < idx) {
-          sb.append("_");
-        }
-        sb.append(c);
-        map.put(c,sb.length());
-      }
-      return sb.toString();
-    }
-  }
-  
-  
-  
-  
+        result += str(t)
+        index_map[t] = len(result)
 
 
-3. 给一个tree，每个node 有很多children，找到所有最深的nodes 的common  ancestor, 比如只有一个点最深，那返回他自己。
+    return result
+
+t1 = [1, 1, 2, 1]
+k1 = 2
+print taskSchedule(t1, k1)
+
+t2 = [1, 2, 3, 1, 2, 3]
+k2 = 3
+print taskSchedule(t2, k2)
+
+t3 = [1, 2, 3 ,4, 5, 6, 2, 4, 6, 1, 2, 4]
+k3 = 6
+print taskSchedule(t3, k3)
+  
+  
+  
+  
+
+
+3. 给一个tree，每个node 有很多children，找到所有最深的nodes 的common ancestor, 比如只有一个点最深，那返回他自己。
 Similar to 236. Lowest Common Ancestor of a Binary Tree
 
 
@@ -511,6 +519,8 @@ otherwise, A is from the head of the list.
 [0, 1, 1, 1, 1],
 [0, 0, 1, 1, 1],
 [0, 0, 0, 0, 0]]
+
+从右上角开找就好吧 碰到1往左走 碰到0 往下走
 
 int left = matrix[0].length;
 for (int i = 0; i < matrix.length; i++) . 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
