@@ -454,6 +454,9 @@ otherwise, A is from the head of the list.
 35. find number of palindrom in a string
 
 
-
+36. partition array sum
+    给定一个array 返回一个partition point可以返回该index左边的和和右边的和一样，没有就返回-1，这个要求时间空间最优
+  
+  
 https://instant.1point3acres.com/thread/197099
 http://www.1point3acres.com/bbs/thread-203983-1-1.html
