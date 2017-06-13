@@ -104,9 +104,10 @@ Variant: 一串start time － end time，格式是Apr 2010 － Mar 2011这种，
   
 
 121-123, 188, 309 Best Time to Buy and Sell Stock, (I and II)
-  * buy and sell stock，每天可以买一股，也可以都卖了，或者不买不卖。
-  * Find maximum, buy from earlier days, and sell on that day.
-  
+  * buy and sell stock，每天可以买一股，也可以都卖了，或者不买不卖。Find maximum, buy from earlier days, and sell on that day.
+    Given estimated stock quotes, in an array, print the maximum profit from a buy and sell. 
+    i.e [19, 22, 15, 35, 40, 10, 20] would show a profit of 25(40 -15). The sale must come after the buy. Solve this in O(N) time.
+
 
 125. Valid Palindrome
 
@@ -201,10 +202,22 @@ Variant: 一串start time － end time，格式是Apr 2010 － Mar 2011这种，
 
 
 283. Move Zeroes - Minimizing “writes”
-     * moving all the nonzeros to the front of a list
-     move zeros 最少operation次数的情况是 每个元素最多被挪动一次，
-     2 pointers的解法为readPointer扫到非零元素的时候写到writePointer的位置， 
-     readPointer 比 writePointer快，在readPointer扫完之后writePointer在剩下的所有位置写0。
+
+You are given an array of integers. Write an algorithm that brings all nonzero elements to the left of the array, and returns the number of nonzero elements. 
+e.g. [1,2,0,5,3,0,4,0] => [1,2,5,3,4,0,0,0] and return 5
+
+Note:
+1. The algorithm should operate in place, i.e. shouldn't create a new array. 
+2. The order of the nonzero elements does not matter. The numbers that remain in the right portion of the array can be anything. 
+3. The algorithm should operate in place, i.e. shouldn't create a new array. 
+4. Code should have good complexity and minimize the number of writes to the array.
+
+Example: given the array [ 1, 0, 2, 0, 0, 3, 4 ], 
+a possible answer is [ 4, 1, 3, 2, ?, ?, ? ], 4 non-zero elements, where "?" can be any number. 
+2 pointers的解法为readPointer扫到非零元素的时候写到writePointer的位置，readPointer 比 writePointer快，在readPointer扫完之后writePointer在剩下的所有位置写0。
+
+
+
 
 
 285. Inorder Successor in BST
@@ -378,6 +391,12 @@ print taskSchedule(t3, k3)
 
 
 5. two sum + three sum + follow up (allows duplicates and each number could be reused)
+Three sum with duplicate, pirnt all indexes, for example: 
+0 2 -2 -2 
+(0)(1)(2)(3) 
+print (0, 1, 2) (0, 1, 3) 
+can you do it use n^2 (or less) time complexity with as less space as possible? 
+public List<List<Integer>> threeSum(int[] nums) {}
 
 
 
@@ -402,7 +421,21 @@ print taskSchedule(t3, k3)
 
 
 
-11. linked list 反序输出 - 1) reverse the list; 2) recursion
+11. linked list 反序输出
+Iterate over a singly linked list backwards. Call print on each node. 
+Example: The list A->B->C should print as 
+"C B A"
+class Node {
+  public Node next;
+  public String value;
+}
+There are 4 solutions 
+1) recursive 
+2) iterative with O(n) memory (reverse the list)
+3) iterative with O(1) memory and O(n2) runtime 
+4) iterative with O(1) memory and O(n) runtime (for this solution the initial list may be modified) 
+Explain all 4 solutions and write the code for solutions 3 and 4
+
 
 
 
@@ -435,7 +468,9 @@ example：  [1,3),  [2, 7),   [4,  8),   [5, 9)
 
 
 
-18. 合并邮件列表
+18. 合并邮件列表 
+Given some email ids, and a similarity function which says whether two email ids are similar, determine all the sets of email ids that are similar to each other.
+
 Given 1 million email list:
 list 1: a@a.com, b@b.com
 list 2: b@b.com, c@c.com
@@ -450,8 +485,7 @@ Combine lists with identical emails, and output tuples:
 
 19. 一个完全树。node有parent指针。
 每个node的值为 0或 1, 每个parent的值为两个子node的 “and” 结果
-现在把一个leaf翻牌子（0变1或者1变0）. visit 1point3acres.com for more.
-把树修正一遍
+现在把一个leaf翻牌子（0变1或者1变0）把树修正一遍
 
 
 
@@ -463,8 +497,19 @@ Combine lists with identical emails, and output tuples:
 
 
 
-21. 给定一个数列，比如1234，将它match到字母上，1是A，2是B等等，那么1234可以是 ABCD
-但是还可以是12是L，所以1234也可以写作 LCD 或者 AWD
+
+21. Given: 
+a encoded to 1 
+b encoded to 2 
+.... 
+z encoded to 26 
+You can translate a number to a string: 
+'123' can be translated to 'abc' 
+but also can be translated to 'aw','lc' which gives 3 total translations 
+'12' can be translated to 'ab' and 'l' -> 2 translations 
+Write a function to get the number of valid combinations from a number like '123123123'
+
+
 
 
 
@@ -475,7 +520,12 @@ Merge them all:  [1,6], [8, 20].
 
 
 
+
 23. balance parentheses in a string
+
+You have a string consisting of open and closed parentheses, but parentheses may be imbalanced. 
+Make the parentheses balanced and return the new string.
+
 例子：
 "(a)()" -> "(a)()"
 "((bc)" -> "(bc)"
@@ -492,9 +542,11 @@ Note: balance的意思就是把原来string里unpaired的括号变成paired的�
 
 
 
+
 24. get binary tree's next node in inorder
 class Node {Node left, Node right, Node parent}
 Node getNext (Node current) {}
+
 
 
 
@@ -505,7 +557,9 @@ Exps:
 
 
 
+
 26. Longest Arithmetic Progression
+
 
 
 
@@ -514,7 +568,9 @@ Exps:
 
 
 
+
 28. Check big/small endian
+
 
 
 
@@ -528,9 +584,11 @@ otherwise, A is from the head of the list.
 
 
 
+
 30.
 第一题：binary tree，给定一个value，return bin tree里面下一个比value大的值
 第二题：binary tree的node加一个ptr next，point到inorder traversal的下一个node，比上一个简单
+
 
 
 
@@ -538,7 +596,9 @@ otherwise, A is from the head of the list.
 
 
 
+
 32. Erase duplicate in an unsorted array
+
 
 
 
@@ -546,7 +606,9 @@ otherwise, A is from the head of the list.
 
 
 
+
 34. find longest arithmetic sequence in an unsorted array
+
 
 
 
@@ -554,12 +616,17 @@ otherwise, A is from the head of the list.
 
 
 
+
 36. partition array sum
     给定一个array 返回一个partition point可以返回该index左边的和和右边的和一样，没有就返回-1，这个要求时间空间最优
-    
+    Given an array of integers greater than zero, find if it is possible to split it in two (without reordering the elements), 
+    such that the sum of the two resulting arrays is the same. Print the resulting arrays.
+
+
     
     
 37.给一个string， 判断是不是数字
+
 
 
 
@@ -586,13 +653,16 @@ return left;
 
 
 
+
 38. 给两个array找common elements，一个1M长，一个1K长
     就是求集合的交集。。。 你可以二分，也可以两个指针互相追赶。。这个情况下，明显是从短的数组里枚举每个数，然后二分长的数组.. (当然一开始要排序)..
     排序的话用时间 n=1M, m=1k     nlgn+mlgm, 找用时间mlgN..
 
 
 
+
 39. 给你一个数字比如111112222333112，返回每个数字出现的个数和数字本身，这个例子的返回为5142332112. 写完之后问这个返回的result，最短多长，最长多长。
+
 
 
 
@@ -608,6 +678,7 @@ return left;
 
 
 42. Recommend K friends with most mutual friends.
+
 
 
 43. Given an array will have either a valley or a mountain, only one, not one of each, find out the index of the valley or peak element
@@ -732,8 +803,6 @@ public class DecodeVector {
 
 
 
-
-
 46. Unique Path II，这题bug free, 很快就解出来了。
     第二题是第一题follow up. 问有2个robert, 一个在左上(A)，一个在右下(B)。
     2个机器人同时移动，A 只能移动Down, right. B 只能移动 Up,left. 写出一个方程，问A 和B能不能同时到终点(ie. A 到右下，B到左上）
@@ -821,9 +890,8 @@ recursive build tree and inorder traverse是o(n)的
 
 
 
-
-
 51. 把一个BST(Inplace)转化成环装结构的链表，需要首尾相接。讨论时间复杂度
+
 
 
 
@@ -834,61 +902,62 @@ Find the maximum number of edges you can remove from the tree to get a forest su
 
 
 
-Find sets of values in array whose sum is equal to some number.
 
-Find the subarray within an array (containing at least TWO number) which has the largest sum. 
-For example, given the array [-2,-1,-3,-4,-1], . Waral 鍗氬鏈夋洿澶氭枃绔�,
-the contiguous subarray [-2,-1] has the largest sum = -3. 
+53. Find sets of values in array whose sum is equal to some number.
+
+
+
+
+54. Find the subarray within an array (containing at least TWO number) which has the largest sum. 
+For example, given the array [-2,-1,-3,-4,-1], the contiguous subarray [-2,-1] has the largest sum = -3. 
 try to do it in O(n) time 
+
 Followup, if input is stream, how to solve it 
 public int maxSubArray(int[] nums) {}
--google 1point3acres
-A "derangement" of a sequence is a permutation where no element appears in its original position. For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
-public List<char[]> getDerangement(char[]){}. more info on 1point3acres.com
 
 
-Three sum with duplicate, pirnt all indexes, for example: 
-0 2 -2 -2 
-(0)(1)(2)(3) . 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
-print (0, 1, 2) (0, 1, 3) 
-can you do it use n^2 (or less) time complexity with as less space as possible? 
-public List<List<Integer>> threeSum(int[] nums) {}
-. From 1point 3acres bbs
-Given an array of integers: 
-1. rearrange the array such that all non-zero members appear on the left of the array (order is not important) 
-2. return the number of non-zero members 
-e.g. [1,2,0,5,3,0,4,0] => [1,2,5,3,4,0,0,0] and return 5. The non-zero array members can be in any order.. 鍥磋鎴戜滑@1point 3 acres
 
 
-Given an array of task and k wait time for which a repeated task 
-needs to wait k time to execute again. please rearrange the task 
-sequences to minimize the total time to finish all the tasks. . Waral 鍗氬鏈夋洿澶氭枃绔�,
+55. A "derangement" of a sequence is a permutation where no element appears in its original position. 
+For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
+public List<char[]> getDerangement(char[]){}. 
+
+
+
+
+56. Given an array of task and k wait time for which a repeated task 
+needs to wait k time to execute again. please rearrange the task sequences to minimize the total time to finish all the tasks. 
 Example 
-Tasks = 111222, k = 2, 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�. 
-One possible task sequence is 
-12_12_12, 
-another possible task sequence is 21_21_21 . 1point3acres.com/bbs
+Tasks = 111222, k = 2, 
+One possible task sequence is 12_12_12, 
+another possible task sequence is 21_21_21 
 thus you shoud return 8 
 public int getMiniTime(int[] nums, int k){ 
 } 
 follow up, output one of the sequence 12_12_12, or 21_21_21
 
 
-Given an unsorted array, sort it in such a way that the first . from: 1point3acres.com/bbs 
-element is the largest value, the second element is the smallest, . 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+
+
+57. Given an unsorted array, sort it in such a way that the first element is the largest value, the second element is the smallest, 
 the third element is the second largest element and so on. 
 [2, 4, 3, 5, 1] -> [5, 1, 4, 2, 3] 
 can you do it without using extra space 
 public void sortAlternate(int[] nums){}
 
 
-Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. Each Task has a number of Units and each server has a number of Slots on which Units can run. 
+
+
+
+58. Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. 
+Each Task has a number of Units and each server has a number of Slots on which Units can run. 
 The only condition is that two Units of the same Task "cannot" run on the same Server. 
 Servers 
 S[0] = "SS1", "SS2", "SS3", SS4 //Slots // 4 -> 3 -> 2 -> 1 
 S[1] = "SS1", "SS2" // 2 -> 1 -> 0 -> false . visit 1point3acres.com for more.
 S[2] = "SS1", "SS2", SS3, SS4, SS5 // 5 -> 4 -> 3 -> 2 
 S[3] = "SS1", "SS2", SS3, SS4, SS5 // 5 -> 4 -> 3 -> 2 
+
 Example: 
 S[0] = 4 
 S[1] = 3 . more info on 1point3acres.com
@@ -911,24 +980,17 @@ boolean boolean CanRunTasks(S[], T[]){ . 1point 3acres 璁哄潧
 }
 
 
-Given some email ids, and a similarity function which says whether two email ids are similar, determine all the sets of email ids that are similar to each other.
 
 
-You have a string consisting of open and closed parentheses, but parentheses may be imbalanced. 
-Make the parentheses balanced and return the new string.
-
-
-Given an array of integers greater than zero, find if it is possible to split it in two (without reordering the elements), such that the sum of the two resulting arrays is the same. Print the resulting arrays.
-
-
-There is a bunch of tasks, each have different time to complete, task is independent, and then there are some workers, .1point3acres缃�
+59. There is a bunch of tasks, each have different time to complete, task is independent, and then there are some workers, 
 How to allocate tasks to these workers to minimize the total time to complete all the task. The tasks can be randomly picked from the task list. 
-Example . 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+Example 
 Task: 2,2,3,7, 1 
 Worker: 2. 
-Return 8, because the first worker can work on the first three tasks : 2 + 2 + 3 = 7, and the second worker can work on the last two tasks : 7 + 1 = 8, so the total time to finish all the task is 8. 
+Return 8, because the first worker can work on the first three tasks : 2 + 2 + 3 = 7, and the second worker can work on the last two tasks : 
+7 + 1 = 8, so the total time to finish all the task is 8. 
 public int getMini(int[] tasks, int k)
-. from: 1point3acres.com/bbs 
+
 
 We have a List of FlightRoute
 public static class FlightRoute {
@@ -941,49 +1003,13 @@ and write a function to find Shortest Path: findShorestPath(String start, String
 
 
 
-Iterate over a singly linked list backwards. Call print on each node. 
-Example: The list A->B->C should print as 
-"C B A"
-class Node {. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
-  public Node next;
-  public String value;. 鍥磋鎴戜滑@1point 3 acres
-}
-There are 4 solutions 
-1) recursive 
-2) iterative with O(n) memory 
-3) iterative with O(1) memory and O(n2) runtime 
-4) iterative with O(1) memory and O(n) runtime (for this solution the initial list may be modified) 
-Explain all 4 solutions and write the code for solutions 3 and 4
 
 
-You are given an array of integers. 
-Write an algorithm that brings all nonzero elements to the left of the array, and returns the number of nonzero elements. 
-The algorithm should operate in place, i.e. shouldn't create a new array. 
-The order of the nonzero elements does not matter. The numbers that remain in the right portion of the array can be anything. 
-Example: 
-given the array [ 1, 0, 2, 0, 0, 3, 4 ], 
-a possible answer is [ 4, 1, 3, 2, ?, ?, ? ], 4 non-zero elements, where "?" can be any number. 
-Code should have good complexity and minimize the number of writes to the array.
-
-
-
-Given: . from: 1point3acres.com/bbs 
-a encoded to 1 
-b encoded to 2 
-.... . From 1point 3acres bbs
-z encoded to 26 
-You can translate a number to a string: .鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
-'123' can be translated to 'abc' . visit 1point3acres.com for more.
-but also can be translated to 'aw','lc' which gives 3 total translations 
-'12' can be translated to 'ab' and 'l' -> 2 translations 
-Write a function to get the number of valid combinations from a number like '123123123'
-
-
-You have a string of numbers, i.e. 123. You can insert a + or - sign in front of ever number, or you can leave it empty. Find all of the different possibilities, make the calculation and return the sum. 
+60. You have a string of numbers, i.e. 123. You can insert a + or - sign in front of ever number, or you can leave it empty. Find all of the different possibilities, make the calculation and return the sum. 
 For example; 
 +1+2+3 = 6 
 +12+3 = 15 
-+123 = 123 . 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
++123 = 123 
 +1+23 = 24 
 ... 
 -1-2-3 = 6 
@@ -991,13 +1017,21 @@ For example;
 Return the sum of all the results.
 
 
-Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
-
-. From 1point 3acres bbs
-Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. (Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
 
 
-Q: Weighted meeting room 
+61. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
+The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
+
+
+
+
+62. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
+(Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
+
+
+
+
+63.Weighted meeting room 
 Given a series of meetings, how to schedule them. Cannot attend more than a meeting at the same time. Goal is to find maximum weight subset of mutually non-overlap meetings.
 class Meeting:. 1point 3acres 璁哄潧
 def __init__(self):
@@ -1006,48 +1040,44 @@ def __init__(self):
     self.weight
 
 
-Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
 
 
-Given estimated stock quotes, in an array, print the maximum profit from a buy and sell. i.e [19, 22, 15, 35, 40, 10, 20] would show a profit of 25(40 -15). The sale must come after the buy. Solve this in O(N) time.
+64. Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
 
 
-Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
-eg: coins(10, 15, 55) . 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
-print: . 1point 3acres 璁哄潧
+
+
+65. Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
+eg: coins(10, 15, 55)
+print:
 10 
 15 
 20 
 25 
 30 
 . 
-. 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�. 
-. 
+.
 1000 
-. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
-
-Leetcode 314: Binary tree vertical order traversal
 
 
-Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
+
+66. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
 In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output. . From 1point 3acres bbs
 Output doesnt need to maintain the ordering as in the alphabet. . 1point 3acres 璁哄潧
 Other examples: 
 input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
 
-.鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
-Generate square of numbers in an array example [1,3,5] should come out as [1,9,25].
 
 
-Given an Array of N elements and Integer K, write a function that returns true if the sum of any 2 elements of Array is K, false otherwise.
+67. Given an Array of N elements and Integer K, write a function that returns true if the sum of any 2 elements of Array is K, false otherwise.
 
 
-Write code to decode strings. For example, String str = "3[a2[bd]g4[ef]h]", the output should be "abdbdgefefefefhabdbdgefefefefhabdbdgefefefefh". 
+68. Write code to decode strings. For example, String str = "3[a2[bd]g4[ef]h]", the output should be "abdbdgefefefefhabdbdgefefefefhabdbdgefefefefh". 
 
 
-Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
+69. Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
 [1, 3, 5, 18] X = 8 Output: True 
-X = 9 Output: True .鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
+X = 9 Output: True 
 X = 10 Output: False 
 X = 40 Output :False
 
