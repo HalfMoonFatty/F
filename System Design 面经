@@ -1,11 +1,19 @@
 Design memcache
+
+设计一个memcache，实现读，写，和删除操作；用什么样的data structure，eviction rule是什么，怎样最大程度避免segmentation，如何handle concurrency。
+都是基于一个server的情况考虑，没有问distributed 的infrastructure如何设计。
+
+
 多谢！ 有篇论文叫scaling memcached at FB, 里面有一小段讲的是single machine bottleneck. 我浅读过一下，根据我的理解，single machine bottleneck可能有:
 1. 只用single thread.. . Waral 鍗氬鏈夋洿澶氭枃绔�,
 2. 用multi-thread的话得用fine-grain locking, 类似java的concurrent hashmap, 意思就是多线程的时候不要整个memory都lock, lock一个slab就好
 3. multi-threading 配合一个memory slab allocator(一个专门的manger来管理memory)
 4. Evict LRU 以及在slab上的处理(给个slab都有LRU). 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
 5. Use UDP for get() instead of TCP(网络bottleneck)
-6. request 太多的话 可能需要专门batch一下再发packet出去(网络bottleneck). 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+6. request 太多的话 可能需要专门batch一下再发packet出去(网络bottleneck). 
+
+
+
 
 
 
