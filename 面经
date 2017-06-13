@@ -509,7 +509,8 @@ Exps:
 
 
 27.implement circular array
-  * Circular buffer
+  * implement circular buffer with read & write functions
+
 
 
 28. Check big/small endian
