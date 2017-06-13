@@ -822,6 +822,13 @@ public static List<Character> mostContinuous(String s) {
 
 
 
+51. 把一个BST(Inplace)转化成环装结构的链表，需要首尾相接。讨论时间复杂度
+
+
+
+
+
+
 Find sets of values in array whose sum is equal to some number.
 
 Find the subarray within an array (containing at least TWO number) which has the largest sum. 
