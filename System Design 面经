@@ -25,6 +25,16 @@ Design twitter feed system
 
 
 
+问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
+这些具体的问题还是值得思考一下的，我给大家列一下，希望能帮到后面的人：
+1. top n hot key word怎么生成，问了下map reduce的东西 
+2. typeAhead这里的hot key words考虑多久的时效性，比如你是按照1 month，1 week，1 day 还是1 hour的数据给出hot key words。
+3. 大家都知道要用Trie去存数据，并且Trie是放在cache里的，那么这个cache什么时候去更新？怎么更新？要不要加TTL？你更新的这个cache的频率会对用户query的时效性产生很大的影响，并且你更新也会对数据库和服务器造成额外的负担，你怎么去平衡。
+4. 最后加了一个问题说如果这个服务是面向多个国家的，过了一段时间你发现你的推荐在某些国家点击率很高，有些国家点击率很低，你要怎么优化。
+总之都和你之前的一系列答案有关。问得相当的细。
+
+
+
 CS基础问题：输入www.facebook.com到browser，按回车之后，会发生什么。 coding: LC8 Given an input char array, convert it to integer.
 
 
@@ -60,3 +70,6 @@ workflow 怎样，写个流程， 一个请求怎么完成
 webservice怎么设计？ API， operation是怎么定义， 把restful讲讲
 数据库， 搜索的数据结构都怎么存，SQL table啦，还有 trie啦， bloom filter 啦， inverted table都讲讲。  
 CAP那一套说一说，怎么balance， 怎么Partion， 怎么保证consistence, cache怎么存-g
+
+
+
