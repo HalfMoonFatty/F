@@ -320,6 +320,14 @@ print taskSchedule(t3, k3)
 
 
 3. 给一个tree，每个node 有很多children，找到所有最深的nodes 的common ancestor, 比如只有一个点最深，那返回他自己。
+
+         1
+        /  \
+       2    3 
+           /  \
+          4    5
+   比如这个例子，最深的节点是4 和 5. 他们的公共节点是3。所以答案是3。最深的节点可以只有一个，那就返回节点本身。
+   
    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
    * follow up 指向母点的指针 
 
