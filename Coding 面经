@@ -263,6 +263,9 @@ Maintain counter and go from left to right, remove when necessary, then counter 
   * Sort, then find duplicates
 
 
+384. shuffle一个1 million的数组，让所有数在所有位置的概率相等
+
+
 398. Random Pick Index
 
 
@@ -272,8 +275,6 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 545. Boundary of Binary Tree 顺时针的print binary tree boundary, 就是从根开始，先打右边界，再打叶子，最后打左边界。
 
 
-
-shuffle一个1 million的数组，让所有数在所有位置的概率相等
 
 
 
