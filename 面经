@@ -597,6 +597,35 @@ return left;
 42. Recommend K friends with most mutual friends.
 
 
+43, Given an array will have either a valley or a mountain, only one, not one of each, find out the index of the valley or peak element
+And with one more assumption: array[i - 1] = array[i] + 1 or array[i - 1] = array[i] - 1.
+Example 1: [1,2,3,4,3,2,1] --> return 3
+Example 2: [6,5,4,3,2,3,4] --> return 4
+
+
+使用那个assumption可以达到O(1) 复杂度：首先判断isUp or not，仅以isUp为例, 假设A[x] 是最高点，则有：
+A[x] - A[i] = x - i
+A[x] - A[j] = j - x
+
+由此可以解出 x = 1/ 2 * (A[j] - A[i] + i + j)，isdown同理可求
+
+public int findPeak(int [] A){
+            boolean isUp = (A[1] > A[0]) ? true : false;
+            if (isUp){
+                return (A[A.length - 1] - A[0] + A.length - 1) / 2;.鏈枃鍘熷垱鑷�1point3acres璁哄潧
+            } else {
+                return (A[0] - A[A.length - 1] + A.length - 1) / 2;. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+            }
+
+        }
+
+Ref: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=274834&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D2%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+
+
+
+
+
 
 
 https://instant.1point3acres.com/thread/197099
