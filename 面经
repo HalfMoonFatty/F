@@ -641,8 +641,93 @@ The same repeated number may be chosen from C unlimited number of times.
 
 
 
-45. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 先说扫一遍, 用hashmap计数, 问time complexity说是O(n), 不够好, 怎么快点儿, 
-答binary search. 这个题没写完, 什么时候更新left什么时候更新right挺复杂, 一个while loop好像很难搞定的样子.
+45. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 
+输入[1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3]这样一个数组，返回{1, 4}, {2, 7}, {3, 10}
+其实就是不同的数字要你计数，但是要求优于O(n)
+
+先说扫一遍, 用hashmap计数, 问time complexity说是O(n), 不够好, 怎么快点儿, 答binary search. 
+
+lz当时第一反应是binary search 找上下界，然后小哥问我worst case，我说O(nlgn)，小哥说对啊，我要优于O(n)。 
+
+每次比较start point 和start point + 2^n位置上的数，假如一样就continue，不一样就在区间里面binary search找上界，这样的话worstcase O(n)
+
+假设没有重复的数， [1,2,3,4,5] 每次都找 2^(n-1)  == 2^0 ==1 , 相当于依次 找1 找2 找3 找4 找5 发现都是出现一次， 遍历一遍， O(n). 
+
+如果有大量重复， 【1，1，1，1，2，2，2，3】，对于1， 找右边界是 依次 尝试 2^0=1, 2^1 =2, 2^2=4, 2^3=8, O(nlogn)
+
+每次都是尝试 start point +2^n 这样，也实现了 log(n) 的复杂度。
+
+
+
+public class DecodeVector {
+
+    class Pair {
+        int c;
+        int count;
+        public Pair(int c, int count) {  
+            this.c = c;
+            this.count = count;
+        }
+    }
+
+
+    public List<Pair> getCount(int[] arr) {
+        List<Pair> list = new ArrayList<>();
+        if (arr == null || arr.length == 0) {
+            return list;
+        }
+
+        int start = 0;
+        while (start < arr.length) {
+            int end = findLast(start, arr);
+            list.add(new Pair(arr[start], end - start + 1));
+            start = end + 1;
+        }
+
+        return list;
+    }
+
+
+    private int findLast(int start, int[] arr) {
+        int c = arr[start];
+        int diff = 1;
+        while (start + diff < arr.length && arr[start + diff] == c) {
+            diff <<= 1;
+        }
+        if (start + diff >= arr.length) {
+            return arr.length - 1;
+        }
+
+        int end = start + diff;
+        while (start + 1 < end) {. from: 1point3acres.com/bbs 
+            int mid = (end - start) / 2 + start;
+            if (arr[mid] == c) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        if (arr[end] == c) {
+            return end;
+        } else {
+            return start;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = {1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3};
+        DecodeVector d = new DecodeVector();
+        List<Pair> res = d.getCount(arr);
+        for (Pair p : res) {
+            System.out.println(p.c + ": " + p.count);
+        }
+    }
+}
+
+
+
+
 
 
 
@@ -679,6 +764,11 @@ C想要接收5~6
 
 
 用二分查找优化吗 还是必须build interval tree, 然后search？？？
+
+
+
+
+
 
 
 
