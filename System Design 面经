@@ -1,9 +1,30 @@
+Design memcache
+多谢！ 有篇论文叫scaling memcached at FB, 里面有一小段讲的是single machine bottleneck. 我浅读过一下，根据我的理解，single machine bottleneck可能有:
+1. 只用single thread.. . Waral 鍗氬鏈夋洿澶氭枃绔�,
+2. 用multi-thread的话得用fine-grain locking, 类似java的concurrent hashmap, 意思就是多线程的时候不要整个memory都lock, lock一个slab就好
+3. multi-threading 配合一个memory slab allocator(一个专门的manger来管理memory)
+4. Evict LRU 以及在slab上的处理(给个slab都有LRU). 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+5. Use UDP for get() instead of TCP(网络bottleneck)
+6. request 太多的话 可能需要专门batch一下再发packet出去(网络bottleneck). 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+
+
+
+
+
 music app，选出 top 10 songs
+
+
+
 
 download all urls from 1000 hosts. Imagine all the urls are graph.
 Requirement: Each host has bad internet connection among each other, Has to download url exacly once.
 
+
+
+
 设计一个单机的KV缓存
+
+
 
 
 设计一个FB的搜索系统， 自我感觉讨论不错， 然并卵 
