@@ -81,6 +81,10 @@ multithread scheduling, Trie updating thread has lower priority
 
 
 
+post search
+
+
+
 
 CS基础问题：输入www.facebook.com到browser，按回车之后，会发生什么。 coding: LC8 Given an input char array, convert it to integer.
 
