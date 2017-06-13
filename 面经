@@ -553,5 +553,14 @@ return left;
 
 
 
+41. Given 2-d matrix with 1s and 0s, where 1 represents obstacle and 0 represents road,  find a path from upper left conner to the bottom right conner. 
+
+
+
+42. Recommend K friends with most mutual friends.
+
+
+
+
 https://instant.1point3acres.com/thread/197099
 http://www.1point3acres.com/bbs/thread-203983-1-1.html
