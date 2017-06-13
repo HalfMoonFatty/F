@@ -608,7 +608,7 @@ return left;
 42. Recommend K friends with most mutual friends.
 
 
-43, Given an array will have either a valley or a mountain, only one, not one of each, find out the index of the valley or peak element
+43. Given an array will have either a valley or a mountain, only one, not one of each, find out the index of the valley or peak element
 And with one more assumption: array[i - 1] = array[i] + 1 or array[i - 1] = array[i] - 1.
 Example 1: [1,2,3,4,3,2,1] --> return 3
 Example 2: [6,5,4,3,2,3,4] --> return 4
@@ -623,9 +623,9 @@ A[x] - A[j] = j - x
 public int findPeak(int [] A){
             boolean isUp = (A[1] > A[0]) ? true : false;
             if (isUp){
-                return (A[A.length - 1] - A[0] + A.length - 1) / 2;.鏈枃鍘熷垱鑷�1point3acres璁哄潧
+                return (A[A.length - 1] - A[0] + A.length - 1) / 2;
             } else {
-                return (A[0] - A[A.length - 1] + A.length - 1) / 2;. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+                return (A[0] - A[A.length - 1] + A.length - 1) / 2;
             }
 
         }
@@ -635,7 +635,32 @@ Ref: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=274834&extra=p
 
 
 
+44. Given a set of candidate numbers (C) (with duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+The same repeated number may be chosen from C unlimited number of times.
 
+
+
+
+45. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 先说扫一遍, 用hashmap计数, 问time complexity说是O(n), 不够好, 怎么快点儿, 
+答binary search. 这个题没写完, 什么时候更新left什么时候更新right挺复杂, 一个while loop好像很难搞定的样子.
+
+
+
+
+46. Unique Path II，这题bug free, 很快就解出来了。
+    第二题是第一题follow up. 问有2个robert, 一个在左上(A)，一个在右下(B)。
+    2个机器人同时移动，A 只能移动Down, right. B 只能移动 Up,left. 写出一个方程，问A 和B能不能同时到终点(ie. A 到右下，B到左上）
+    Note 1. 有障碍 2，A，B不能碰撞。 我给出了暴力的dfs解法，但是显然有更好的解法
+
+* follow up: 
+如果a,b只能一个down right, 一个up left 如果都能到的话，肯定同时，因为都走 m + n - 2 步。 
+如果从a到b 只有一条道，可定相遇，没治。
+有两条或以上，如果相交，肯定只相交在一点，因为他们移动方向，所以不相交在长度的中点（m+n+2）/2就行. 
+
+两paths相交后也可能部分重合，点不在长度中见就行。 
+
+应该相遇在 down + right = up + left
+“对角线上”是down = right
 
 
 
