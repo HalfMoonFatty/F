@@ -201,7 +201,10 @@ Variant: 一串start time － end time，格式是Apr 2010 － Mar 2011这种，
 
 
 283. Move Zeroes - Minimizing “writes”
-  * moving all the nonzeros to the front of a list
+     * moving all the nonzeros to the front of a list
+     move zeros 最少operation次数的情况是 每个元素最多被挪动一次，
+     2 pointers的解法为readPointer扫到非零元素的时候写到writePointer的位置， 
+     readPointer 比 writePointer快，在readPointer扫完之后writePointer在剩下的所有位置写0。
 
 
 285. Inorder Successor in BST
