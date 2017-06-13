@@ -41,6 +41,47 @@ Tiny URL
 
 
 
+
+
+typeahead也算是各个公司面试的高频题了，试着回答一下，大家一起讨论讨论吧
+1. top n hot key word怎么生成，问了下map reduce的东西
+typeAhead 的话基本就是用trie， 生成方法就是每次用户search 或者选中一个suggestion ， 就把对应的leaf count++， 然后用这个新的count更新所有parent node的hot word list。 感觉和map reduce 没关系。。。
+2. typeAhead这里的hot key words考虑多久的时效性，比如你是按照1 month，1 week，1 day 还是1 hour的数据给出hot key words。
+思路：如果按1 day来那么就无法展现1个月的情况，如果按1个月的来，那么无法展现新的热词
+方法一：可以按 每天/每小时 平均值来算. From 1point 3acres bbs
+方法二：根据不同的场景选不同的， 比如google search 可以按一年来，新鲜事搜索可以按1个月来，新闻搜索可以按一天算
+3. 大家都知道要用Trie去存数据，并且Trie是放在cache里的，那么这个cache什么时候去更新？
+每次用户搜索后就更新；. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+怎么更新？
+因为只是往trie里加分支，所以可以直接加，不用锁
+要不要加TTL？
+为了防止cache过大可以加， 可以每隔一段时间对trie清理剪枝
+
+你更新的这个cache的频率会对用户query的时效性产生很大的影响，并且你更新也会对数据库和服务器造成额外的负担，你怎么去平衡。
+multithread scheduling, Trie updating thread has lower priority
+
+4. 如果这个服务是面向多个国家的，过了一段时间你发现你的推荐在某些国家点击率很高，有些国家点击率很低，你要怎么优化。总之都和你之前的一系列答案有关。问得相当的细。. more info on 1point3acres.com
+方法一 不同的国家不同的Trie,但这样人们无法看到别的国家的人的热搜. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+方法二 考虑各国人口，比如 count = count in country A/ population of country A
+方法三 有一些common的 hot word 还有一些country specific 的hot words
+
+最后我觉得这种题要想在45分钟内想清楚说清楚别人用5年时间做出来的东西是不可能的，重要的是展示思路吧，这种思路既要有一定发散性，又要有一定合理性，但是也不要太在意是否以及如何实现的问题
+
+最后吐槽一句，我当时靠系统设计也考了翻译系统，然后因为唯独那一轮不好就直接给我挂了。。。。关键是翻译系统我在工作中还是做过的。。。。
+事后想可能需求没问清楚吧，看到是做过的太兴奋了就直接说了解法，但是忘记交代工作中一些特殊需求。。。。所以切记要问清需求啊。。。。
+
+
+你这个大部分都对，但是mapreduce那部分肯定是需要的，这个是和面试官确认过的。
+这个service在facebook的用户量是至少几百K每秒的请求，如果你要是一直update leaf count，再加上读的请求，会非常的耗费资源。
+而且还有一点，你把count放在leaf node的话，那么你的搜索时间就很高，因为你要深入到每一个leaf node里面去取前k个热词，优点是空间少。
+我答得是把前k个热词放在相应的node上，搜索很快，但是更新麻烦些，内存占用更多，所以处处都是trade off。具体还是得跟面试官不断商量。
+一般来说都是把用户选择的search的这个记录存在一个log table里，然后用map reduce去更新count。另外一个优化就是用比如1/1000的比例去log用户的搜索，
+这样可以减少log table的大小。另外你这个Trie是需要serialize到硬盘上，不然断电以后Cache就没了。
+
+
+
+
+
 CS基础问题：输入www.facebook.com到browser，按回车之后，会发生什么。 coding: LC8 Given an input char array, convert it to integer.
 
 
