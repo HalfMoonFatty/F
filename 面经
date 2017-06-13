@@ -103,6 +103,11 @@ Variant: 一串start time － end time，格式是Apr 2010 － Mar 2011这种，
   * Level BFS
   
 
+121-123, 188, 309 Best Time to Buy and Sell Stock, (I and II)
+  * buy and sell stock，每天可以买一股，也可以都卖了，或者不买不卖。
+  * Find maximum, buy from earlier days, and sell on that day.
+  
+
 125. Valid Palindrome
 
 
@@ -212,6 +217,23 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 310. Minimum Height Trees
 
 
+311. Sparse Matrix Multiplication (sparse vector dot multiplication)
+    这道题我当时并没有准备到，但是正因为如此，我认为我跟面试官的交流给我加分了不少。
+
+    面试官首先问我每个vector很大，并不能在内存中存下，该怎么办，我说只需要存下非零的元素和他们的下标就行，
+    然后询问面试官是否可以用预处理后的这两个vector非零元素的index和value作为输入，面试官同意后快速写完O(M*N)的代码，M和N分别是两个vector的长度。
+
+    面试官说这两个输入如果是根据下标排序好的话应该怎么办，我说可以遍历长度较短的那一个，然后用二分搜索的方法在另一个vector中找index相同的元素，
+    相乘加入到结果中，这样的话复杂度就是O(M*logN)。
+
+    这时，面试官又问是否可以同时利用两个输入都是排序好这一个特性，我在这个地方有点卡住，但是在白板上写出一个test case，试着用可视化的方法帮助我来进行思考，
+    同时面试官给了一些提醒，最后写出了O(M + N)的双指针方法
+
+    然后问如果有一个向量比另一个长很多怎么办，遍历短的，对长的二分查找。
+
+    两个vector相乘
+
+
 314. Binary Tree Vertical Order Traversal (Print a binary tree by columns top to bottom)
 
 
@@ -228,32 +250,14 @@ Maintain counter and go from left to right, remove when necessary, then counter 
 398. Random Pick Index
 
 
+543. Diameter of Binary Tree
+
+
 545. Boundary of Binary Tree 顺时针的print binary tree boundary, 就是从根开始，先打右边界，再打叶子，最后打左边界。
 
 
 
 
-Best Time to Buy and Sell Stock, (I and II)
-  * buy and sell stock，每天可以买一股，也可以都卖了，或者不买不卖。
-  * Find maximum, buy from earlier days, and sell on that day.
- 
-
-
-sparse vector dot multiplication
-    这道题我当时并没有准备到，但是正因为如此，我认为我跟面试官的交流给我加分了不少。
-
-    面试官首先问我每个vector很大，并不能在内存中存下，该怎么办，我说只需要存下非零的元素和他们的下标就行，
-    然后询问面试官是否可以用预处理后的这两个vector非零元素的index和value作为输入，面试官同意后快速写完O(M*N)的代码，M和N分别是两个vector的长度。
-
-    面试官说这两个输入如果是根据下标排序好的话应该怎么办，我说可以遍历长度较短的那一个，然后用二分搜索的方法在另一个vector中找index相同的元素，
-    相乘加入到结果中，这样的话复杂度就是O(M*logN)。
-
-    这时，面试官又问是否可以同时利用两个输入都是排序好这一个特性，我在这个地方有点卡住，但是在白板上写出一个test case，试着用可视化的方法帮助我来进行思考，
-    同时面试官给了一些提醒，最后写出了O(M + N)的双指针方法
-
-    然后问如果有一个向量比另一个长很多怎么办，遍历短的，对长的二分查找。
-
-    两个vector相乘
 
 
 
