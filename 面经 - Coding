@@ -7,7 +7,7 @@ Follow-up:
     * Similar to 236. Lowest Common Ancestor of a Binary Tree 
     
 
-2. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
+* 2. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
 
 3. Flatten Nested List (Array)
 
