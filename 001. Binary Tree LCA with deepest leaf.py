@@ -103,3 +103,35 @@ def findLCAIterative(TreeNode root):
         right = childToParent[right]
 
     return left
+
+
+
+'''
+Solution 3: With multiple children
+
+Time complexity: O(n), Space complexity: O(h), height of the tree
+'''
+
+def findLCAMulti(TreeNode root):
+
+    if not root:
+        return (None,0)    # tuple(node, depth)
+
+    
+    next = []
+    for child in root.children:
+        next.append(findLCAMulti(child))
+
+    depth = 0
+    deepest, deepest2 = (None, 0), (None, 0)
+    for result in next:
+        if result[1] > deepest[1]:
+            deepest2 = deepest
+            deepest = result
+
+    depth = 1 + deepest[1]
+    if deepest1[1] == deepest2[1]:
+        return (root, depth)
+    else: 
+        return (deepest[0], depth)
+
