@@ -1,3 +1,21 @@
+1. BT LCA with deepest leaf
+
+给一个Binary Tree, 求最深节点的最小公共父节点, 比如只有一个点最深，那返回他自己。
+Follow-up:
+    1. Recursive and Iterative (指向母点的指针 )
+    2. Each node has multiple children
+    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
+
+
+
+2. 
+
+
+
+
+
+
+
 5. Longest Palindromic Substring
 
 
@@ -337,50 +355,7 @@ print taskSchedule(t3, k3)
   
 
 
-3. 给一个tree，每个node 有很多children，找到所有最深的nodes 的common ancestor, 比如只有一个点最深，那返回他自己。
 
-         1
-        /  \
-       2    3 
-           /  \
-          4    5
-   比如这个例子，最深的节点是4 和 5. 他们的公共节点是3。所以答案是3。最深的节点可以只有一个，那就返回节点本身。
-   
-   * Similar to 236. Lowest Common Ancestor of a Binary Tree 
-   * follow up 指向母点的指针 
-
-   跟二叉树一样，不用先求深度，可以one pass。   
-   对于root，每个孩子遍历一遍，如果孩子深度大于max，就更新max，然后返回的是孩子，如果等于max，说明有多个孩子深度一样，那么返回root
-
-        class Result {
-                int depth;
-                TreeNode node;
-        }
-        
-
-        public Result deepestRoot(TreeNode root) {
-                if (root == null) {
-                        return new Result(0, null);
-                }
-
-                Result left = deepestRoot(root.left);
-                Result right = deepestRoot(root.right);
-
-                Result ret = new Result();
-                if (left.depth == right.depth) {. 1point3acres.com/bbs
-                        //两边一样深,root 是公共
-                        ret.node = root;
-                        ret.depth = left.depth + 1;
-                } else if (left.depth > right.depth) {
-                        //左边深,
-                        ret.node = left.node;
-                        ret.depth = left.depth + 1;
-                } else {
-                        ret.node = right.node;
-                        ret.depth = right.depth + 1;
-                }
-                return ret;
-        }
 
 
 
