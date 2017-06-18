@@ -9,15 +9,17 @@ Follow-up:
 
 * 2. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
 
-3. Flatten Nested List (Array)
+3. Flatten Nested Array
 
-4. Binary Tree Level Order Traversal
+* 4. Flatten Nested Linked List
 
-5. Sort color
+5. Binary Tree Level Order Traversal
 
-6. Merge 2 array in-place
+6. Sort color
 
-7. Balance Parentheses in a string
+. Merge 2 array in-place
+
+. Balance Parentheses in a string
 
 
 
