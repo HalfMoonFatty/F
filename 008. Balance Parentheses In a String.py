@@ -58,11 +58,12 @@ def balanceParentheses(s):
         return ''.join(result[::-1])    # reverse result
 
 
-
     result = ''
     result = deleteCloseParenthes(s)
     result = deleteOpenParenthes(result)
     return result
+
+
 
 
 test = ["(a)()", "((bc)", ")))a((", "(a(b)"]
