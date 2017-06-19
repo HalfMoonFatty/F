@@ -26,6 +26,15 @@ prev    branch next
 '''
 
 # Solution:
+def flattenPrint(head):
+     if not head: return
+     while head:
+          print head.val
+          if head.branch:
+               flattenPrint(head.branch)
+          head = head.next
+          
+
 
 def flattenNestedLinkedList(head):
 
