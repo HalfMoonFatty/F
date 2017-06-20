@@ -71,3 +71,35 @@ class Solution(object):
             fn = 0
 
         return fn_1
+
+    
+    
+'''
+Follow-up: Output the result of all decode string
+
+Time complexity: O(1.6 ^ n)
+'''
+
+def decode(s):
+    def helper(s, i, res, result):
+        if i == len(s):
+            result.append(res[:])
+            return
+
+        # n < 10
+        n = int(s[i:i+1])
+        if n == 0: return
+        helper(s, i+1, res + chr(n+ord('A')-1), result)
+
+        # 9 < n < 26
+        if i < len(s)-1:
+            n = int(s[i:i+2])
+            if n < 26: 
+                helper(s, i+2, res + chr(n+ord('A')-1), result)
+
+        return
+
+    result = []
+    helper(s, 0, '', result)
+    return result
+
