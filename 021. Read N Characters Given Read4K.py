@@ -45,6 +45,7 @@ class Solution(object):
 
 
 # Follow-Up: The read function may be called multiple times.
+# record what previously has been read
 
 class Solution(object):
     def __init__(self):
@@ -61,7 +62,6 @@ class Solution(object):
             :type n: Maximum number of characters to read (int)
             :rtype: The number of characters read (int)
             """
-            
         
         while self.count < n and not EOF:
          
