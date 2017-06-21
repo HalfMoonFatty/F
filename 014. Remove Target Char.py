@@ -8,7 +8,7 @@ Remove target char from source string. Move the target char to the end of the so
 '''
 Solution:
 
-Traverse the string and put the non-target character into the char array one by one, and put the target character at the end.
+j is the tail of the non-target string, i is the iterator.
 
 '''
 
@@ -20,7 +20,7 @@ def moveChar(s, target):
         if s[i] != target:
             s[j], s[i] = s[i], s[j]
             j += 1
-    return ''.join(s)
+    return ''.join(s)    # return ''.join(s[:j])
 
 
 s = 'abbcdbbbbbbb'
