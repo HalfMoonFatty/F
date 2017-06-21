@@ -51,8 +51,8 @@ class Solution(object):
     def __init__(self):
         self.buff = [None]*4096
         self.buffPtr = 0
-        self.count = 0
         self.hasRead = 0
+        self.count = 0
         self.EOF = False
 
 
