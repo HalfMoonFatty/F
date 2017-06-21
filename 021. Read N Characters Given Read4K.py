@@ -69,7 +69,7 @@ class Solution(object):
             if self.buffPtr == 0:
                 self.hasRead = read4K(self.buff)
 
-            # have nothing to read-in
+            # have no more to read-in
             if self.hasRead < 4096:
                 EOF = True
 
