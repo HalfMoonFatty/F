@@ -75,8 +75,9 @@ class Solution(object):
 
         for p in prices:
             for i in range(1,k+1):
-                sell[i] = max(sell[i], hold[i] + p)
-                hold[i] = max(hold[i], sell[i-1] - p)
+                sell[i] = max(sell[i], hold[i] + p)    # do not buy or sell it
+                hold[i] = max(hold[i], sell[i-1] - p)  # have bought it before today or buy stock today
+
         return sell[k]
         
         
