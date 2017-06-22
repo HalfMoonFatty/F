@@ -113,7 +113,7 @@ class Solution(object):
         hold[0] = -prices[0]
 
         for i in range(1,len(prices)):
-            sell[i] = max(sell[i-1], hold[i-1]+prices[i])
-            hold[i] = max(hold[i-1], sell[i-2]-prices[i])
+            sell[i] = max(sell[i-1], hold[i-1]+prices[i])    # max of (昨天卖今天什么都不做，今天以price[i]卖出)
+            hold[i] = max(hold[i-1], sell[i-2]-prices[i])    # max of (昨天买今天什么都不做，今天以price[i]买入 注意要隔一个sell[i-1])
         return sell[-1]
         
