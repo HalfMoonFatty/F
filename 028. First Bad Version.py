@@ -13,6 +13,7 @@ Implement a function to find the first bad version. You should minimize the numb
 
 '''
 
+# Time: O(logn); Space: O(1)
 
 
 # The isBadVersion API is already defined for you.
