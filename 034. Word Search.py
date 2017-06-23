@@ -15,6 +15,8 @@ For example, Given board =
     word = "ABCB", -> returns false.
 '''
 
+# Time complexity: O(n^2*len)--len is the average length of the words,
+# Space complexity: O(len)
 
 class Solution(object):
     def exist(self, board, word):
@@ -51,7 +53,8 @@ class Solution(object):
         
         
 '''
-problem:
+problem 2:
+
 Given a 2D board and a list of words from the dictionary, find all words in the board.
 Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. 
 The same letter cell may not be used more than once in a word.
@@ -72,6 +75,8 @@ Note:
 	If you would like to learn how to implement a basic trie, please work on this problem: Implement Trie (Prefix Tree) first.
 '''
 
+# Time complexity: O(n^2*len)
+# Space complexity:O(len*k) there are kwords in the arrays
 
 class Solution(object):
     def findWords(self, board, words):
