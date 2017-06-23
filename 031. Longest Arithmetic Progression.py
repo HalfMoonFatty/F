@@ -70,7 +70,7 @@ def LongestArithmeticSequence(nums):
 
 test = [5,4,2,6,6,-1,-2,6,-4,6,-4]
 print LongestArithmeticSequence(test)
-
+return 4
 
 
 
@@ -78,5 +78,45 @@ print LongestArithmeticSequence(test)
 # Time complexity: O(n^2), space complexity: O(n^2 * m) --m is the average length of all the arithmetic sequence'
 
 
+import collections
+def LongestArithmeticSequence(nums):
+    if len(nums) <= 2: return nums
+
+    n = len(nums)
+    maxLen = 2
+    length = [[None] * (n + 1) for _ in range(n+1)]
+    result = []
+
+    # build up index lookup table
+    index = collections.defaultdict(list)
+    for i in range(n):
+        index[nums[i]].append(i)
+
+    for i in range(1,n):
+        for j in range(i-1,-1,-1):
+            gap = nums[i] - nums[j]
+            nextVal = nums[j] - gap
+            if index.has_key(nextVal):
+                k = -1
+                for _ in range(len(index[nextVal])-1, -1, -1):
+                    if index[nextVal][_] < j:
+                        k = index[nextVal][_]
+                        break
+                if k != -1:
+                    length[j][i] = length[k][j][:] + [nums[i]]
+                    if maxLen <= len(length[j][i]):
+                        result = length[j][i]
+                        maxLen = max(maxLen, len(length[j][i]))
+
+
+            if not length[j][i]: 
+                length[j][i] = [nums[j], nums[i]]
+
+
+    return result
+
+test = [5,4,2,6,6,-1,-2,6,-4,6,-4]
+print LongestArithmeticSequence(test)
+return [5, 2, -1, -4]
 
 
