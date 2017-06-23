@@ -4,8 +4,7 @@
    2. Each node has multiple children
    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
     
-
-* 002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
+[X] 002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
 
 003. Flatten Nested Array
 
@@ -14,7 +13,7 @@
 005. Binary Tree Level Order Traversal
 
 006. Sort color
-   Follow-up: Sort K-color
+     Follow-up: Sort K-color
 
 007. Merge 2 array in-place
 
@@ -24,8 +23,58 @@
      Given some points in two dimensional space, find k points out of all points which are nearest to origin(0,0)
 
 010. Decode Ways
+     Follow-up: Output the result of all decode string
 
-011. 
+[X] 011.  一个骑士在一个无限大的有障碍的国际象棋棋盘. calculate the shortest path to some target.
+        Follow-up: how to optimize: A*, pruning.
+        Edge case: how to end the program? what kinds of target is unreachable and how to avoid?
+
+012. Longest consecutive sequence
+
+* 013. Reconstruct BST From Pre-order Sequence
+
+014. Remove Target Char from a Source String
+
+015. Subarray Equals K
+
+016. Implement strStr()
+
+017. Minimum Depth of Binary Tree
+
+018. Subarray Sum Equals K
+
+019. 3 Sums
+
+020. Insert Node to Sorted LinkedList
+
+021. Read N Characters Given Read4K / Read N Characters Given Read4K II - Call multiple times
+
+022. Best Time to Buy and Sell Stock I-IV
+
+023. Binary Tree print path to leaf (BT path leaf)
+
+024. Binary Tree Vertical Order Traversal
+
+025. Check Consecutive Subarray Duplicate Numbers
+
+* 026. Remove Invalid Parentheses
+
+* 027. Permutation in String
+
+028. First Bad Version
+
+029. Valid Palindrome
+
+030. Dot Product
+
+* 031. Find longest arithmetic subsequence in an unsorted array (Longest Arithmetic Progression)
+
+032. longest PATH(could be the path from leaf to leaf) in binary tree(BT longest path)
+
+033. 
+
+
+
 
 
 
@@ -733,8 +782,6 @@ input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
 X = 9 Output: True 
 X = 10 Output: False 
 X = 40 Output :False
-
-
 
 
 
