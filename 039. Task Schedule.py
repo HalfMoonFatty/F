@@ -49,9 +49,35 @@ k3 = 6
 print taskSchedule(t3, k3)
 
 
-# Follow-up: 
+# Follow-up 1: 
 # 1. 求出给定task的工作总时间. O(n)
-# 2. How to schedule the tasks to have min total work time
-# Solution 2: 一旦时间最多的task cooldown时间到了就schedule这个task.
+
+def taskSchedule2(tasks, cooldown):
+    time = 0
+    index_map = {}
+    for t in tasks:
+        while index_map.has_key(t) and index_map[t] + cooldown > time:
+            time += 1     # '_'
+
+        time += 1     # str(t)
+        index_map[t] = time
+
+    return time
+
+
+
+'''
+Follow-up 2. Minimize Mission Time: How to reschedule the tasks to have min total work time (task order can be changed)
+
+Solution 2: 一旦时间最多的task cooldown时间到了就schedule这个task.
+
+Always arrange the mission with the highest frequency
+If its time interval is smaller than k, find the second highest mission
+If all mission's time interval smaller than k, just add '*'
+
+using TreeSet to do this
+Time complexity: O(nlgn + n^2) --lgn is the add or remove operation of treeSet, Space complexity: O(n)
+'''
+
 
 
