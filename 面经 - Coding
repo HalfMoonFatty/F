@@ -83,8 +83,13 @@
 
 [X] 038. Data Stream as Disjoint Intervals (LC 352)
 
-039. 
+[X] 039. Task Schedule 
 
+040. Kth Largest Element in an Array
+
+041. Reverse Print Linked List (Recursive/Iterative) / Reverse Linked List
+
+042. 
 
 
 
@@ -95,56 +100,6 @@
 
 
 ******************************************************************************************************************************
-
-
-2. 给你一串task，再给一个cooldown，执行每个task需要时间1，两个相同task之间必须至少相距cooldown的时间，问执行所有task总共需要多少时间。
-比如执行如下task：12323，假设cooldown是3。总共需要的时间应该是 1 2 3 _ _ 2 3，也就是7个单位的时间。
-再比如 1242353，假设cool down是4，那总共时间就是 1 2 4 _ _ _ 2 3 5 _ _ _ 3，也就是13个单位的时间基于1，给出最优的排列，使得字符串最短。
-
-
-# Tasks: 1, 1, 2, 1
-# Recovery interva (cooldown): 2
-# Output: 7  (order is 1 _ _ 1 2 _ 1)
-
-# Example 2
-# Tasks: 1, 2, 3, 1, 2, 3
-# Recovery interval (cooldown): 3
-# Output: 7  (order is 1 2 3 _ 1 2 3). more info on 1point3acres.com
-
-# Example 3
-# Tasks: 1, 2, 3 ,4, 5, 6, 2, 4, 6, 1, 2, 4. 1point3acres.com/bbs
-# Recovery interval (cooldown): 6
-# Output: 18  (1 2 3 4 5 6 _ _ 2 _ 4 _ 6 1 _ 2 _ 4)
-*/
-
-def taskSchedule(tasks, cooldown):
-    result = ''
-    index_map = {}
-    for t in tasks:
-        while index_map.has_key(t) and index_map[t] + cooldown > len(result):
-            result += '_'
-
-        result += str(t)
-        index_map[t] = len(result)
-
-
-    return result
-
-t1 = [1, 1, 2, 1]
-k1 = 2
-print taskSchedule(t1, k1)
-
-t2 = [1, 2, 3, 1, 2, 3]
-k2 = 3
-print taskSchedule(t2, k2)
-
-t3 = [1, 2, 3 ,4, 5, 6, 2, 4, 6, 1, 2, 4]
-k3 = 6
-print taskSchedule(t3, k3)
-  
-  
-  
-
 
 4. 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II
 
@@ -178,24 +133,6 @@ public List<List<Integer>> threeSum(int[] nums) {}
 
 
 10. list of sorted integer arrays，要求找所有的数的median. e.g. [1,3,6,7,9], [2,4,8], [5], return 5
-
-
-
-11. linked list 反序输出
-Iterate over a singly linked list backwards. Call print on each node. 
-Example: The list A->B->C should print as 
-"C B A"
-class Node {
-  public Node next;
-  public String value;
-}
-There are 4 solutions 
-1) recursive 
-2) iterative with O(n) memory (reverse the list)
-3) iterative with O(1) memory and O(n2) runtime 
-4) iterative with O(1) memory and O(n) runtime (for this solution the initial list may be modified) 
-Explain all 4 solutions and write the code for solutions 3 and 4
-
 
 
 
