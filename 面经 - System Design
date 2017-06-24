@@ -82,6 +82,8 @@ multithread scheduling, Trie updating thread has lower priority
 
 
 post search
+设计一个系统，大概有1b的activeuser，大家都会post, 每个post, 都有名字和时间戳。然后还有一个search的功能，输入是一个或多个keyword (word之间是OR关系)，
+要求返回相关的post。这个问题牵扯到如何存，如何做search word.大概的结构是什么样子的，还有要估算出每个function都需要多少机器。
 
 
 
