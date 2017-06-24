@@ -1,4 +1,64 @@
 '''
+Problem: Binary Tree In Order Traversal with Parent Node
+
+class Node {Node left, Node right, Node parent}
+
+Node getNext (Node current) {
+} 
+'''
+
+'''
+Solution:
+
+Inorder --visite left -> root -> right
+
+First check right child, if it's not null, then "the most left child of this right child" is the answer
+
+Else check parent:
+
+     if it is null, return null -- because this is the root and it is the last node in inorder
+
+     if not, if node.parent.left = node (node is the left child of its parent), return parent
+
+     if node.parent.right = node (node is the right child of its parent), go up and search ancester 
+     
+          if any ancester is the left child of its parent, return parent
+          
+          else return null
+
+Time complexity:O(1) in average, worst O(h), 
+space complexity: O(1)
+
+'''
+
+
+def findNext(root):
+    if not root:
+        return None
+    if root.right:
+        node = root.right
+        while node.left:
+            node = node.left
+        return node
+
+    elif not root.parent:
+        return None
+
+    elif root == root.parent.left:
+        return root.parent
+
+    elif root = root.parent.right: # search up until node is the left child or not parent node
+        node = node.parent
+        while node.parent and node.parent.right == node:
+            node = node.parent
+        return node.parent
+
+
+
+
+
+
+'''
 Problem: Preorder Traversal
 
 Given a binary tree, return the preorder traversal of its nodes' values.
