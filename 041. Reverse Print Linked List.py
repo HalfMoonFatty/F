@@ -20,16 +20,60 @@ Explain all 4 solutions and write the code for solutions 3 and 4
 '''
 
 
-# Recusive Print Linked List
-class Solution(object):
+# 1) Recusive Print Linked List
 
-    def printReverse(self, head):
-        if not head: return
-        printReverse(head.next)
-        print(head.val)
+def printReverse(head):
+    if not head: return
+    printReverse(head.next)
+    print(head.val)
         
-        
+      
+# 2) iterative with O(n) memory (reverse the list)
 
+def printReverse(head):
+    stack = []
+    while head:
+        stack.append(head.val)
+        head = head.next
+    while len(stack):
+        print stack.pop()
+
+  
+# 3) iterative with O(1) memory and O(n2) runtime 
+
+def printReverse(head):
+    last = None
+    while head != last:
+        curr = head
+        while curr.next != last:
+            curr = curr.next
+        print curr.val
+        last = curr
+    return
+  
+  
+
+# 4) iterative with O(1) memory and O(n) runtime (for this solution the initial list may be modified) 
+
+def reverseList(head):
+    # base case
+    if not head or not head.next:
+        return head
+    
+    p = head
+    r = None
+    while p:
+        q = p.next  
+        p.next = r
+        r = p
+        p = q
+    return r
+ 
+
+
+
+
+      
 
 # Reverse Linked List - Recursive 
 
