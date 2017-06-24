@@ -35,6 +35,7 @@ space complexity: O(1)
 def findNext(root):
     if not root:
         return None
+     
     if root.right:
         node = root.right
         while node.left:
