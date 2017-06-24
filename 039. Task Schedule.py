@@ -47,3 +47,11 @@ print taskSchedule(t2, k2)
 t3 = [1, 2, 3 ,4, 5, 6, 2, 4, 6, 1, 2, 4]
 k3 = 6
 print taskSchedule(t3, k3)
+
+
+# Follow-up: 
+# 1. 求出给定task的工作总时间. O(n)
+# 2. How to schedule the tasks to have min total work time
+# Solution 2: 一旦时间最多的task cooldown时间到了就schedule这个task.
+
+
