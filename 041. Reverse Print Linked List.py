@@ -19,7 +19,19 @@ Explain all 4 solutions and write the code for solutions 3 and 4
 
 '''
 
-# Recursive
+
+# Recusive Print Linked List
+class Solution(object):
+
+    def printReverse(self, head):
+        if not head: return
+        printReverse(head.next)
+        print(head.val)
+        
+        
+
+
+# Reverse Linked List - Recursive 
 
 class Solution(object):
     def reverseList(self, head):
@@ -39,7 +51,7 @@ class Solution(object):
         
         
         
-# Iteratve:
+# Reverse Linked List - Iteratve:
 
 class Solution:
 
