@@ -24,6 +24,10 @@ Application:
     5. Solving word games
 '''
 
+# Time complexity: Add - O(len(word)) search: O(len(word)), 
+# Space complexity: O(number of words * averageLen(word))'
+
+
 class TrieNode():
     def __init__(self):
         self.children = {}
