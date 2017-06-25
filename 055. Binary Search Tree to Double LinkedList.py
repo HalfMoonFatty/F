@@ -62,3 +62,8 @@ def BTtoLikedList(root):
     tail.right = head
 
     return head
+
+
+
+
+# Follow - up: Revert double linked list back to BST
