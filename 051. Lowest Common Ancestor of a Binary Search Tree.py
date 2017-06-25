@@ -2,7 +2,12 @@
 Problem:
 
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+
+According to the definition of LCA on Wikipedia: 
+
+“The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants 
+(where we allow a node to be a descendant of itself).”
+
           _______6______
          /              \
      ___2__           ___8__
@@ -10,7 +15,9 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
    0        4       7       9
  /  \
 3    5
-For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
+
+For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, 
+since a node can be a descendant of itself according to the LCA definition.
 '''
 
 
@@ -45,3 +52,7 @@ class Solution(object):
         # if p.val < root.val < q.val or p.val > root.val > q.val or root == p or root == q:
         else:
             return root
+
+
+# Follow-up: 如果这两个值是随机从这颗树里面sample,问我的算法平均需要几次比较就可以得出结果。
+(1/2)^2 * 2 * 1 + (1/4)^2 * 4 * 2 + (1/8)^2 * 8 *3 + ... = ∑(1/2)^i * i (i from 1 to height of the tree)
