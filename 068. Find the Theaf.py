@@ -10,7 +10,7 @@ Problem:
 房间数为n, sequence 长度为k。
 '''
 
-# Time: O(m*n)
+# Time: O(n*k)
 # Space: O(n)
 
 def findTheaf(rooms, strategy):
