@@ -40,7 +40,7 @@ class Solution(object):
     
    
 
-# Follow-up:
+# Follow-up: 如果不知道一共有多少版本的情况下应该怎么找？ Unknow number of versions
 
 class Solution(object):
     def firstBadVersion(self, n):
