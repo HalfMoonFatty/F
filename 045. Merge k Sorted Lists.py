@@ -39,3 +39,34 @@ class Solution(object):
                 
         return dummyHead.next
         
+
+        
+        
+# iterator
+
+import heapq
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        
+        dummyHead = ListNode(-1)
+        itr = dummyHead
+        
+        heap = []
+        for i in range(len(lists)):
+            if lists[i].hasNext(): # Note
+                heapq.heappush(heap,(lists[i].next(),i))
+        
+        while len(heap):
+            elem = heapq.heappop(heap)
+            val, ind = elem[0],elem[1]
+            itr.next = ListNode(val)
+            itr = itr.next # Note
+            if lists[ind].hasNext(): # Note
+                heapq.heappush(heap,(lists[ind].next(),ind))
+                
+        return dummyHead.next
+        
