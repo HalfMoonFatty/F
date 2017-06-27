@@ -36,3 +36,39 @@ for elem in test:
 for _ in range(5):
     print mq.getMin()
     mq.poll()
+    
+    
+    
+    
+class MaxNumberStream {
+    private int cap;
+    Deque<Integer> deque;
+    Queue<Integer> queue;
+    
+    public MaxNumberStream(int k) {
+        this.cap = k;
+        this.deque = new ArrayDeque<>();
+        this.queue = new LinkedList<>();
+    }
+    
+    public void add(int x) {
+        while (queue.size() >= cap) {
+            int temp = queue.poll();
+            if (temp == deque.peek()) {
+                deque.poll();
+            }
+        }
+        while (!deque.isEmpty() && deque.peekLast() < x) {
+            deque.pollLast();
+        }
+        queue.offer(x);
+        deque.offer(x);
+    }
+    
+    public int getMax() {
+        if (!deque.isEmpty()) {
+            return deque.peek();
+        }
+        return -1; }
+}
+
