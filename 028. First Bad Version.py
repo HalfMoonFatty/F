@@ -37,3 +37,26 @@ class Solution(object):
             else:
                 start = mid+1
         return start
+    
+   
+
+# Follow-up:
+
+class Solution(object):
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 2: return n
+        
+        prev = cur
+        
+        start, end = 1, n
+        while start < end:
+            mid = start + (end-start) / 2
+            if isBadVersion(mid):
+                end = mid
+            else:
+                start = mid+1
+        return start
