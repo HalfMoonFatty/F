@@ -123,16 +123,41 @@
 
 057. Binary Search Tree Iterator
 
+058. Meeting Rooms I+II
 
+[X] 059. 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II
 
+060. Multiply Strings
 
+061. Sort Partial Sorted Array
+
+062. Number of 1 Bits
+
+063. Word Break
+
+064. 2 Sum
+
+065. Copy List with Random Pointer
+
+066. Simplify Path
+
+067. Excel Sheet Column Title
+
+068. Find the Theaf
+
+069. Word Ladder
+
+070. String Comparator
+
+071. Wildcard Matching
+
+072. Minimum Size Subarray Sum
 
 
 
 ******************************************************************************************************************************
 
 1. 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II
-
 
 
 2. two sum + three sum + follow up (allows duplicates and each number could be reused)
@@ -146,10 +171,6 @@ public List<List<Integer>> threeSum(int[] nums) {}
 
 
 3. 给一个字典包括很多字符串(e.g., abcd, dhfyf)，然后给定一个字符串查看字典中是否包含这个字符串。字符串中可能包括*，*可以匹配任何字符。我用的Trie。
-
-
-
-4. 自然string comparator。不知道的搜下。就是string 比较的时候考虑里面数字的大小，比如 abc9 < abc123 abc > ab9  因为char比digit重要。
 
 
 
