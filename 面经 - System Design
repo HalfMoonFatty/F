@@ -29,6 +29,9 @@ Tiny URL
 
 
 
+News feed system  backend     api or backend
+Backend: push/pull model, data怎么存，data的量， 怎么shard, consistent hashing具体是怎么实现的？？？                    
+
 
 
 问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
