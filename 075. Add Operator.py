@@ -27,8 +27,8 @@ def addOperator(number):
             if i != index and number[index] == '0':    # note: leading '0'
                 return
             num = number[index:i+1]
-            helper(number, i+1, res+"+"+ num, result)
-            helper(number, i+1, res+"-"+ num, result)
+            helper(number, i+1, res + "+" + num, result)
+            helper(number, i+1, res + "-" + num, result)
 
     result = set()
     helper(number, 0, '', result)
