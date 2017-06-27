@@ -21,6 +21,9 @@ System design POI
 
 
 Design twitter feed system
+News feed system  backend     api or backend
+Backend: push/pull model, data怎么存，data的量， 怎么shard, consistent hashing具体是怎么实现的？？？   
+
 
 
 
@@ -29,10 +32,7 @@ Tiny URL
 
 
 
-News feed system  backend     api or backend
-Backend: push/pull model, data怎么存，data的量， 怎么shard, consistent hashing具体是怎么实现的？？？                    
-
-
+                 
 
 问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
 这些具体的问题还是值得思考一下的，我给大家列一下，希望能帮到后面的人：
@@ -99,6 +99,7 @@ CS基础问题：输入www.facebook.com到browser，按回车之后，会发生�
 用什么样的数据结构存 social graph相关的信息；然后花了很长时间问了如何在一个server上面处理大量的读写并发，读的量远远大于写；
 
 
+Design autocomplete in a search engine.
 
 
 music app，选出 top 10 songs
