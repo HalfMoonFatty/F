@@ -112,7 +112,7 @@
 
 [X] 052. LCA of BT
 
-053. Add and Search Word - Data structure design
+* 053. Add and Search Word - Data structure design
 
 054. Minimum Window Substring
 
@@ -149,17 +149,13 @@
 
 070. String Comparator
 
-[X] 071. Wildcard Matching
-给一个字典包括很多字符串(e.g., abcd, dhfyf)，然后给定一个字符串查看字典中是否包含这个字符串。字符串中可能包括*，*可以匹配任何字符。我用的Trie。
-
+071. Contact Group
 
 072. Minimum Size Subarray Sum
      # Follow-up 1: Extend to 2D and find if rectangle sum = k
      # Follow-up 2: LC363. Max Sum of Rectangle No Larger Than K
 
-
-073. Contact Group
-
+073. Clone Graph
 
 
 ******************************************************************************************************************************
