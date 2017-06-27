@@ -149,15 +149,23 @@
 
 070. String Comparator
 
-071. Wildcard Matching
+[X] 071. Wildcard Matching
+给一个字典包括很多字符串(e.g., abcd, dhfyf)，然后给定一个字符串查看字典中是否包含这个字符串。字符串中可能包括*，*可以匹配任何字符。我用的Trie。
+
 
 072. Minimum Size Subarray Sum
+     # Follow-up 1: Extend to 2D and find if rectangle sum = k
+     # Follow-up 2: LC363. Max Sum of Rectangle No Larger Than K
+
+
+073. Contact Group
 
 
 
 ******************************************************************************************************************************
 
 1. 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II
+
 
 
 2. two sum + three sum + follow up (allows duplicates and each number could be reused)
@@ -170,15 +178,7 @@ public List<List<Integer>> threeSum(int[] nums) {}
 
 
 
-3. 给一个字典包括很多字符串(e.g., abcd, dhfyf)，然后给定一个字符串查看字典中是否包含这个字符串。字符串中可能包括*，*可以匹配任何字符。我用的Trie。
-
-
-
-5. We're given a sorted array of integers: [-3, -1, 0, 1, 2]. We want to generate a sorted array of their squares: [0, 1, 1, 4, 9]
-
-
-
-6. Smallest subarray with sum greater than a given value
+3. We're given a sorted array of integers: [-3, -1, 0, 1, 2]. We want to generate a sorted array of their squares: [0, 1, 1, 4, 9]
 
 
 
@@ -274,10 +274,6 @@ otherwise, A is from the head of the list.
 
 
 20. 给定N个2D坐标（可以设想为餐厅的位置），要求输入任意坐标，可以返回方圆d距离内的所有餐厅
-
-
-
-21. find longest arithmetic sequence in an unsorted array
 
 
 
@@ -745,6 +741,8 @@ X = 10 Output: False
 X = 40 Output :False
 
 
+
+56. String Repalcement
 
 
 
