@@ -20,7 +20,7 @@ Explain all 4 solutions and write the code for solutions 3 and 4
 '''
 
 
-# 1) Recusive Print Linked List
+# 1) Recusive Print Linked List: O(n) Time; O(n) Space
 
 def printReverse(head):
     if not head: return
@@ -28,7 +28,7 @@ def printReverse(head):
     print(head.val)
         
       
-# 2) iterative with O(n) memory (reverse the list)
+# 2) Using Stack: Iterative with O(n) Time; O(n) Space
 
 def printReverse(head):
     stack = []
@@ -39,7 +39,7 @@ def printReverse(head):
         print stack.pop()
 
   
-# 3) iterative with O(1) memory and O(n2) runtime 
+# 3) Iterative with O(1) memory and O(n2) runtime 
 
 def printReverse(head):
     last = None
@@ -53,7 +53,7 @@ def printReverse(head):
   
   
 
-# 4) iterative with O(1) memory and O(n) runtime (for this solution the initial list may be modified) 
+# 4) Modify the original linkedlist: iterative with O(1) space and O(n) runtime.
 
 def reverseList(head):
     # base case
