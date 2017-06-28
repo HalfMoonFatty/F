@@ -16,14 +16,15 @@ For k + 1 ~ end points, we creat a random number j in range [0, index]. If this 
 
 Prove the possibility:
 
-For points index after k, if we eventually choose this point, which means after this point no other point can replace it in the reversior, 
-the random number can be any number but not this point's indexwhich means their possibility is (index - 1 / index)
-So the posibility is: (k / index) * (index / index + 1) * (index +1 / index + 2)....*(n - 1 / n) = (k / n)
+For points index after k, if we eventually choose this point, which means after this point no other points can replace it in the reversior, 
+the random number can be any number but not this point's index, which means their possibility is (index - 1 / index)
+So the posibility is: (k / index) * (index / index + 1) * (index + 1 / index + 2)....* (n - 1 / n) = (k / n)
+                           |                |
+          选中在reversior中的一个去 replace  不替代这个数
 
 
-// For points index smaller k, if we eventually choose this point,
-// no points can replace it, so the possibility is (k / k + 1) * (k +
-1 / k + 2) * ......* (n - 1 / n) = (k / n)
+For points index smaller k, if we eventually choose this point, no points can replace it, 
+so the possibility is (k / k + 1) * (k + 1 / k + 2) * ......* (n - 1 / n) = (k / n)
 '''
 
 
