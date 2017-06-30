@@ -1,13 +1,15 @@
 # Problem 1: Remove comments JAVA
 
 
+# Note: "singleLine or multiLine:" can never be the first, oterwise "singleLine" "multiLine" can never be set to False
+
 def removeComment(code):
     singleLine = False
     multiLine = False
     result = []
     i = 0
     while i < len(code):
-
+        
         if singleLine and code[i] == '\n':
             singleLine = False
 
