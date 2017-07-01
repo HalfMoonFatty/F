@@ -125,7 +125,7 @@
 
 058. Meeting Rooms I+II
 
-[X] 059. 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II
+059. Max Rectangle Overlap
 
 060. Multiply Strings
 
@@ -186,15 +186,15 @@
 
 086. Path Between Binary Tree Nodes
 
-087. Timestamps in Intervals
+087. Find Max Overlap Time
 
 088. Remove Comments
 
 089. Key Value Store
 
-090. Assign Tasks to Workers
+[X] 090. Assign Tasks to Workers
 
-091. Island Shape
+[X] 091. Island Shape
 
 092. Array to Binary Heap Tree
      # Follow-up: addNode()
