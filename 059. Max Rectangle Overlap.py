@@ -3,6 +3,8 @@ Problem:
 
 Given some rectangles on a plane, return the max overlap rectangle coordinate.
 
+如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。大概思路就是做一个二维的meeting room II
+
 '''
 
 
