@@ -42,10 +42,39 @@ class Solution(object):
 
         return profit
         
+
         
         
 '''
-Problem 3: At most K transactions
+Problem 3: As many transactions as possible + Charge/Fees
+
+Can finish as many transactions as you want. Each transaction has a charge. What is the max profit you can get?
+'''
+
+def maxProfitWithCharge(prices, charge):
+    profit = 0
+    localProfit = 0
+    charged = False
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i-1]:
+            localProfit += prices[i] - prices[i-1]
+            if charged:
+                localProfit -= charge
+            charged = True
+        elif charged:
+            profit += localProfit if localProfit > 0 else 0
+            localProfit = 0
+            charged = False
+    if localProfit > 0:
+        profit += localProfit
+
+    return profit
+        
+ 
+
+        
+'''
+Problem 4: At most K transactions
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 Design an algorithm to find the maximum profit. You may complete at most K transactions.
@@ -84,7 +113,7 @@ class Solution(object):
         
 
 '''
-Problem 4: with cooldown + as many transactions as you like 
+Problem 5: with cooldown + as many transactions as you like 
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 Design an algorithm to find the maximum profit. You may complete as many transactions as you like 
