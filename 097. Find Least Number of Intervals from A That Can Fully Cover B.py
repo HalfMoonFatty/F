@@ -36,10 +36,10 @@ def findCover(intervals, interval):
     start, end = interval.start, -1
     i = 0 
     while i < len(intervals) and end < interval.end:
-        if intervals[i].end <= start:
+        if intervals[i].end <= start:    # 太短了没什么用
             i += 1
             continue
-        if intervals[i].start > start:
+        if intervals[i].start > start:   # 跟前一个end连不上
             break
         while i < len(intervals) and end < interval.end and intervals[i].start <= start:
             end = max(intervals[i].end, end)
