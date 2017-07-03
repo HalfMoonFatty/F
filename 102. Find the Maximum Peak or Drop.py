@@ -7,6 +7,20 @@ Exps:
 10 -> 4 -> 3 -> 8 = 7 ;
 '''
 
+def findMaxDrop(nums):
+    minVal = maxVal = nums[0]
+    for n in nums:
+        maxVal = max(maxVal,n)
+        minVal = min(minVal,n)
+    return maxVal - minVal
+
+
+n1 = [1,2,3,9,3,0]
+n2 = [10,4,3,8,7]
+
+print findMaxDrop(n1)
+print findMaxDrop(n2)
+
 
 
 '''
