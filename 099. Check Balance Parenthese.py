@@ -4,6 +4,20 @@ Problem:
 Input could include ":(" frown or ":)" smileys, check if the input is parenthese balance
 '''
 
+'''
+Solution:
+
+smileys 记录全部可能的smileys. 
+
+smileys = smileys - (closeParenth - openParenth)  
+
+closeParenth - openParenth: close 比 open 多的一定必须是 smileys(如果不是smileys, 那么 open 和 close 就不可能平衡了); 
+那么"全部可能的smileys(smileys)" 减去 "一定必须是smiley的"，剩下的就是 "剩下的全部可能的smileys(新的smileys)"
+
+
+closeParenth = openParenth 就是仍需要 match openParenth 的 closeParenth 的值。
+
+'''
 
 def checkBalanced(message):
     closeParenth = openParenth = 0
@@ -23,7 +37,7 @@ def checkBalanced(message):
         if closeParenth > openParenth:
             if closeParenth - smileys > openParenth:
                 return False
-            smileys = smileys - (closeParenth-openParenth)
+            smileys = smileys - (closeParenth - openParenth)
             closeParenth = openParenth
 
         if char == ':':
