@@ -67,17 +67,85 @@ def taskSchedule2(tasks, cooldown):
 
 
 '''
-Follow-up 2. Minimize Mission Time: How to reschedule the tasks to have min total work time (task order can be changed)
+Follow-up 2: Minimize Mission Time
 
+Given an array of task and k wait time for which a repeated task needs to wait k time to execute again. 
+
+Please rearrange the task sequences to minimize the total time to finish all the tasks. 
+
+Example 
+Tasks = 111222, k = 2, 
+One possible task sequence is 12_12_12, 
+another possible task sequence is 21_21_21 
+thus you shoud return 8 
+
+public int getMiniTime(int[] nums, int k){ 
+} 
+
+Follow up: output one of the sequence 12_12_12, or 21_21_21
+
+'''
+
+
+'''
 Solution 2: 一旦时间最多的task cooldown时间到了就schedule这个task.
 
 Always arrange the mission with the highest frequency
 If its time interval is smaller than k, find the second highest mission
-If all mission's time interval smaller than k, just add '*'
+If all mission's time interval smaller than k, just add '_'
 
 using TreeSet to do this
 Time complexity: O(nlgn + n^2) --lgn is the add or remove operation of treeSet, Space complexity: O(n)
 '''
 
 
+import heapq
+import collections
+
+def minTaskTime(tasks, cooldown):
+    count = collections.Counter(tasks)
+    heap =[]
+    for key,value in count.items():
+        heapq.heappush(heap, [-1*value,key])
+
+    index_map = {}
+    result = ''
+    waitq = collections.deque()
+    while True:
+        while len(heap):
+            v,k = heapq.heappop(heap)
+            if not index_map.has_key(k) or (index_map[k] + cooldown < len(result)):
+                result += str(k)
+                index_map[k] = len(result)-1
+                waitq.append([v+1,k])
+                found = True
+                break
+            else:
+                waitq.append([v,k])
+
+        if len(waitq) == 0:
+            break
+
+        if not found: 
+            result += "_"
+
+        while len(waitq):
+            elem = waitq.popleft()
+            if elem[0] < 0:
+                heapq.heappush(heap, [elem[0], elem[1]])
+        found = False
+
+
+    return result
+
+
+
+t1 = [1,1,1,2,2,2]
+k1 = 2
+
+t2 = [1,1,1,2]
+k2 = 2
+
+print minTaskTime(t1, k1)
+print minTaskTime(t2, k2)
 
