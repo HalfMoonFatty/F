@@ -228,8 +228,9 @@
 
 105. Find all Chars with Most Continuous Appearances (longest sequence) 
 
+106. Decode String
 
-
+107
 
 
 ******************************************************************************************************************************
@@ -263,6 +264,18 @@ Merge them all:  [1,6], [8, 20].
 
 4.implement circular array
   * implement circular buffer with read & write functions
+
+
+
+5. Find sets of values in array whose sum is equal to some number.
+
+
+
+6. Given an Array of N elements and Integer K, write a function that returns true if the sum of any 2 elements of Array is K, false otherwise.
+
+
+7. Given a set of candidate numbers (C) (with duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+The same repeated number may be chosen from C unlimited number of times.
 
 
 
@@ -329,13 +342,7 @@ otherwise, A is from the head of the list.
 
 
 
-22. Given a set of candidate numbers (C) (with duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
-The same repeated number may be chosen from C unlimited number of times.
-
-
-
-
-23. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 
+20. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 
 输入[1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3]这样一个数组，返回{1, 4}, {2, 7}, {3, 10}
 其实就是不同的数字要你计数，但是要求优于O(n)
 
@@ -424,7 +431,7 @@ public class DecodeVector {
 
 
 
-24. Unique Path II，这题bug free, 很快就解出来了。
+21. Unique Path II，这题bug free, 很快就解出来了。
     第二题是第一题follow up. 问有2个robert, 一个在左上(A)，一个在右下(B)。
     2个机器人同时移动，A 只能移动Down, right. B 只能移动 Up,left. 写出一个方程，问A 和B能不能同时到终点(ie. A 到右下，B到左上）
     Note 1. 有障碍 2，A，B不能碰撞。 我给出了暴力的dfs解法，但是显然有更好的解法
@@ -442,7 +449,7 @@ public class DecodeVector {
 
 
 
-25. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
+22. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
 
 例子就是
 A想要接收1~4、7~9、12~15
@@ -458,19 +465,19 @@ C想要接收5~6
 
 
 
-27. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
+23. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
 recursive build tree and inorder traverse是o(n)的
 用一个stack也可以省去Buildtree的过程了. leetcode 255 stack 解法的思想 第一个是根节点， 然后找根的右字数开始的点，根和右字数开始这中间是左子树，然后分开处理
 
 
 
 
-28. 给一个字符串，如果是相邻字母是一样的话就称为一个桥，把桥之间的字符替换成加号
+24. 给一个字符串，如果是相邻字母是一样的话就称为一个桥，把桥之间的字符替换成加号
     --a-d*-d-a-b 变成 --a-++++-a-b
 
 
 
-29. Even Tree
+25. Even Tree
 even tree is a hackrank problem:
 You are given a tree (a simple connected graph with no cycles). The tree has  nodes numbered from  to  and is rooted at node .
 Find the maximum number of edges you can remove from the tree to get a forest such that each connected component of the forest contains an even number of vertices.
@@ -478,12 +485,7 @@ Find the maximum number of edges you can remove from the tree to get a forest su
 
 
 
-30. Find sets of values in array whose sum is equal to some number.
-
-
-
-
-31. Find the subarray within an array (containing at least TWO number) which has the largest sum. 
+26. Find the subarray within an array (containing at least TWO number) which has the largest sum. 
 For example, given the array [-2,-1,-3,-4,-1], the contiguous subarray [-2,-1] has the largest sum = -3. 
 try to do it in O(n) time 
 
@@ -493,14 +495,14 @@ public int maxSubArray(int[] nums) {}
 
 
 
-32. A "derangement" of a sequence is a permutation where no element appears in its original position. 
+27. A "derangement" of a sequence is a permutation where no element appears in its original position. 
 For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
 public List<char[]> getDerangement(char[]){}. 
 
 
 
 
-34. Given an unsorted array, sort it in such a way that the first element is the largest value, the second element is the smallest, 
+28. Given an unsorted array, sort it in such a way that the first element is the largest value, the second element is the smallest, 
 the third element is the second largest element and so on. 
 [2, 4, 3, 5, 1] -> [5, 1, 4, 2, 3] 
 can you do it without using extra space 
@@ -510,7 +512,7 @@ public void sortAlternate(int[] nums){}
 
 
 
-35. Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. 
+29. Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. 
 Each Task has a number of Units and each server has a number of Slots on which Units can run. 
 The only condition is that two Units of the same Task "cannot" run on the same Server. 
 Servers 
@@ -543,7 +545,7 @@ boolean boolean CanRunTasks(S[], T[]){ . 1point 3acres 璁哄潧
 
 
 
-36.  We have a List of FlightRoute
+30.  We have a List of FlightRoute
 
 public static class FlightRoute {
         String from;
@@ -556,18 +558,18 @@ and write a function to find Shortest Path: findShorestPath(String start, String
 
 
 
-37. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
+31. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
 The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
 
 
 
 
-38. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
+32. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
 (Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
 
 
 
-39.Weighted meeting room 
+33.Weighted meeting room 
 Given a series of meetings, how to schedule them. Cannot attend more than a meeting at the same time. Goal is to find maximum weight subset of mutually non-overlap meetings.
 class Meeting:. 1point 3acres 璁哄潧
 def __init__(self):
@@ -578,12 +580,12 @@ def __init__(self):
 
 
 
-40. Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
+34. Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
 
 
 
 
-41. Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
+35. Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
 eg: coins(10, 15, 55)
 print:
 10 
@@ -597,7 +599,7 @@ print:
 
 
 
-42. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
+36. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
 In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". 
 However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output.
 Output doesnt need to maintain the ordering as in the alphabet. . 1point 3acres 璁哄潧
@@ -606,13 +608,9 @@ input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
 
 
 
-43. Given an Array of N elements and Integer K, write a function that returns true if the sum of any 2 elements of Array is K, false otherwise.
 
 
-44. Write code to decode strings. For example, String str = "3[a2[bd]g4[ef]h]", the output should be "abdbdgefefefefhabdbdgefefefefhabdbdgefefefefh". 
-
-
-45. Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
+37. Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
 [1, 3, 5, 18] X = 8 Output: True 
 X = 9 Output: True 
 X = 10 Output: False 
@@ -620,12 +618,12 @@ X = 40 Output :False
 
 
 
-46. String Repalcement
+38. String Repalcement
 
 
-47. 给一个数组和一个数N，随机返回该数组中任意一个不大于N的数
+39. 给一个数组和一个数N，随机返回该数组中任意一个不大于N的数
 
-48. 
+40. 
 输入：一个文件夹
 输出：文件夹下面的所有相同文件 // MD5 hash
 例如：给你一个文件夹路径，/foo/bar,要求找出这个文件夹下面的所有相同的文件，比如a和c是相同的，d和e是相同的，就输出(a,c),(d,e)
