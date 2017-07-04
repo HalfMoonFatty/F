@@ -83,7 +83,7 @@
 
 [X] 038. Data Stream as Disjoint Intervals (LC 352)
 
-[X] 039. Task Schedule 
+039. Task Schedule 
 
 [X] 040. Kth Largest Element in an Array  (sorted/unsorted)
 
@@ -205,7 +205,7 @@
 
 095. Remove Duplicate Chars in a String
 
-[X] 096. Find Names in Post
+* 096. Find Names in Post
 
 097. Find Least Number of Intervals from A That Can Fully Cover B
 
@@ -218,7 +218,17 @@
 
 101. Serialize and deserialized Tree into LinkedList
 
-[X] 102. Find the maximum drop
+102. Find the Maximum Peak or Drop
+
+103. Sort Array of Squares
+
+104. shortest continuous substring with all characters in input
+     * 76. Minimum Window Substring
+     * 30. Substring with Concatenation of All Words
+
+105. Find all Chars with Most Continuous Appearances (longest sequence) 
+
+
 
 
 
@@ -235,24 +245,15 @@ public List<List<Integer>> threeSum(int[] nums) {}
 
 
 
-2. We're given a sorted array of integers: [-3, -1, 0, 1, 2]. We want to generate a sorted array of their squares: [0, 1, 1, 4, 9]
 
-
-
-
-3. shortest continuous substring with all characters in input
-  * 76. Minimum Window Substring
-
-
-
-
-4. 一个完全树。node有parent指针。
+2. 一个完全树。node有parent指针。
 每个node的值为 0或 1, 每个parent的值为两个子node的 “and” 结果
 现在把一个leaf翻牌子（0变1或者1变0）把树修正一遍
 
 
 
-5. 给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
+
+3. 给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
 A: [1,5], [10,14], [16,18]
 B: [2,6], [8,10], [11,20]
 Merge them all:  [1,6], [8, 20].
@@ -260,44 +261,8 @@ Merge them all:  [1,6], [8, 20].
 
 
 
-6. Given a list of number, there is only one peak or one drop. Find the maximum drop.
-Exps:
-1 -> 2 -> 3 -> 9 -> 3 -> 0 = 9;
-10 -> 4 -> 3 -> 8 = 7 ;
-
-21. Given an array will have either a valley or a mountain, only one, not one of each, find out the index of the valley or peak element
-And with one more assumption: array[i - 1] = array[i] + 1 or array[i - 1] = array[i] - 1.
-Example 1: [1,2,3,4,3,2,1] --> return 3
-Example 2: [6,5,4,3,2,3,4] --> return 4
-
-
-使用那个assumption可以达到O(1) 复杂度：首先判断isUp or not，仅以isUp为例, 假设A[x] 是最高点，则有：
-A[x] - A[i] = x - i
-A[x] - A[j] = j - x
-
-由此可以解出 x = 1/ 2 * (A[j] - A[i] + i + j)，isdown同理可求
-
-public int findPeak(int [] A){
-            boolean isUp = (A[1] > A[0]) ? true : false;
-            if (isUp){
-                return (A[A.length - 1] - A[0] + A.length - 1) / 2;
-            } else {
-                return (A[0] - A[A.length - 1] + A.length - 1) / 2;
-            }
-
-        }
-
-Ref: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=274834&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D2%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
-
-
-
-
-
-
-
-7.implement circular array
+4.implement circular array
   * implement circular buffer with read & write functions
-
 
 
 
@@ -316,11 +281,9 @@ otherwise, A is from the head of the list.
 
 
 
-
 10.
 第一题：binary tree，给定一个value，return bin tree里面下一个比value大的值
 第二题：binary tree的node加一个ptr next，point到inorder traversal的下一个node，比上一个简单
-
 
 
 
@@ -362,7 +325,6 @@ otherwise, A is from the head of the list.
 
 
 19. Given 2-d matrix with 1s and 0s, where 1 represents obstacle and 0 represents road,  find a path from upper left conner to the bottom right conner. 
-
 
 
 
@@ -496,44 +458,6 @@ C想要接收5~6
 
 
 
-26. Findall characters that have most continuous appearances (longest sequence). 
-比如： “this send meet” -> [s, e] 再比如：“this is pea” ->[t,h,i,s,i,s,p,e,a] 这个题他只给出input和output让猜程序是干什么的。
-Tricky part: 注意skip空格
-
-
-第一题需要先扫一遍，统计一下连续字符个数，然后再扫，添加结果：
-public static List<Character> mostContinuous(String s) {
-        List<Character> list = new ArrayList<>();
-        if (s == null || s.trim().isEmpty()) return list;
-
-        s = s.trim().replaceAll(" ", "");
-        int n = s.length();
-        int[] dp = new int[n];
-        dp[0] = 1;
-        int max = 1;
-        for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i) == s.charAt(i-1)) {
-                dp[i] = dp[i-1] + 1;
-            } else {
-                dp[i] = 1;
-            }
-            max = Math.max(max, dp[i]);
-        }
-
-        for (int i = 0; i < dp.length; i++) {
-            if (dp[i] == max) {
-                list.add(s.charAt(i));
-            }
-        }
-
-        return list;
-    }
-
-
-
-
-
-
 27. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
 recursive build tree and inorder traverse是o(n)的
 用一个stack也可以省去Buildtree的过程了. leetcode 255 stack 解法的思想 第一个是根节点， 然后找根的右字数开始的点，根和右字数开始这中间是左子树，然后分开处理
@@ -572,20 +496,6 @@ public int maxSubArray(int[] nums) {}
 32. A "derangement" of a sequence is a permutation where no element appears in its original position. 
 For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
 public List<char[]> getDerangement(char[]){}. 
-
-
-
-
-33. Given an array of task and k wait time for which a repeated task 
-needs to wait k time to execute again. please rearrange the task sequences to minimize the total time to finish all the tasks. 
-Example 
-Tasks = 111222, k = 2, 
-One possible task sequence is 12_12_12, 
-another possible task sequence is 21_21_21 
-thus you shoud return 8 
-public int getMiniTime(int[] nums, int k){ 
-} 
-follow up, output one of the sequence 12_12_12, or 21_21_21
 
 
 
@@ -633,17 +543,8 @@ boolean boolean CanRunTasks(S[], T[]){ . 1point 3acres 璁哄潧
 
 
 
-36. There is a bunch of tasks, each have different time to complete, task is independent, and then there are some workers, 
-How to allocate tasks to these workers to minimize the total time to complete all the task. The tasks can be randomly picked from the task list. 
-Example 
-Task: 2,2,3,7, 1 
-Worker: 2. 
-Return 8, because the first worker can work on the first three tasks : 2 + 2 + 3 = 7, and the second worker can work on the last two tasks : 
-7 + 1 = 8, so the total time to finish all the task is 8. 
-public int getMini(int[] tasks, int k)
+36.  We have a List of FlightRoute
 
-
-We have a List of FlightRoute
 public static class FlightRoute {
         String from;
         String to;
@@ -697,7 +598,8 @@ print:
 
 
 42. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
-In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output. . From 1point 3acres bbs
+In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". 
+However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output.
 Output doesnt need to maintain the ordering as in the alphabet. . 1point 3acres 璁哄潧
 Other examples: 
 input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
