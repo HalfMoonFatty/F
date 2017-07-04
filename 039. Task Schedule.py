@@ -71,7 +71,7 @@ Follow-up 2: Minimize Mission Time
 
 Given an array of task and k wait time for which a repeated task needs to wait k time to execute again. 
 
-Please rearrange the task sequences to minimize the total time to finish all the tasks. 
+Please rearrange the task sequences to minimize the total time to finish all the tasks. Return the shortest finish time.
 
 Example 
 Tasks = 111222, k = 2, 
