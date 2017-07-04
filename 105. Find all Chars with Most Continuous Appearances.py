@@ -7,6 +7,7 @@ Tricky part: 注意skip空格
 
 '''
 
+# Solution: 先扫一遍，统计一下连续字符个数，然后再扫，添加结果
 
 def mostContinuous(s):
     result = []
