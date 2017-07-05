@@ -12,6 +12,18 @@ Note:
 '''
 
 '''
+Three sum with duplicate, pirnt all indexes, for example: 
+0 2 -2 -2 
+(0)(1)(2)(3) 
+print (0, 1, 2) (0, 1, 3) 
+can you do it use n^2 (or less) time complexity with as less space as possible? 
+public List<List<Integer>> threeSum(int[] nums) {}
+
+'''
+
+
+
+'''
 Solution 
 '''
 
