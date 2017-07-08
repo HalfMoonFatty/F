@@ -61,3 +61,45 @@ class Solution(object):
         result = []
         permuteUniqueHelper(nums, 0, Set(), result)
         return result
+    
+    
+    
+    
+    
+'''
+Problem 3: 
+
+A "derangement" of a sequence is a permutation where no element appears in its original position. 
+For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
+public List<char[]> getDerangement(char[]){}. 
+
+'''
+
+def derangement(s):
+    def isValid(s, ns):
+        for i in range(len(s)):
+            if s[i] == ns[i]:
+                return False
+        return True
+
+
+    def helper(index, ls, path, result):
+        if index == len(ls) and isValid(s,ls):
+            result.append(''.join(ls))
+            return
+        for i in range(index, len(ls)):
+            if ls[i] not in path:
+                path.add(ls[i])
+                ls[index], ls[i] = ls[i], ls[index]
+                helper(index+1, ls[:], set(), result)
+                ls[index], ls[i] = ls[i], ls[index]
+        return
+
+    result = []
+    helper(0,list(s),set(), result)
+    return result
+
+
+s = 'ABCDE'
+print derangement(s)
+
