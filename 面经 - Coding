@@ -228,63 +228,56 @@
 
 105. Find all Chars with Most Continuous Appearances (longest sequence) 
 
-106. Decode String
+106. Decode/Encode String
 
-107
+107. Find Char Frequency in Sorted Array
+
+108. Maximum Subarray
+
+109. Continuous Subarray Sum
+
+110. BST Preorder Leaves
+
+111. Find Common Elements in 2 Arrays
+
+112. Print Max Depth Path of a Binary Tree
+
+113. String Replacement
+
+114. Target sum
+
+115. BST Preorder to Inorder
+
+116. Matrix Path
+
+117. 
+
+
+
 
 
 ******************************************************************************************************************************
 
-
-1. two sum + three sum + follow up (allows duplicates and each number could be reused)
-Three sum with duplicate, pirnt all indexes, for example: 
-0 2 -2 -2 
-(0)(1)(2)(3) 
-print (0, 1, 2) (0, 1, 3) 
-can you do it use n^2 (or less) time complexity with as less space as possible? 
-public List<List<Integer>> threeSum(int[] nums) {}
+1. Erase duplicate in an unsorted array
 
 
+2. 给定N个2D坐标（可以设想为餐厅的位置），要求输入任意坐标，可以返回方圆d距离内的所有餐厅
 
 
-2. 一个完全树。node有parent指针。
+3. 一个完全树。node有parent指针。
 每个node的值为 0或 1, 每个parent的值为两个子node的 “and” 结果
 现在把一个leaf翻牌子（0变1或者1变0）把树修正一遍
 
 
-
-
-3. 给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
-A: [1,5], [10,14], [16,18]
-B: [2,6], [8,10], [11,20]
-Merge them all:  [1,6], [8, 20].
-
-
-
-
-4.implement circular array
-  * implement circular buffer with read & write functions
+4. Given an unsorted array, sort it in such a way that the first element is the largest value, the second element is the smallest, 
+the third element is the second largest element and so on. 
+[2, 4, 3, 5, 1] -> [5, 1, 4, 2, 3] 
+can you do it without using extra space 
+public void sortAlternate(int[] nums){}
 
 
 
-5. Find sets of values in array whose sum is equal to some number.
-
-
-
-6. Given an Array of N elements and Integer K, write a function that returns true if the sum of any 2 elements of Array is K, false otherwise.
-
-
-7. Given a set of candidate numbers (C) (with duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
-The same repeated number may be chosen from C unlimited number of times.
-
-
-
-8. Check big/small endian
-
-
-
-
-9. 给一个linkedlist，里面的element都排序好了，但是是一个blackbox，有三个function可以调用。
+5. 给一个linkedlist，里面的element都排序好了，但是是一个blackbox，有三个function可以调用。
 pop()随机pop出最前面或最后面的element，
 peek()随机偷看最前面或最后面的element，
 isEmpty()回传linkedlist是不是空了。
@@ -294,144 +287,25 @@ otherwise, A is from the head of the list.
 
 
 
-10.
+6.
 第一题：binary tree，给定一个value，return bin tree里面下一个比value大的值
 第二题：binary tree的node加一个ptr next，point到inorder traversal的下一个node，比上一个简单
 
 
 
-11. print max depth path of a binary tree
-
-
-
-12. Erase duplicate in an unsorted array
-
-
-
-13. 给定N个2D坐标（可以设想为餐厅的位置），要求输入任意坐标，可以返回方圆d距离内的所有餐厅
-
-
-
-14. find number of palindrom in a string
+7. find number of palindrom in a string
 
     
     
-15.给一个string， 判断是不是数字
+8.给一个string， 判断是不是数字
 
 
 
-16. 给两个array找common elements，一个1M长，一个1K长
-    就是求集合的交集。。。 你可以二分，也可以两个指针互相追赶。。这个情况下，明显是从短的数组里枚举每个数，然后二分长的数组.. (当然一开始要排序)..
-    排序的话用时间 n=1M, m=1k     nlgn+mlgm, 找用时间mlgN..
+9. 给你一个数字比如111112222333112，返回每个数字出现的个数和数字本身，这个例子的返回为5142332112. 写完之后问这个返回的result，最短多长，最长多长。
 
 
 
-17. 给你一个数字比如111112222333112，返回每个数字出现的个数和数字本身，这个例子的返回为5142332112. 写完之后问这个返回的result，最短多长，最长多长。
-
-
-
-
-18. 给你一个数字由1-9组成，给你一个target value，可以在数字中间加 + 或者 -, 问你有多少种组合可以得到target value。同时有一个eval method，
-    把表达式传进去，返回计算结果。类似于lc282,484的mix。这里和282相比不需要做乘法，并且符号可以加在第一数的前面，这里和484一样。
-    但是和484不同的是数字并不一定是一位，可以是多位组成，这里和282一样。写完后，让跑test,最后问时间复杂度。
-
-
-
-19. Given 2-d matrix with 1s and 0s, where 1 represents obstacle and 0 represents road,  find a path from upper left conner to the bottom right conner. 
-
-
-
-
-20. 给定一个数组, 已经sort好, 里面有大量重复的数, 输出每个数和这个数出现的次数. 
-输入[1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3]这样一个数组，返回{1, 4}, {2, 7}, {3, 10}
-其实就是不同的数字要你计数，但是要求优于O(n)
-
-先说扫一遍, 用hashmap计数, 问time complexity说是O(n), 不够好, 怎么快点儿, 答binary search. 
-
-lz当时第一反应是binary search 找上下界，然后小哥问我worst case，我说O(nlgn)，小哥说对啊，我要优于O(n)。 
-
-每次比较start point 和start point + 2^n位置上的数，假如一样就continue，不一样就在区间里面binary search找上界，这样的话worstcase O(n)
-
-假设没有重复的数， [1,2,3,4,5] 每次都找 2^(n-1)  == 2^0 ==1 , 相当于依次 找1 找2 找3 找4 找5 发现都是出现一次， 遍历一遍， O(n). 
-
-如果有大量重复， 【1，1，1，1，2，2，2，3】，对于1， 找右边界是 依次 尝试 2^0=1, 2^1 =2, 2^2=4, 2^3=8, O(nlogn)
-
-每次都是尝试 start point +2^n 这样，也实现了 log(n) 的复杂度。
-
-
-
-public class DecodeVector {
-
-    class Pair {
-        int c;
-        int count;
-        public Pair(int c, int count) {  
-            this.c = c;
-            this.count = count;
-        }
-    }
-
-
-    public List<Pair> getCount(int[] arr) {
-        List<Pair> list = new ArrayList<>();
-        if (arr == null || arr.length == 0) {
-            return list;
-        }
-
-        int start = 0;
-        while (start < arr.length) {
-            int end = findLast(start, arr);
-            list.add(new Pair(arr[start], end - start + 1));
-            start = end + 1;
-        }
-
-        return list;
-    }
-
-
-    private int findLast(int start, int[] arr) {
-        int c = arr[start];
-        int diff = 1;
-        while (start + diff < arr.length && arr[start + diff] == c) {
-            diff <<= 1;
-        }
-        if (start + diff >= arr.length) {
-            return arr.length - 1;
-        }
-
-        int end = start + diff;
-        while (start + 1 < end) {. from: 1point3acres.com/bbs 
-            int mid = (end - start) / 2 + start;
-            if (arr[mid] == c) {
-                start = mid;
-            } else {
-                end = mid;
-            }
-        }
-        if (arr[end] == c) {
-            return end;
-        } else {
-            return start;
-        }
-    }
-
-
-    public static void main(String[] args) {
-        int[] arr = {1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3};
-        DecodeVector d = new DecodeVector();
-        List<Pair> res = d.getCount(arr);
-        for (Pair p : res) {
-            System.out.println(p.c + ": " + p.count);
-        }
-    }
-}
-
-
-
-
-
-
-21. Unique Path II，这题bug free, 很快就解出来了。
+10. Unique Path II，这题bug free, 很快就解出来了。
     第二题是第一题follow up. 问有2个robert, 一个在左上(A)，一个在右下(B)。
     2个机器人同时移动，A 只能移动Down, right. B 只能移动 Up,left. 写出一个方程，问A 和B能不能同时到终点(ie. A 到右下，B到左上）
     Note 1. 有障碍 2，A，B不能碰撞。 我给出了暴力的dfs解法，但是显然有更好的解法
@@ -449,35 +323,7 @@ public class DecodeVector {
 
 
 
-22. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
-
-例子就是
-A想要接收1~4、7~9、12~15
-B想要接收2~8、10~12
-C想要接收5~6
-
-如果给一个数字8，应该返回A和B
-如果给个数字5，应该返回B和C
-
-
-用二分查找优化吗 还是必须build interval tree, 然后search？？？
-
-
-
-
-23. 给一个二叉树的先序遍历结果，返回中序遍历结果。讨论各种做法，复杂度。
-recursive build tree and inorder traverse是o(n)的
-用一个stack也可以省去Buildtree的过程了. leetcode 255 stack 解法的思想 第一个是根节点， 然后找根的右字数开始的点，根和右字数开始这中间是左子树，然后分开处理
-
-
-
-
-24. 给一个字符串，如果是相邻字母是一样的话就称为一个桥，把桥之间的字符替换成加号
-    --a-d*-d-a-b 变成 --a-++++-a-b
-
-
-
-25. Even Tree
+11. Even Tree
 even tree is a hackrank problem:
 You are given a tree (a simple connected graph with no cycles). The tree has  nodes numbered from  to  and is rooted at node .
 Find the maximum number of edges you can remove from the tree to get a forest such that each connected component of the forest contains an even number of vertices.
@@ -485,45 +331,18 @@ Find the maximum number of edges you can remove from the tree to get a forest su
 
 
 
-26. Find the subarray within an array (containing at least TWO number) which has the largest sum. 
-For example, given the array [-2,-1,-3,-4,-1], the contiguous subarray [-2,-1] has the largest sum = -3. 
-try to do it in O(n) time 
-
-Followup, if input is stream, how to solve it 
-public int maxSubArray(int[] nums) {}
-
-
-
-
-27. A "derangement" of a sequence is a permutation where no element appears in its original position. 
-For example ECABD is a derangement of ABCDE, given a string, may contain duplicate char, please out put all the derangement 
-public List<char[]> getDerangement(char[]){}. 
-
-
-
-
-28. Given an unsorted array, sort it in such a way that the first element is the largest value, the second element is the smallest, 
-the third element is the second largest element and so on. 
-[2, 4, 3, 5, 1] -> [5, 1, 4, 2, 3] 
-can you do it without using extra space 
-public void sortAlternate(int[] nums){}
-
-
-
-
-
-29. Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. 
+12. Given a number of tasks (T) and servers (S), find out if the tasks can be accommodated on the servers. 
 Each Task has a number of Units and each server has a number of Slots on which Units can run. 
 The only condition is that two Units of the same Task "cannot" run on the same Server. 
 Servers 
 S[0] = "SS1", "SS2", "SS3", SS4 //Slots // 4 -> 3 -> 2 -> 1 
-S[1] = "SS1", "SS2" // 2 -> 1 -> 0 -> false . visit 1point3acres.com for more.
+S[1] = "SS1", "SS2" // 2 -> 1 -> 0 -> false
 S[2] = "SS1", "SS2", SS3, SS4, SS5 // 5 -> 4 -> 3 -> 2 
 S[3] = "SS1", "SS2", SS3, SS4, SS5 // 5 -> 4 -> 3 -> 2 
 
 Example: 
 S[0] = 4 
-S[1] = 3 . more info on 1point3acres.com
+S[1] = 3 
 S[2] = 5 
 S[3] = 5 
 ... 
@@ -539,13 +358,13 @@ T[1] = 2
 T[2] = 3 
 
 implement 
-boolean boolean CanRunTasks(S[], T[]){ . 1point 3acres 璁哄潧
+boolean boolean CanRunTasks(S[], T[]){ 
 }
 
 
 
 
-30.  We have a List of FlightRoute
+13. We have a List of FlightRoute
 
 public static class FlightRoute {
         String from;
@@ -558,20 +377,11 @@ and write a function to find Shortest Path: findShorestPath(String start, String
 
 
 
-31. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
-The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
+14. Weighted meeting room 
+Given a series of meetings, how to schedule them. Cannot attend more than a meeting at the same time. 
+Goal is to find maximum weight subset of mutually non-overlap meetings.
 
-
-
-
-32. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
-(Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
-
-
-
-33.Weighted meeting room 
-Given a series of meetings, how to schedule them. Cannot attend more than a meeting at the same time. Goal is to find maximum weight subset of mutually non-overlap meetings.
-class Meeting:. 1point 3acres 璁哄潧
+class Meeting:
 def __init__(self):
     self.startTime
     self.endTime
@@ -580,12 +390,7 @@ def __init__(self):
 
 
 
-34. Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
-
-
-
-
-35. Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
+15. Given many coins of 3 different face values, print the combination sums of the coins up to 1000. Must be printed in order. 
 eg: coins(10, 15, 55)
 print:
 10 
@@ -599,31 +404,71 @@ print:
 
 
 
-36. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
+
+16. 给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
+A: [1,5], [10,14], [16,18]
+B: [2,6], [8,10], [11,20]
+Merge them all:  [1,6], [8, 20].
+
+
+
+
+17. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
+
+例子就是
+A想要接收1~4、7~9、12~15
+B想要接收2~8、10~12
+C想要接收5~6
+
+如果给一个数字8，应该返回A和B
+如果给个数字5，应该返回B和C
+
+
+用二分查找优化吗 还是必须build interval tree, 然后search？？？
+
+
+
+
+
+18. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
 In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". 
 However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output.
-Output doesnt need to maintain the ordering as in the alphabet. . 1point 3acres 璁哄潧
+Output doesnt need to maintain the ordering as in the alphabet. 
 Other examples: 
 input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
 
 
 
 
-
-37. Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
-[1, 3, 5, 18] X = 8 Output: True 
-X = 9 Output: True 
-X = 10 Output: False 
-X = 40 Output :False
+19. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
+The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
 
 
 
-38. String Repalcement
+20. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
+(Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
 
 
-39. 给一个数组和一个数N，随机返回该数组中任意一个不大于N的数
 
-40. 
+
+21.implement circular array
+  * implement circular buffer with read & write functions
+
+
+
+22. Check big/small endian
+
+
+
+23. String Repalcement
+
+
+
+24. 给一个数组和一个数N，随机返回该数组中任意一个不大于N的数
+
+
+
+25. 
 输入：一个文件夹
 输出：文件夹下面的所有相同文件 // MD5 hash
 例如：给你一个文件夹路径，/foo/bar,要求找出这个文件夹下面的所有相同的文件，比如a和c是相同的，d和e是相同的，就输出(a,c),(d,e)
