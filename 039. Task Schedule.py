@@ -49,8 +49,11 @@ k3 = 6
 print taskSchedule(t3, k3)
 
 
-# Follow-up 1: 
-# 1. 求出给定task的工作总时间. O(n)
+
+
+'''
+Follow-up 1: 求出给定task的工作总时间. O(n)
+'''
 
 def taskSchedule2(tasks, cooldown):
     time = 0
@@ -65,6 +68,7 @@ def taskSchedule2(tasks, cooldown):
     return time
 
 
+  
 
 '''
 Follow-up 2: Minimize Mission Time
@@ -82,13 +86,72 @@ thus you shoud return 8
 public int getMiniTime(int[] nums, int k){ 
 } 
 
-Follow up: output one of the sequence 12_12_12, or 21_21_21
+
+
+Solution: 计数 时间复杂度O(n) n为tasks的长度
+
+对tasks按照任务进行计数，记数目最多的任务为t，其个数为tmax
+
+问题转化为在tmax个任务之间的“槽”内尽可能安插别的任务，使idle最小化
+
+例如输入tasks = ['A' * 5, 'B' * 5, 'C' * 4, 'D' * 2, 'E' * 1]， n = 5
+
+本例中，数目最多的任务t为'A'，其个数tmax = 5
+
+A o o o o o A o o o o o A o o o o o A o o o o o A x x x x x
+
+标记为‘o’的部分需要填充任务或者idle，‘o’安排完毕后，剩余任务放置在标记为‘x’的部分
+
+调度结果如下，答案为26：A B C D E i A B C D i i A B C i i i A B C i i i A B
+
+答案是：len(tasks) + len(idle)
+
+那么 len(idle) 怎么求呢？
+
+就是全部的 “完整slots” = (tmax - 1) * (n + 1) = 4*6 = 24 (即4个整的interval, 每个interval长为6: A o o o o o A o o o o o A o o o o o A o o o o o ) 
+
+减去前面这整段里的 “tasks的长度” 就是 idle的长度。
+
+tasks的长度:
+
+t = 0
+for n in cnt.values():
+    if n == tmax:
+        t += n-1
+    else: 
+        t += n
 
 '''
 
 
+
+class Solution(object):
+    def leastInterval(self, tasks, n):
+        """
+        :type tasks: List[str]
+        :type n: int
+        :rtype: int
+        """
+        cnt = collections.Counter(tasks)
+        tmax = max(cnt.values())
+        slots = (tmax - 1) * (n + 1)
+        t = 0
+        for n in cnt.values():
+            if n == tmax:
+                t += n-1
+            else: 
+                t += n
+
+        return len(tasks) + max(0,slots - t)
+
+
+
+
 '''
-Solution 2: 一旦时间最多的task cooldown时间到了就schedule这个task.
+Follow up 3: output one of the sequence with min task time 12_12_12, or 21_21_21
+
+
+Solution: 一旦时间最多的task cooldown时间到了就schedule这个task.
 
 Always arrange the mission with the highest frequency
 If its time interval is smaller than k, find the second highest mission
@@ -97,6 +160,37 @@ If all mission's time interval smaller than k, just add '_'
 using TreeSet to do this
 Time complexity: O(nlgn + n^2) --lgn is the add or remove operation of treeSet, Space complexity: O(n)
 '''
+
+
+import collections
+def minTaskTime(tasks, cooldown):
+    count = collections.Counter(tasks)
+    Interval = cooldown + 1
+    result = ''
+    while len(count.keys()):
+        curLen = 0
+        for k, v in count.items():
+            result += str(k)
+            count[k] -= 1
+            if count[k] == 0: 
+                del count[k]
+            curLen += 1 
+        while curLen < Interval and len(count.keys()):
+            result += '_'
+            curLen += 1
+
+    return result
+
+
+
+print minTaskTime([1,1,1,2,2,2], 2)
+print minTaskTime([1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,5], 5)
+
+
+
+
+
+
 
 
 import heapq
