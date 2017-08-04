@@ -165,6 +165,7 @@ Time complexity: O(nlgn + n^2) --lgn is the add or remove operation of treeSet, 
 import collections
 def minTaskTime(tasks, cooldown):
     count = collections.Counter(tasks)
+    count = collections.OrderedDict(sorted(count.items(), key = lambda x:x[1], reverse=True))
     Interval = cooldown + 1
     result = ''
     while len(count.keys()):
@@ -183,8 +184,8 @@ def minTaskTime(tasks, cooldown):
 
 
 
-print minTaskTime([1,1,1,2,2,2], 2)
 print minTaskTime([1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,5], 5)
+print minTaskTime([2,2,2,2,2,3,3,3,3,4,4,5,1,1,1,1,1], 5)
 
 
 
