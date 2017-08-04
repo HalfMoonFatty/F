@@ -94,7 +94,7 @@ def decode(s):
         # 9 < n < 26
         if i < len(s)-1:
             n = int(s[i:i+2])
-            if n < 26: 
+            if 9< n <= 26: 
                 helper(s, i+2, res + chr(n+ord('A')-1), result)
 
         return
