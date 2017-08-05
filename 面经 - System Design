@@ -1,40 +1,8 @@
-Design memcache
+1. Tiny URL
 
-设计一个memcache，实现读，写，和删除操作；用什么样的data structure，eviction rule是什么，怎样最大程度避免segmentation，如何handle concurrency。
-都是基于一个server的情况考虑，没有问distributed 的infrastructure如何设计。
+2. Design autocomplete in a search engine
 
-
-多谢！ 有篇论文叫scaling memcached at FB, 里面有一小段讲的是single machine bottleneck. 我浅读过一下，根据我的理解，single machine bottleneck可能有:
-1. 只用single thread.. . Waral 鍗氬鏈夋洿澶氭枃绔�,
-2. 用multi-thread的话得用fine-grain locking, 类似java的concurrent hashmap, 意思就是多线程的时候不要整个memory都lock, lock一个slab就好
-3. multi-threading 配合一个memory slab allocator(一个专门的manger来管理memory)
-4. Evict LRU 以及在slab上的处理(给个slab都有LRU). 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
-5. Use UDP for get() instead of TCP(网络bottleneck)
-6. request 太多的话 可能需要专门batch一下再发packet出去(网络bottleneck). 
-
-
-
-
-System design POI
-
-
-
-
-Design twitter feed system
-News feed system  backend     api or backend
-Backend: push/pull model, data怎么存，data的量， 怎么shard, consistent hashing具体是怎么实现的？？？   
-
-
-
-
-
-Tiny URL
-
-
-
-                 
-
-问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
+3. 问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
 这些具体的问题还是值得思考一下的，我给大家列一下，希望能帮到后面的人：
 1. top n hot key word怎么生成，问了下map reduce的东西 
 2. typeAhead这里的hot key words考虑多久的时效性，比如你是按照1 month，1 week，1 day 还是1 hour的数据给出hot key words。
@@ -84,14 +52,40 @@ multithread scheduling, Trie updating thread has lower priority
 
 
 
-post search
+
+4. Design memcache
+
+设计一个memcache，实现读，写，和删除操作；用什么样的data structure，eviction rule是什么，怎样最大程度避免segmentation，如何handle concurrency。
+都是基于一个server的情况考虑，没有问distributed 的infrastructure如何设计。
+
+
+多谢！ 有篇论文叫scaling memcached at FB, 里面有一小段讲的是single machine bottleneck. 我浅读过一下，根据我的理解，single machine bottleneck可能有:
+1. 只用single thread.. . Waral 鍗氬鏈夋洿澶氭枃绔�,
+2. 用multi-thread的话得用fine-grain locking, 类似java的concurrent hashmap, 意思就是多线程的时候不要整个memory都lock, lock一个slab就好
+3. multi-threading 配合一个memory slab allocator(一个专门的manger来管理memory)
+4. Evict LRU 以及在slab上的处理(给个slab都有LRU). 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+5. Use UDP for get() instead of TCP(网络bottleneck)
+6. request 太多的话 可能需要专门batch一下再发packet出去(网络bottleneck). 
+
+
+
+
+5. System design POI
+
+
+
+
+6. Design twitter feed system
+News feed system  backend     api or backend
+Backend: push/pull model, data怎么存，data的量， 怎么shard, consistent hashing具体是怎么实现的？？？   
+
+
+
+
+
+7. post search
 设计一个系统，大概有1b的activeuser，大家都会post, 每个post, 都有名字和时间戳。然后还有一个search的功能，输入是一个或多个keyword (word之间是OR关系)，
 要求返回相关的post。这个问题牵扯到如何存，如何做search word.大概的结构是什么样子的，还有要估算出每个function都需要多少机器。
-
-
-
-
-CS基础问题：输入www.facebook.com到browser，按回车之后，会发生什么。 coding: LC8 Given an input char array, convert it to integer.
 
 
 
@@ -99,7 +93,7 @@ CS基础问题：输入www.facebook.com到browser，按回车之后，会发生�
 用什么样的数据结构存 social graph相关的信息；然后花了很长时间问了如何在一个server上面处理大量的读写并发，读的量远远大于写；
 
 
-Design autocomplete in a search engine.
+
 
 
 music app，选出 top 10 songs
@@ -130,3 +124,4 @@ CAP那一套说一说，怎么balance， 怎么Partion， 怎么保证consistenc
 
 
 
+CS基础问题：输入www.facebook.com到browser，按回车之后，会发生什么。 coding: LC8 Given an input char array, convert it to integer.
