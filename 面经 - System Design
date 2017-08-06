@@ -1,5 +1,26 @@
 1. Tiny URL
 
+System design --> Capacity --> Algorithm
+
+
+Questions:
+How many unique identifiers possible? Will you run out of unique URLs?    62^7 --> QPS
+Should the identifier be increment or not? Which is easier to design? Pros and cons?
+Mapping an identifier to an URL and its reversal - Does this problem ring a bell to you?
+How do you store the URLs? Does a simple flat file database work?  Not, need to lookup
+What is the bottleneck of the system? Is it read-heavy or write-heavy?   read-heavy
+Estimate the maximum number of URLs a single machine can store.
+Estimate the maximum number of queries per second (QPS) for decoding a shortened URL in a single machine.
+How would you scale the service? For example, a viral link which is shared in social media could result in a peak QPS at a moment's notice.
+How could you handle redundancy? i,e, if a server is down, how could you ensure the service is still operational?
+Keep URLs forever or prune, pros/cons? How we do pruning? (Contributed by @alex_svetkin)
+What API would you provide to a third-party developer? (Contributed by @alex_svetkin)
+If you can enable caching, what would you cache and what's the expiry time? (Contributed by @Humandroid)
+
+
+
+
+
 2. Design autocomplete in a search engine
 
 3. 问了typeAhead，虽然之前准备过，大的架构答得还行，但是问了几个具体的问题，答得很不好所以估计要挂。
@@ -9,8 +30,6 @@
 3. 大家都知道要用Trie去存数据，并且Trie是放在cache里的，那么这个cache什么时候去更新？怎么更新？要不要加TTL？你更新的这个cache的频率会对用户query的时效性产生很大的影响，并且你更新也会对数据库和服务器造成额外的负担，你怎么去平衡。
 4. 最后加了一个问题说如果这个服务是面向多个国家的，过了一段时间你发现你的推荐在某些国家点击率很高，有些国家点击率很低，你要怎么优化。
 总之都和你之前的一系列答案有关。问得相当的细。
-
-
 
 
 
