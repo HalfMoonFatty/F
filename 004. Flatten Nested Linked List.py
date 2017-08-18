@@ -38,10 +38,10 @@ def flattenPrint(head):
 
 def flattenNestedLinkedList(head):
 
-    def helper(branch, head):
+    def helper(branch, prev):
       
-        head.next = branch
-        prev = head
+        prev.next = branch
+        itr = prev
         
         # flatten branch
         while branch:
@@ -51,14 +51,14 @@ def flattenNestedLinkedList(head):
                 next = branch.next
                 tail = helper(branch.branch, branch)
                 tail.next = next
-                perv = tail
+                itr = tail
                 branch = next 
             # if branch has no more branch
             else:
-                prev = prev.next
+                itr = itr.next
                 branch = branch.next
 
-        return prev # tail of the branch
+        return itr # tail of the branch
 
 
 
