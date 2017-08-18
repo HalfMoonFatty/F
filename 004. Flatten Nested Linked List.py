@@ -25,7 +25,8 @@ prev    branch next
 
 '''
 
-# Solution:
+# Solution 1 -- Print Nested LinkedList
+
 def flattenPrint(head):
      if not head: return
      while head:
@@ -36,27 +37,28 @@ def flattenPrint(head):
           
 
 
+
+# Solution 2 --   Flatten Nested LinkedList
+
 def flattenNestedLinkedList(head):
 
-    def helper(branch, prev):
+    def helper(cur, prev):
       
-        prev.next = branch
+        prev.next = cur
         itr = prev
         
         # flatten branch
-        while branch:
-            print branch.val
-            # if branch has more branches
-            if branch.branch:
-                next = branch.next
-                tail = helper(branch.branch, branch)
+        while cur:
+            print cur.val
+            if cur.branch:
+                next = cur.next
+                tail = helper(cur.branch, cur)
                 tail.next = next
                 itr = tail
-                branch = next 
-            # if branch has no more branch
+                cur = next 
             else:
                 itr = itr.next
-                branch = branch.next
+                cur = cur.next
 
         return itr # tail of the branch
 
@@ -66,6 +68,5 @@ def flattenNestedLinkedList(head):
     dummyhead = ListNode(0)
     helper(head,dummyhead)
     return head 
-
 
 
