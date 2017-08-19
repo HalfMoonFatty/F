@@ -10,6 +10,29 @@ def containsNearbyDuplicate(nums, k):
     i = j = 0
     window = set()
     while j < len(nums):
+        while j - i + 1 <= k:  # window size = j - i + 1
+            if nums[j] in window:
+                return True
+            window.add(nums[j])
+            j += 1
+
+        window.remove(nums[i])
+        i += 1
+    return False
+
+
+nums = [1,2,3,2,1,4]
+print containsNearbyDuplicate(nums, 3)
+
+
+
+
+
+
+def containsNearbyDuplicate(nums, k):
+    i = j = 0
+    window = set()
+    while j < len(nums):
         if j - i + 1 > k:  # window size = j - i + 1
             window.remove(nums[i])
             i += 1
