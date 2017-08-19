@@ -38,9 +38,7 @@ def minDepth(root):
             cur = q.popleft()
             if not cur.left and not cur.right:
                 result = level
-            if cur.left:
-                q.append(cur.left)
-            if cur.right:
-                q.append(cur.right)
+            if cur.left: q.append(cur.left)
+            if cur.right: q.append(cur.right)
     return result
 
