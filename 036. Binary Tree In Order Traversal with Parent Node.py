@@ -48,11 +48,11 @@ def findNext(root):
     elif root == root.parent.left:
         return root.parent
 
-    elif root = root.parent.right: # search up until node is the left child or not parent node
-        node = node.parent
-        while node.parent and node.parent.right == node:
-            node = node.parent
-        return node.parent
+    elif root == root.parent.right: # search up until node is the left child or not parent node
+        root = root.parent
+        while root.parent and root.parent.right == root:
+            root = root.parent
+        return root.parent
 
 
 
@@ -212,8 +212,6 @@ class Solution(object):
                     stack.append(root.right)
                 stack.append(root)
                 root = root.left
-
-            # 拐弯 
             else:
                 root = stack.pop()          # remember root
                 if stack and root.right and root.right == stack[-1]:
