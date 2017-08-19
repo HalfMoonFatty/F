@@ -27,19 +27,19 @@ class Solution(object):
             :type n: Maximum number of characters to read (int)
             :rtype: The number of characters read (int)
             """
-        buffer = [None]*4096    # internal 4k buffer
+        buff = [None]*4096
         EOF = False
-        totalRead = 0
+        ptr = 0
 
-        while totalRead < n and not EOF:
-            curRead = read4(buffer)     # call read4(buf): to read into internal buffer
-            if curRead < 4:
+        while ptr < n and not EOF:
+            count = read4K(buff)     # call read4(buf): to read into internal buffer
+            if count < 4096:
                 EOF = True
-            length = min(n-totalRead, curRead)
+            length = min(n-ptr, count)
             for i in range(length):
-                buf[totalRead+i] = buffer[i]
-            totalRead += length
-        return totalRead
+                buf[ptr+i] = buff[i]
+            ptr += length
+        return ptr
         
         
 
@@ -50,11 +50,9 @@ class Solution(object):
 class Solution(object):
     def __init__(self):
         self.buff = [None]*4096
-        self.buffPtr = 0
-        self.hasRead = 0
-        self.count = 0
-        self.EOF = False
-
+        self.buffptr = 0
+        self.buffcnt = 0
+        
 
     def read(self, buf, n):
         """
@@ -62,25 +60,21 @@ class Solution(object):
             :type n: Maximum number of characters to read (int)
             :rtype: The number of characters read (int)
             """
-        
-        while self.count < n and not EOF:
-         
-            # no more data in the internal buffer, need to read in new data
-            if self.buffPtr == 0:
-                self.hasRead = read4K(self.buff)
+        ptr = 0
+        while ptr < n:
 
-            # have no more to read-in
-            if self.hasRead < 4096:
-                EOF = True
+            if self.buffptr == 0:
+                self.buffcnt = read4K(self.buff)
 
-            # 搬砖ing, 一次搬4块
-            while self.count < n and self.buffPtr < self.hasRead:    # note loop condition
-                buf[self.count] = self.buff[self.buffPtr]
-                self.buffPtr += 1
-                self.count += 1
+            if self.buffcnt == 0:
+                break
 
-            # drained up the internal buffer, reset the buffPtr to 0
-            if self.buffPtr == self.hasRead:
-                self.buffPtr = 0
+            while ptr < n and self.buffptr < self.buffcnt:    # note loop condition
+                buf[ptr] = self.buff[self.buffptr]
+                self.buffptr += 1
+                ptr += 1
 
-        return self.count
+            if self.buffptr >= self.buffcnt:
+                self.buffptr = 0
+
+        return ptr
