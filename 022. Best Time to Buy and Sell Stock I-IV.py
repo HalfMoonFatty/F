@@ -58,7 +58,7 @@ def maxProfitWithCharge(prices, charge):
     for i in range(1, len(prices)):
         if prices[i] > prices[i-1]:
             localProfit += prices[i] - prices[i-1]
-            if charged:
+            if not charged:
                 localProfit -= charge
             charged = True
         elif charged:
