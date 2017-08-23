@@ -46,8 +46,6 @@ def findMostOverlap(rectangles):
         indexToLine[index].sort(reverse = True)    # sort y values from large to small
 
 
-    #print indexToLine
-
     overlap = Rectangle(0,0,0,0)
     maxOverlap = 0
     for index in indexToLine.keys():
@@ -64,7 +62,6 @@ def findMostOverlap(rectangles):
                         maxOverlap = right
                 if not elem[2] or elem[2] == 'Right':    # Up-Right
                     left += 1
-
             else:                                        # Down-Right
                 if not elem[2] or elem[2] == 'Right':
                     if left == maxOverlap:
@@ -73,8 +70,7 @@ def findMostOverlap(rectangles):
                     left -= 1
                 if not elem[2] or elem[2] == 'Left':     # Down-Left
                     right -= 1
-            #print "maxOverlap is: " + str(maxOverlap) + ";  left is: " + str(left) + ";  right is: " + str(right) 
-            #print overlap.toString()
+
     return overlap
 
 
