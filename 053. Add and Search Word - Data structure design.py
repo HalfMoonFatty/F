@@ -81,12 +81,12 @@ class WordDictionary(object):
                         return True
 
             elif len(node.children)>0 and word[i] == '*':
-                if self.searchHelper(word[i+1:], node):   # "*" match empty string
+                if self.searchHelper(word[i+1:], node):   # "*" match multiple chars
                     return True
                 tmp = node   
                 for k in node.children.keys():
                     node = tmp.children[k] # re-assign value to node
-                    if self.searchHelper(word[i:], node):    # word index keeps the same but advance trie node
+                    if self.searchHelper(word[i:], node):    # "*" match 0 char
                         return True
 
                         
