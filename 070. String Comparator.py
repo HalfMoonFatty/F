@@ -16,13 +16,11 @@ def strComparator(s1, s2):
         # both are digits
         elif s1[index1].isdigit() and s2[index2].isdigit():
             n1 = n2 = 0
-            while index1 < len(s1):
-                n1 += int(s1[index1])
-                n1 *= 10
+            while index1 < len(s1) and s1[index1].isdigit():
+                n1 = n1*10 + int(s1[index1])
                 index1 += 1
-            while index2 < len(s2):
-                n2 += int(s2[index2])
-                n2 *= 10
+            while index2 < len(s2) and s2[index2].isdigit():
+                n2 += n2*10 + int(s2[index2])
                 index2 += 1
             if n1 < n2: return -1
             elif n1 == n2: return 0
@@ -45,5 +43,3 @@ print strComparator(s1,s2)
 s1 = 'abc'
 s2 = 'ab9'
 print strComparator(s1,s2)
-
-
