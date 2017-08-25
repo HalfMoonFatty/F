@@ -17,6 +17,7 @@ Combine lists with identical emails, and output tuples:
 '''
 
 
+
 import collections
 
 def contactGroup(contact):
@@ -53,14 +54,16 @@ def contactGroup(contact):
                 curRoot = newRoot
 
 
-    group = collections.defaultdict(list)
+    emails = collections.defaultdict(set)
+    names = collections.defaultdict(set)
     for person in unionSet.keys():
         root = findRoot(unionSet,person)
-        group[root].append(person)
-    print group
-    return group.values()
+        emails[root] |= set(contact[person])
+        names[root].add(person)
+    return zip([tuple(elem) for elem in names.values()],
+               [tuple(elem) for elem in emails.values()])
+    
 
 contact = {1:["a@a.com", "b@b.com"], 2:["b@b.com", "c@c.com"], 3:["e@e.com"], 4:["a@a.com"]}
 print contactGroup(contact)
-
 
