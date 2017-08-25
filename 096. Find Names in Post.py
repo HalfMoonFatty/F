@@ -69,8 +69,8 @@ class Trie(object):
         for i in range(len(post)):
             res = search(post, i)
 
-        for word in res:
-            result[word].append(i)
+            for word in res:
+                result[word].append(i)
 
         return result
 
