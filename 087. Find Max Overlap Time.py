@@ -28,13 +28,11 @@ def findMaxOverLapTime(intervals):
             if nIntervals > maxInterval:
                 maxInterval = nIntervals
                 start = p[0]
-                #end = p[0]
         else:
             if nIntervals == maxInterval:
                 end = p[0]
-
             nIntervals -= 1
-        print p, start, end
+
     result = []
     for i in range(start, end):
         result.append(i)
