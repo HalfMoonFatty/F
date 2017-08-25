@@ -35,6 +35,8 @@ g = Graph(4, [[0,1],[0,3],[1,2],[2,3]])
 print "Yes" if g.isBipartite(0) else "No"
  
 
+ 
+
 '''
 Problem 2: 
 
