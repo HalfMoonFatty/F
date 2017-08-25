@@ -37,7 +37,7 @@ def checkBalanced(message):
         if closeParenth > openParenth:
             if closeParenth - smileys > openParenth:
                 return False
-            smileys = smileys - (closeParenth - openParenth)
+            smileys = smileys - (closeParenth - openParenth)    # smileys是: 用 ) match ( 了后剩下的来搭配 ) 做 :), 剩下的: 是新的 smileys
             closeParenth = openParenth
 
         if char == ':':
