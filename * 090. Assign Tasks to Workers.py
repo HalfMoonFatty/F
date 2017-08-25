@@ -1,7 +1,7 @@
 '''
 Problem:
 
-Assign independent tasks to n workers. Return the task schedules wuth the shortest time.
+Assign independent tasks to n workers. Return the task schedules with the shortest time.
 
 '''
 
