@@ -9,44 +9,41 @@ NOTE: neighboring relationship is given by adjacent list which means a house may
 # Python program for solution of M Coloring 
 # problem using backtracking
  
-class Graph():
+import collections
+class Graph(object):
  
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)] for row in range(vertices)]
- 
- 
-    # A utility function to check if the current color assignment
-    # is safe for vertex v
-    def isSafe(self, v, colour, c):
-        for i in range(self.V):
-            if self.graph[v][i] == 1 and colour[i] == c:
-                return False
-        return True
-     
-    # A recursive utility function to solve m coloring  problem
-    def graphColourUtil(self, m, colour, v):
-        if v == self.V:
-            return True
- 
-        for c in range(1, m+1):
-            if self.isSafe(v, colour, c) == True:
-                colour[v] = c
-                if self.graphColourUtil(m, colour, v+1) == True:
-                    return True
-                colour[v] = 0
- 
-    def graphColouring(self, m):
-        colour = [0] * self.V
-        if self.graphColourUtil(m, colour, 0) == False:
+    def __init__(self, n, pairs):
+        self.graph = collections.defaultdict(list)
+        for pair in pairs:
+            self.graph[pair[0]].append(pair[1])
+            self.graph[pair[1]].append(pair[0])
+        self.n = n
+
+
+    def canColored(self, m):
+
+        def paintHouse(house):
+            def isSafe(house, c):
+                for n in self.graph[house]:
+                    if colors[n] == c:
+                        return False
+                return True
+
+            if house == self.n:
+                return True
+            for c in range(m):
+                if isSafe(house, c):
+                    colors[house] = c
+                    if paintHouse(house+1):
+                        return True
+                    colors[house] = -1
             return False
- 
-        return True
- 
-  
-  
-# Driver Code
-g  = Graph(4)
-g.graph = [[0,1,1,1], [1,0,1,0], [1,1,0,1], [1,0,1,0]]
-m=3
-g.graphColouring(m)
+
+        colors = [-1] * self.n
+        return paintHouse(0)
+
+
+        
+
+g = Graph(4, [[0,1],[0,2],[0,3],[1,2],[2,3]])
+print "Yes" if g.canColored(3) else "No"
