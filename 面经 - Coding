@@ -4,7 +4,7 @@
    2. Each node has multiple children
    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
     
-[X] 002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
+002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
 
 003. Flatten Nested Array
 
@@ -57,7 +57,7 @@
 
 025. Check Consecutive Subarray Duplicate Numbers
 
-* 026. Remove Invalid Parentheses
+026. Remove Invalid Parentheses
 
 * 027. Permutation in String
 
@@ -110,7 +110,7 @@
 
 051. LCA of BST
 
-[X] 052. LCA of BT
+052. LCA of BT
 
 * 053. Add and Search Word - Data structure design
 
@@ -405,15 +405,7 @@ print:
 
 
 
-16. 给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
-A: [1,5], [10,14], [16,18]
-B: [2,6], [8,10], [11,20]
-Merge them all:  [1,6], [8, 20].
-
-
-
-
-17. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
+16. 给一组区级的二维数组，每一组代表一个接收方，每一个接收方有一组区间。然后给一个整数，要求找出所有区间 ...
 
 例子就是
 A想要接收1~4、7~9、12~15
@@ -430,7 +422,7 @@ C想要接收5~6
 
 
 
-18. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
+17. Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
 In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". 
 However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output.
 Output doesnt need to maintain the ordering as in the alphabet. 
@@ -440,18 +432,18 @@ input = "abbcac", alphabet="abc" Output : shortest substring = "bca".
 
 
 
-19. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
+18. Given the newest 100 entries of a person's facebook newsfeed. How would you rank the entries. 
 The (for the user) most important ones should be ranked first. Which features would you use and how do you train/improve your model (machine learning)?
 
 
 
-20. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
+19. Design a algorithm to initialize the board of Candy Crush Saga. With M x N board, Q types of candies. 
 (Rules: no 3 for run after initialization, must contain at least one valid move at the beginning)
 
 
 
 
-21.implement circular array
+20.implement circular array
   * implement circular buffer with read & write functions
 
 
