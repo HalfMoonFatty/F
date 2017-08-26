@@ -10,6 +10,30 @@ Problem:
 房间数为n, sequence 长度为k。
 '''
 
+
+# dfs
+# time: n^k; n = rooms; k = len(sequence);
+def findThief(rooms, sequence):
+    def findThief(rooms, thiefPos, sequence, i):
+        if i >= len(sequence) or thiefPos < 0 or thiefPos >= rooms:
+            return False
+        if sequence[i] == thiefPos:
+            return True
+        return findThief(rooms, thiefPos+1, sequence, i+1) or findThief(rooms, thiefPos-1, sequence, i+1)
+
+    result = False
+    for thiefPos in range(rooms):
+        result |= findThief(rooms, thiefPos, sequence,0)
+    return result
+
+
+rooms = 3
+sequence = [1,1]
+print findThief(rooms, sequence)
+
+
+
+
 # Time: O(n*k)
 # Space: O(n)
 
