@@ -10,16 +10,18 @@ Given a sorted array of integers: [-3, -1, 0, 1, 2]. Generate a sorted array of 
 def sortArraySquares(nums):
     if not nums: return []
 
-    result = []
+    result = [0] * len(nums)
     i,j = 0, len(nums)-1
+    k = len(nums)-1
     while i <= j:
         if abs(nums[i]) < abs(nums[j]):
-            result.append(nums[j]*nums[j])
+            result[k] = nums[j]*nums[j]
             j -= 1
         else:
-            result.append(nums[i]*nums[i])
+            result[k] = nums[i]*nums[i]
             i += 1
-    return result[::-1]
+        k -= 1
+    return result
 
 
 
