@@ -17,9 +17,8 @@ def preOrderToInOder(preorder):
     for n in preorder:
         while len(stack) and n > stack[-1]:
             result.append(stack.pop())
-
         stack.append(n)
-        #print stack, result
+
     result.append(stack.pop())
     return result
 
