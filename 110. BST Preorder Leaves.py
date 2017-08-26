@@ -4,41 +4,50 @@ Problem:
 Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
 '''
 
-def deserialize(data):
+def leafNode(preorder):
 
-    if not data: return None
+    if len(preorder) < 2: return preorder
 
     result = []
-    nstack, rstack = [], [0x7FFFFFFF]
-    for val in data:
-        if nstack:
-            # go all the way to the left 
-            if val < nstack[-1]:
-                rstack.append(nstack[-1])
-            
-            elif val > rstack[-1]:
-                result.append(nstack[-1])
-                while nstack[-1] > nstack[-2]:  # pop out right branch
-                    nstack.pop()
-                rstack.pop()
-                nstack.pop()
+    stack = []
+    i,j = 0,1
+    while j < len(preorder):
+        found = False
+        if preorder[i] > preorder[j]:
+            stack.append(preorder[i])
+        else:
+            while len(stack):
+                if preorder[j] > stack[-1]:
+                    stack.pop()
+                    found = True
+                else:
+                    break
 
-        nstack.append(val)
+        if found: 
+            result.append(preorder[i])
 
-    result.append(nstack[-1]) # last right most node
+        i += 1
+        j += 1
+
+    result.append(preorder[-1])
     return result
 
 
 t1 = [4,2,1,3,6,5,7,8,9]
-print deserialize(t1)
-# [1,3,5,9]
-t2 = [5,4,3,2] 
-print deserialize(t2)
-# [2]
-t3 = [1,2,3,4,5]
-print deserialize(t3)
-# [5]
+print leafNode(t1)
+#[1, 3, 5, 9]
 
+t2 = [5,4,3,2] 
+print leafNode(t2)
+#[2]
+
+t3 = [1,2,3,4,5]
+print leafNode(t3)
+#[5]
+
+t4 = [4,5,8,7,6,9,10,11]
+print leafNode(t4)
+#[6,11]
 
 
 
