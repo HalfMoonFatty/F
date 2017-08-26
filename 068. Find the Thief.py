@@ -12,7 +12,7 @@ Problem:
 
 
 # dfs
-# time: n^k; n = rooms; k = len(sequence);
+# time: k*n^k; n = rooms; k = len(sequence);
 def findThief(rooms, sequence):
     def findThief(rooms, thiefPos, sequence, i):
         if i >= len(sequence) or thiefPos < 0 or thiefPos >= rooms:
