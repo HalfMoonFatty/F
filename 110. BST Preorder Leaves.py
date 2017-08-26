@@ -30,24 +30,20 @@ def leafNode(preorder):
 
     result = []
     stack = []
-    i,j = 0,1
-    while j < len(preorder):
+
+    for i in range(len(preorder)-1):
         found = False
-        if preorder[i] > preorder[j]:
+        if preorder[i] > preorder[i+1]:    # decreasing order
             stack.append(preorder[i])
         else:
             while len(stack):
-                if preorder[j] > stack[-1]:
+                if preorder[i+1] > stack[-1]:
                     stack.pop()
                     found = True
                 else:
                     break
-
         if found: 
             result.append(preorder[i])
-
-        i += 1
-        j += 1
 
     result.append(preorder[-1])
     return result
