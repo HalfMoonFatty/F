@@ -4,6 +4,26 @@ Problem:
 Given preorder traversal [5,3,2,4,8,7,9] of a BST, how do we identify the leaf nodes without building the tree ? 
 '''
 
+'''
+Solution:
+
+preorder = 8,7,6,9,10       (decreasing时，把 val push 到 stack上)
+               i j
+
+
+stack = | 7 |
+        | 8 |
+        
+
+            8
+           / \
+          7   9
+         /     \
+        6      10
+
+http://www.geeksforgeeks.org/leaf-nodes-preorder-binary-search-tree/
+'''
+
 def leafNode(preorder):
 
     if len(preorder) < 2: return preorder
