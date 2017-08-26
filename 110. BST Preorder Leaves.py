@@ -31,12 +31,13 @@ def deserialize(data):
 
 t1 = [4,2,1,3,6,5,7,8,9]
 print deserialize(t1)
-# [1,3,5,8]
+# [1,3,5,9]
 t2 = [5,4,3,2] 
 print deserialize(t2)
-# [2,4,7,9]
+# [2]
 t3 = [1,2,3,4,5]
 print deserialize(t3)
+# [5]
 
 
 
