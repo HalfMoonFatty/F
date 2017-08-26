@@ -15,7 +15,9 @@ def replaceStr(s):
             j += 1
         if s[i] == s[j] and j > i+1:
             s[i:j+1] = '+' * (j-i+1)
-        i += 1
+            i = j + 1
+        else: 
+            i += 1
     return ''.join(s)
 
 test = '--a-d*-d-a-b'
