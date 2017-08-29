@@ -14,8 +14,7 @@ def constructBST(preorder):
         if start == end: return root
 
         # find the index of the right Tree
-        start += 1
-        rightIndex = start
+        rightIndex = start + 1
         while rightIndex < end and preorder[rightIndex] < root.val:
             rightIndex += 1
 
@@ -23,7 +22,7 @@ def constructBST(preorder):
         if rightIndex > start: left = constructHelper(preorder, start, rightIndex-1)
         if rightIndex <= end: right = constructHelper(preorder, rightIndex, end)
         root.left = left
-        root right = right 
+        root.right = right 
         return root
 
     if not preorder: return None
