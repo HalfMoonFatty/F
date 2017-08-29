@@ -51,10 +51,9 @@ class Solution(object):
         maxLen = -1
         for i in nums:
             if mp.has_key(i): continue
-        
+		
             low = mp[i-1] if mp.has_key(i-1) else i
             high = mp[i+1] if mp.has_key(i+1) else i 
-
             maxLen = max(maxLen, high-low+1)
 
             mp[i] = i
