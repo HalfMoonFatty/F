@@ -4,11 +4,11 @@
    2. Each node has multiple children
    * Similar to 236. Lowest Common Ancestor of a Binary Tree 
     
-002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
+** 002. Prettify JSON:  输入[1,2,3, {"id": 1, "name": "wang", "tag":[1,"home",2], "price":234}]
 
 003. Flatten Nested Array
 
-004. Flatten Nested Linked List
+** 004. Flatten Nested Linked List
 
 005. Binary Tree Level Order Traversal
 
@@ -19,7 +19,7 @@
 
 008. Balance Parentheses in a string
 
-009. 给2D平面上的N个点，求离原点最近的K个点
+** 009. 给2D平面上的N个点，求离原点最近的K个点
      Given some points in two dimensional space, find k points out of all points which are nearest to origin(0,0)
 
 010. Decode Ways
@@ -31,7 +31,7 @@
 
 012. Longest consecutive sequence
 
-* 013. Reconstruct BST From Pre-order Sequence
+013. Reconstruct BST From Pre-order Sequence
 
 014. Remove Target Char from a Source String
 
