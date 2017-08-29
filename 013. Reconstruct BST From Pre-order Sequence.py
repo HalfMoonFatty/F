@@ -7,6 +7,32 @@ Reconstruct BST From Pre-order Sequence.
 
 # Solution 1: Recursive
 
+
+def constructBST(preorder):
+
+    def constructHelper(preorder, start, end):
+        if start < end: return None
+        root = TreeNode(preorder[start])
+        if start == end: return root
+
+        # find the index of the right Tree
+        rightIndex = start + 1
+        while rightIndex < end and preorder[rightIndex] < root.val:
+            rightIndex += 1
+
+        root.left = constructHelper(preorder, start, rightIndex-1)
+        root.right = constructHelper(preorder, rightIndex, end) 
+        return root
+
+    if not preorder: return None
+    return constructHelper(preorder, 0, len(preorder)-1)
+
+
+
+
+
+
+
 def constructBST(preorder):
 
     def constructHelper(preorder, start, end):
@@ -45,9 +71,9 @@ class Codec:
     def serialize(self, root):
 
         if not root: return ''
+        ans = str(root.val)
         left = self.serialize(root.left)
         right = self.serialize(root.right)
-        ans = str(root.val)
         if left: ans += ',' + left
         if right: ans += ',' + right
         return ans
