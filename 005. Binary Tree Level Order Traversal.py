@@ -54,27 +54,21 @@ class Solution(object):
 
 class Solution(object):
     def levelOrder(self, root):
-
-        if not root:
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root: 
             return []
-
-        result = [[root]]
-        last_level = 0
-
-        while result[-1]:
-            next_level = []
-            for j in range(len(result[last_level])):
-                node = result[last_level][j]
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)
-                # replace current node with only its value
-                result[last_level][j] = node.val
-
-            if not next_level:
-                break
-            result.append(next_level)
-            last_level += 1
-
+        
+        result = []
+        q = collections.deque([root])
+        while len(q):
+            size = len(q)
+            result.append([])
+            for i in range(size):
+                cur = q.popleft()
+                result[-1].append(cur.val)
+                if cur.left: q.append(cur.left)
+                if cur.right: q.append(cur.right)
         return result
