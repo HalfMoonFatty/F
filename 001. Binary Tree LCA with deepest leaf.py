@@ -80,18 +80,13 @@ def findLCAIterative(TreeNode root):
     while len(q):
         size = len(q)
         for i in range(size):
-
             cur = q.popleft()
             # record the most left and right node of last level
-            if i == 0:
-                left = cur
-            if i == size - 1:
-                right = cur
-
+            if i == 0: left = cur
+            if i == size - 1: right = cur
             if cur.left:
                 q.append(cur.left)
                 childToParent[left] = cur
-
             if cur.right:
                 q.append(cur.right)
                 childToParent[right] = cur
@@ -117,7 +112,6 @@ def findLCAMulti(TreeNode root):
     if not root:
         return (None,0)    # tuple(node, depth)
 
-    
     next = []
     for child in root.children:
         next.append(findLCAMulti(child))
