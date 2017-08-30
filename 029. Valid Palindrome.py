@@ -17,7 +17,7 @@ class Solution(object):
             return True
 
         start,end = 0, len(s)-1
-        while start<=end:
+        while start <= end:
             if s[start].upper() == s[end].upper():
                 start += 1
                 end -= 1
