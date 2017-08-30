@@ -51,7 +51,7 @@ class Solution:
                     # ignore repeated element to avoid duplicate triplet *2
                     while j < k and numbers[j] == numbers[j-1]:
                         j += 1
-                    while j < k and numbers[k] == numbers[k+1]:
+                    while k > j and numbers[k] == numbers[k+1]:
                         k -= 1
                 elif numbers[i] + numbers[j] + numbers[k] < 0:
                     j += 1
