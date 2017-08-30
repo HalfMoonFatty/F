@@ -15,9 +15,9 @@ def SubarrayEqualsK(nums, k):
     accu = 0 
     for n in nums:
         accu += n
+        sums.add(accu)
         if accu - k in sums:
             return True
-        sums.add(accu)
     return False
 
 
