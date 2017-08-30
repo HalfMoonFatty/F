@@ -32,17 +32,17 @@ class Solution(object):
         l1, l2 = len(s1), len(s2)
         c1 = collections.Counter(s1)
         c2 = collections.Counter()
-        p = q = 0
-        while q < l2:
-            c2[s2[q]] += 1
+        i = j = 0
+        while j < l2:
+            c2[s2[j]] += 1
             if c1 == c2:
                 return True
-            q += 1
-            if q - p + 1 > l1:
-                c2[s2[p]] -= 1
-                if c2[s2[p]] == 0:
-                    del c2[s2[p]]
-                p += 1
+            j += 1
+            if j - i + 1 > l1:
+                c2[s2[i]] -= 1
+                if c2[s2[i]] == 0:
+                    del c2[s2[i]]
+                i += 1
         return False
 
 
