@@ -42,8 +42,7 @@ def strStr2D(haystack, needle):
     for row in range(len(haystack)):
         for col in range(len(haystack[0])):
             i, j, k = row, col, 0
-            while i < len(haystack) and j < len(haystack[0]) and k < len(needle) \
-            and haystack[i][j] == needle[k]:
+            while i < len(haystack) and j < len(haystack[0]) and k < len(needle) and haystack[i][j] == needle[k]:
                 k += 1
                 j += 1
                 if j == len(haystack[0]):
