@@ -24,7 +24,7 @@ def SubarrayEqualsK(nums, k):
 
 
 '''
-Problem 2:
+Problem 2: Longest Subarray Sum Equals to K
 
 Given an array nums and a target value k, find the maximum length of a subarray that sums to k. 
 If there isn't one, return 0 instead.
@@ -60,10 +60,34 @@ class Solution(object):
         return maxLen
 
 
+    
+    
+'''
+Problem 3: Shortest Subarray Sums eaquals K
+'''
+
+'''
+Solution:
+Time: O(n); Space: O(1)
+'''
+
+def minSubArrayLen(nums, k):
+    slow = fast = 0
+    sums = 0
+    while fast < len(nums):
+        sums += nums[fast]
+        while sums > k:
+            sums - nums[slow]
+            slow += 1
+        if sums == k:
+            return True
+        fast += 1
+    return False
+
 
 
 '''
-Problem 3:
+Problem 4:
 
 Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
 
