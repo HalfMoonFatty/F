@@ -42,7 +42,7 @@ class Node(object):
     return self._children
 
 def DecomposeEvenForest(node):
-  count = 0  # Size of forest (!!! not sub tree !!!) rooted at node.
+  count = 0  # number of nodes in the subtree rooted at node.
   edges_to_remove = 0  # Numbeer of edges removed so far across the subtree.
 
   for child in node.GetChildren():
@@ -50,9 +50,9 @@ def DecomposeEvenForest(node):
 
     edges_to_remove += sub_edges_to_remove
 
-    if sub_count % 2 == 0:
+    if sub_count % 2 == 0:  # if can cut between me and my child so I don't care
       edges_to_remove += 1
-    else:
+    else:   # otherwise keep the connection between me and my child and accumulate my child's node to me(root)
       count += sub_count
 
   count += 1  # Include the node itself in count.
