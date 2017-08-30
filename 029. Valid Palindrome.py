@@ -13,7 +13,7 @@ class Solution(object):
     def isPalindrome(self, s):
 
         s =''.join(ch for ch in s if ch.isalnum())
-        if not (s.strip()) or len(s) ==1:
+        if not (s.strip()) or len(s) == 1:
             return True
 
         start,end = 0, len(s)-1
