@@ -17,6 +17,6 @@ def findLongestPath(root):
         return (depth, longestPath)
 
     if not root: return 0
-    return getLongestPath(root)
+    return getLongestPath(root)[1]
 
 
