@@ -39,8 +39,8 @@ def mergeSortedIntervals(intervals):
         # merge
         while len(heap) and intervals[cur_Index][cur_i].end >= heap[0][0]:
             next_starttime, next_Index, next_i = heapq.heappop(heap)
-            intervals[cur_Index].end = max(intervals[cur_Index].end, intervals[next_Index].end)
+            intervals[cur_Index][cur_i].end = max(intervals[cur_Index][cur_i].end, intervals[next_Index][next_i].end)
             if next_i+1 < len(intervals[next_Index]): heapq.heappush(heap, [intervals[next_Index][next_i], next_Index, next_i+1)
-        result.append(intervals[cur_Index])
+        result.append(intervals[cur_Index][cur_i])
 
     return result
