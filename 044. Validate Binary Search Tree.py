@@ -38,6 +38,7 @@ def inorder(root):
 
     stack = []
     previous = -sys.maxint-1
+    pushLeft(root)
     while len(stack):
         cur = stack.pop()
         if previous >= cur.val:
