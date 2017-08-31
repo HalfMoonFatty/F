@@ -8,7 +8,7 @@ Note:
 '''
 
 
-# Solution 1: Quick Select Time: O(n)
+# Solution 1: Quick Select Worst Time: O(n^2); Average O(n)
 
 
 import random
