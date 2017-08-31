@@ -59,7 +59,7 @@
 
 026. Remove Invalid Parentheses
 
-* 027. Permutation in String
+** 027. Permutation in String
 
 028. First Bad Version
 
@@ -70,6 +70,7 @@
 * 031. Find longest arithmetic subsequence in an unsorted array (Longest Arithmetic Progression)
 
 032. longest PATH(could be the path from leaf to leaf) in binary tree(BT longest path)
+     * Bianry Tree Diameter
 
 033. Word Search I + II
 
@@ -85,7 +86,7 @@
 
 039. Task Schedule 
 
-[X] 040. Kth Largest Element in an Array  (sorted/unsorted)
+** 040. Kth Largest Element in an unsorted Array  (Quick Select / Heap)
 
 041. Reverse Print Linked List (Recursive/Iterative) / Reverse Linked List
 
