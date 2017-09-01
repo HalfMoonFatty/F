@@ -56,6 +56,7 @@ dict = ["cat", "cats", "and", "sand", "dog"].
 A solution is ["cats and dog", "cat sand dog"].
 '''
 
+
 # Solution 1: DFS+ Cache
 
 class Solution(object):
@@ -65,22 +66,23 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype: List[str]
         """
-        def dfs(s, wordDict, cache):
+        def dfs(start, s, wordDict):
             if cache.has_key(s): return cache[s]
-            if not s: return []
             
             result = []
-            for length in range(1,len(s)+1):
-                word = s[0:length]
+            for i in range(start+1,len(s)+1):
+                word = s[start:i]
                 if word in wordDict:
-                    if length == len(s): 
+                    if i == len(s):
                         result.append(word)
                     else:
-                        ret = dfs(s[length:], wordDict, cache)
-                        for item in ret:
+                        res = dfs(i,s,wordDict)
+                        for item in res:
                             result.append(word + " " + item)
                             
-            cache[s] = result
+            cache[start] = result
             return result
-            
-        return dfs(s, wordDict, {})
+        
+        cache = {}
+        return dfs(0,s,wordDict)
+            if cache.has_key(s): return cache[s]
