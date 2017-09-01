@@ -74,9 +74,8 @@ import string
 def findLadder(start, end, wordBank):
     result = []
     found = False
-    q = collections.deque()
+    q = collections.deque([start])
     path = {}
-    q.append(start)
     path[start] = ""    # path: key - current word, value is previous word
     while len(q) and not found:
         word = q.popleft()
