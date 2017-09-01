@@ -1,4 +1,4 @@
-001. BT LCA with deepest leaf
+** 001. BT LCA with deepest leaf
    Follow-up:
    1. Recursive and Iterative (指向母点的指针)
    2. Each node has multiple children
@@ -67,7 +67,7 @@
 
 030. Dot Product
 
-* 031. Find longest arithmetic subsequence in an unsorted array (Longest Arithmetic Progression)
+** 031. Find longest arithmetic subsequence in an unsorted array (Longest Arithmetic Progression)
 
 032. longest PATH(could be the path from leaf to leaf) in binary tree(BT longest path)
      * Bianry Tree Diameter
@@ -86,7 +86,7 @@
 
 039. Task Schedule 
 
-** 040. Kth Largest Element in an unsorted Array  (Quick Select / Heap)
+040. Kth Largest Element in an unsorted Array  (Quick Select / Heap)
 
 041. Reverse Print Linked List (Recursive/Iterative) / Reverse Linked List
 
@@ -98,43 +98,44 @@
 
 045. Merge k Sorted Lists
 
-046. Find Median of Lists
+** 046. Find Median of Lists
 
 047. Merge Intervals
 
-048. Merge Interval from Sorted Arrays
+** 048. Merge Interval from Sorted Arrays
 
-049. Search in Rotated Sorted Array
+** 049. Sort Partial Sorted Array
 
-[X] 050. Common Substring (找两个字符串中长度为N以上的共同子串)
-     Follow-up: Longest common substring
-
+** 050. Common Substring (找两个字符串中长度为N以上的共同子串)
+    Follow-up: Longest common substring
+    Follow-up: Longest common subsequnce
+     
 051. LCA of BST
 
 052. LCA of BT
 
-* 053. Add and Search Word - Data structure design
+** 053. Add and Search Word - Data structure design
 
 054. Minimum Window Substring
 
-055. Binary Tree to Doubly LinkedList
+** 055. Binary Tree to Doubly LinkedList
      Follow - up: Revert double linked list back to balanced BST: 109. Convert Sorted List to Binary Search Tree
 
-056. Permutations / Unique permutations
+** 056. Permutations / Unique permutations
 
 057. Binary Search Tree Iterator
 
 058. Meeting Rooms I+II
 
-059. Max Rectangle Overlap
+** 059. Max Rectangle Overlap
 
 060. Multiply Strings
 
-061. Sort Partial Sorted Array
+061. Search in Rotated Sorted Array
 
 062. Number of 1 Bits
 
-063. Word Break
+** 063. Word Break
 
 064. 2 Sum
 
@@ -144,7 +145,7 @@
 
 067. Excel Sheet Column Title
 
-* 068. Find the Theaf
+* 068. Find the Theif
 
 069. Word Ladder
 
