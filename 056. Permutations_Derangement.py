@@ -97,30 +97,21 @@ public List<char[]> getDerangement(char[]){}.
 '''
 
 def derangement(s):
-    def isValid(s, ns):
-        for i in range(len(s)):
-            if s[i] == ns[i]:
-                return False
-        return True
-
 
     def helper(index, ls, path, result):
-        if index == len(ls) and isValid(s,ls):
+        if index == len(ls):
             result.append(''.join(ls))
             return
         for i in range(index, len(ls)):
             if ls[i] not in path:
                 path.add(ls[i])
                 ls[index], ls[i] = ls[i], ls[index]
-                helper(index+1, ls[:], set(), result)
+                if ls[index] != s[index] and ls[i] != s[i]:   # 如果满足条件就继续recusive call，否则就直接换回来
+                    helper(index+1, ls[:], set(), result)
                 ls[index], ls[i] = ls[i], ls[index]
-        return
+
 
     result = []
     helper(0,list(s),set(), result)
     return result
-
-
-s = 'ABCDE'
-print derangement(s)
 
