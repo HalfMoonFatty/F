@@ -41,7 +41,7 @@ def SortPartialSortedArray(nums):
         minVal, index, end = heapq.heappop(heap)
         result[itr] = minVal
         itr += 1
-        if index < end-1:
+        if index < end:
             heapq.heappush(heap, [nums[index+1], index+1, end])
 
     return result
