@@ -28,18 +28,20 @@ def SortPartialSortedArray(nums):
     result = [0] * len(nums)
 
     heap = []
-    itr = start = 0
+    start = 0
     for i in range(len(nums)):
         if i > 0 and nums[i] < nums[i-1]:
             heapq.heappush(heap, [nums[start], start, i-1])
             start = i
     heapq.heappush(heap, [nums[start], start, len(nums)-1])
 
+    
+    itr = 0
     while len(heap):
         minVal, index, end = heapq.heappop(heap)
         result[itr] = minVal
         itr += 1
-        if index < end:
+        if index < end-1:
             heapq.heappush(heap, [nums[index+1], index+1, end])
 
     return result
