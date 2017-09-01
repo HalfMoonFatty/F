@@ -96,15 +96,15 @@
 
 044. Validate Binary Search Tree
 
-045. Merge k Sorted Lists
+** 045. Find Median of Lists
 
-** 046. Find Median of Lists
+** 046. Sort Partial Sorted Array
 
-047. Merge Intervals
+047. Merge k Sorted Lists
 
 ** 048. Merge Interval from Sorted Arrays
 
-** 049. Sort Partial Sorted Array
+049. Merge Intervals
 
 ** 050. Common Substring (找两个字符串中长度为N以上的共同子串)
     Follow-up: Longest common substring
