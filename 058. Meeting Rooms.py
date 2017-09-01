@@ -68,8 +68,7 @@ class Solution(object):
         if not intervals: return 0
         if len(intervals) < 2: return 1
 
-        intervals.sort(key = attrgetter('start'))
-        #intervals.sort(key=lambda interval: interval.start)
+        intervals.sort(key=lambda interval: interval.start)
         heap = []
         heapq.heappush(heap, (intervals[0].end, intervals[0]))
 
