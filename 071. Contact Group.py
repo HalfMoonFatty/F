@@ -47,8 +47,8 @@ def contactGroup(contact):
             if not emailToPerson.has_key(email):
                 emailToPerson[email] = person
                 continue
+                
             newRoot = findRoot(unionSet, emailToPerson[email])
-
             if newRoot != curRoot:
                 union(unionSet, newRoot, curRoot)
                 curRoot = newRoot
