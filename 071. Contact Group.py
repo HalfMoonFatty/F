@@ -51,7 +51,7 @@ def contactGroup(contact):
             newRoot = findRoot(unionSet, emailToPerson[email])
             if newRoot != curRoot:
                 union(unionSet, newRoot, curRoot)
-                curRoot = newRoot
+                #curRoot = newRoot
 
 
     emails = collections.defaultdict(set)
