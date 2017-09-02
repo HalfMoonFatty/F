@@ -145,15 +145,15 @@
 
 067. Excel Sheet Column Title
 
-* 068. Find the Theif
+** 068. Find the Theif
 
 069. Word Ladder
 
 070. String Comparator
 
-071. Contact Group
+** 071. Contact Group
 
-072. Minimum Size Subarray Sum
+** 072. Minimum Size Subarray Sum
      # Follow-up 1: Extend to 2D and find if rectangle sum = k
      # Follow-up 2: LC363. Max Sum of Rectangle No Larger Than K
 
@@ -167,9 +167,9 @@
 
 077. Symmetric Tree (recursive / iterative)
 
-078. Binary Tree And Operation
+** 078. Binary Tree And Operation
 
-* 079. Find Smallest Binary Tree Path
+** 079. Find Smallest Binary Tree Path
 
 [X] 080. Paint House
 
@@ -252,7 +252,6 @@
 
 116. Matrix Path
 
-117. Even Tree
 
 
 
