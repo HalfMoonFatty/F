@@ -54,7 +54,6 @@ def sumSubmatrixEqualsK(matrix, k):
         for right in range(left, len(matrix[0])):
             sums = {0}
             curSum = 0
-            # accumulate current column to rowSum
             for i in range(len(matrix)):
                 rowSum[i] += matrix[i][right]
                 curSum += rowSum[i]
@@ -89,28 +88,18 @@ What if the number of rows is much larger than the number of columns?
 
 class Solution(object):
     def maxSumSubmatrix(self, matrix, k):
-        """
-            :type matrix: List[List[int]]
-            :type k: int
-            :rtype: int
-            """
 
         if not matrix: return 0
 
         res = -sys.maxint-1
         for left in range(0,len(matrix[0])):
-            tmp = [0] * len(matrix)
+            rowSum = [0] * len(matrix)
             for right in range(left, len(matrix[0])):
-
-                # accumulate current column to tmp
-                for i in range(len(matrix)):
-                    tmp[i] += matrix[i][right]
-
-                # find the max subarray no more than K
                 accuSum = [0]
                 curSum,curMax = 0, -sys.maxint -1
-                for v in tmp:
-                    curSum += v
+                for i in range(len(matrix)):
+                    rowSum[i] += matrix[i][right]
+                    curSum += rowSum[i]
                     ind = bisect.bisect_left(accuSum,curSum-k)
                     if ind < len(accuSum):
                         curMax = max(curMax,curSum-accuSum[ind])
