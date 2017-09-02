@@ -46,7 +46,6 @@ class Solution:
 import sys
 def sumSubmatrixEqualsK(matrix, k):
 
-
     if not matrix: return 0
 
     res = -sys.maxint-1
