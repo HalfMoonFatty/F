@@ -103,7 +103,6 @@ class Solution(object):
                     ind = bisect.bisect_left(accuSum,curSum-k)
                     if ind < len(accuSum):
                         curMax = max(curMax,curSum-accuSum[ind])
-                    # early return
                     #if curMax == k: return k
                     bisect.insort(accuSum,curSum)
 
