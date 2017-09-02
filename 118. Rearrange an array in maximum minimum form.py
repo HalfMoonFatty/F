@@ -79,6 +79,7 @@ def rearrange(arr):
             arr[i] += (arr[small] % max_elem) * max_elem
             small += 1
     
+    # arr = [91, 12, 83, 24, 75, 36, 67, 48, 59]
     for i in range(len(arr)):
         arr[i] /= max_elem
 
