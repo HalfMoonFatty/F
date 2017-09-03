@@ -51,7 +51,7 @@ class SerDesTree(object):
     
     
     
-# Seriablize and Deserialize Tree into LinkedList
+# Seriablize and Deserialize Tree
  
 class Codec:
 
