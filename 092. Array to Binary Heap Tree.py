@@ -107,8 +107,7 @@ def addOne(root, value):
     while True:
         if value > itr.val:
             if not itr.right:
-                node = TreeNode(value)
-                itr.right = node
+                itr.right = TreeNode(value)
                 break
             prev = itr
             itr = itr.right
