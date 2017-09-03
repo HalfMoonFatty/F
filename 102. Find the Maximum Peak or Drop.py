@@ -7,6 +7,8 @@ Exps:
 10 -> 4 -> 3 -> 8 = 7 ;
 '''
 
+# Time: O(n)
+
 def findMaxDrop(nums):
     minVal = maxVal = nums[0]
     for n in nums:
@@ -20,6 +22,28 @@ n2 = [10,4,3,8,7]
 
 print findMaxDrop(n1)
 print findMaxDrop(n2)
+
+
+
+
+# Solution 2: Binary Search O(lgn)
+# 先判断是 Up 还是 Down
+# 如果是 Up, 那么maxGap = peak - min(nums[0], nums[-1])
+# 如果是 Down, 那么maxGap = drop - max(nums[0], nums[-1])
+
+class Solution(object):
+    def findPeakElement(self, nums):
+
+        start, end = 0, len(nums)-1
+        while start < end:
+            mid = start + (end - start)/2
+            if nums[mid] > nums[mid+1]:
+                end = mid
+            else:
+                start = mid+1
+        
+        return start
+
 
 
 
