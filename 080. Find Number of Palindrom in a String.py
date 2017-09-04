@@ -26,7 +26,7 @@ def countPS(s):
             if s[j-1] == s[i-1] and (i-j<=2 or isPal[j+1][i-1]):
                 isPal[j][i] = True
             if isPal[j][i]: 
-                dp[j][i] = dp[j][i-1] + dp[j+1][i] + 1 - dp[j+1][i-1]
+                dp[j][i] = dp[j][i-1] + dp[j+1][i] - dp[j+1][i-1] + 1
             else:
                 dp[j][i] = dp[j][i-1] + dp[j+1][i] - dp[j+1][i-1]
     return dp[0][n-1]
