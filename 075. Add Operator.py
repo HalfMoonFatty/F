@@ -48,18 +48,14 @@ Problem:
 写完后，让跑test,最后问时间复杂度。
 '''
 
+class Solution(object):
+    def findTargetSumWays(self, nums, S):
 
-
-import collections
-def findTargetSumWays(nums, S):
-
-    dp = [collections.defaultdict(int) for _ in range(len(nums)+1)]
-    dp[0][0] = 1
-    
-    for i in range(1,len(nums)+1):
-        for j in range(1,i+1):
-            for k in dp[i-j].keys():
-                dp[i][k+nums[i-j]] += dp[i-j][k]
-                dp[i][k-nums[i-j]] += dp[i-j][k]
-
-    return dp[-1][S]
+        dp = [collections.defaultdict(int) for _ in range(len(nums)+1)]
+        dp[0][0] = 1
+        
+        for i in range(1,len(nums)+1):
+            for k in dp[i-1].keys():
+                dp[i][k+nums[i-1]] += dp[i-1][k]
+                dp[i][k-nums[i-1]] += dp[i-1][k]
+        return dp[-1][S]
