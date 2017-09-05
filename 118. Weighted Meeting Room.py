@@ -1,8 +1,21 @@
-# http://www.geeksforgeeks.org/weighted-job-scheduling/
+'''
+Problem:
 
-#
+Given a series of meetings, how to schedule them. Cannot attend more than a meeting at the same time. 
+Goal is to find maximum weight subset of mutually non-overlap meetings.
+
+class Meeting:
+def __init__(self):
+    self.startTime
+    self.endTime
+    self.weight
+
+# http://www.geeksforgeeks.org/weighted-job-scheduling/
+'''
+
+
 # Common helpers shared by both recursion and dp solutions.
-#
+
 class Job(object):
   def __init__(self, start, finish, profit):
     self.start = start
@@ -17,9 +30,9 @@ def latestNonConflict(jobs, i):
     j -= 1
   return -1
 
-#
+
 # Recursion solution.
-#
+
 def findMaxProfitRec(jobs):
   if len(jobs) == 1:
     return jobs[0].profit
@@ -39,9 +52,11 @@ def findMaxProfitWithRecursion(jobs):
   sorted(jobs, key=lambda elem: elem.finish)
   return findMaxProfitRec(jobs)
 
-#
+
+
+
 # DP solution.
-#
+
 def findMaxProfitWithDp(jobs):
   sorted(jobs, key=lambda elem: elem.finish)
   dp = [0] * len(jobs)
