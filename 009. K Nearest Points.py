@@ -28,7 +28,7 @@ def findNearestKPoints(points, k):
     for p in points:
         if len(maxHeap) < k:
             heapq.heappush(maxHeap,[-getDistance(p),p])
-        elif getDistance(p) < -maxHeap[-1][0]:
+        elif getDistance(p) < -maxHeap[0][0]:
             heapq.heappop(maxHeap)
             heapq.heappush(maxHeap,[-getDistance(p),p])
 
