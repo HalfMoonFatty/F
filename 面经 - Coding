@@ -256,6 +256,9 @@
 
 118. Weighted Meeting Room 
 
+119. Circular Queue
+
+
 
 [X] 100. Find 2nd Mutal Friends
 20. Recommend K friends with most mutual friends.
@@ -376,9 +379,6 @@ boolean boolean CanRunTasks(S[], T[]){
 
 
 
-
-10.implement circular array
-  * implement circular buffer with read & write functions
 
 ========================================================
 
