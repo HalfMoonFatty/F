@@ -70,7 +70,7 @@
 ** 031. Find longest arithmetic subsequence in an unsorted array (Longest Arithmetic Progression)
 
 032. longest PATH(could be the path from leaf to leaf) in binary tree(BT longest path)
-     * Bianry Tree Diameter
+     Bianry Tree Diameter
 
 033. Word Search I + II
 
@@ -106,7 +106,7 @@
 
 049. Merge Intervals
 
-** 050. Common Substring (找两个字符串中长度为N以上的共同子串)
+* 050. Common Substring (找两个字符串中长度为N以上的共同子串)
     Follow-up: Longest common substring
     Follow-up: Longest common subsequnce
      
@@ -114,7 +114,7 @@
 
 052. LCA of BT
 
-** 053. Add and Search Word - Data structure design
+* 053. Add and Search Word - Data structure design
 
 054. Minimum Window Substring
 
