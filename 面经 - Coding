@@ -116,7 +116,7 @@
 
 * 053. Add and Search Word - Data structure design
 
-054. Minimum Window Substring
+** 054. Find Names in Post
 
 ** 055. Binary Tree to Doubly LinkedList
      Follow - up: Revert double linked list back to balanced BST: 109. Convert Sorted List to Binary Search Tree
@@ -205,7 +205,7 @@
 095. Remove Duplicate Chars in a String
      # Erase duplicate in an unsorted array
 
-** 096. Find Names in Post
+096. Minimum Window Substring
 
 ** 097. Find Least Number of Intervals from A That Can Fully Cover B
 
