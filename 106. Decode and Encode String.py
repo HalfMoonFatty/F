@@ -90,30 +90,16 @@ class Solution(object):
     dp = [[''] * len(s) for _  in range(len(s))]
 
     for l in range(len(s)):
-      #Each outer loop will compute optimal encoding for all substring of length l.
       for i in range(len(s) - l):
         j = i + l
         substr = s[i:j + 1]
         dp[i][j] = substr
-        # Skip if substr length < 5. In that case, we know that encoding will
-        # not help.
+
         if l >= 4:
-          # Loop for trying all results that we get after dividing the substr into 2
-          # pieces, and combine the results for the pieces.
           for k in range(i, j):
-            # k is the split point of the 2 pieces of the substring. We only need to
-            # cut *once*, because dp[i][k] is already the optimal encoding for
-            # substr[i:k+1], which in itself may include multiple x[yzk] encodings.
             if len(dp[i][k] + dp[k + 1][j]) < len(dp[i][j]):
-              # Split at k is better. Update existing solution.
               dp[i][j] = dp[i][k] + dp[k + 1][j]
 
-          # Loop for checking if the substring can itself found some pattern in
-          # it which could be repeated. This is the base case for initiating the
-          # encoding. We only check for single-pattern encodings, i.e. encodings
-          # where there is exactly one pair of []. This is because we start l from
-          # low to high, so if the optimal solution has multiple pairs of [], it
-          # will be covered in the previous if block (L23-L25).
           for k in range(len(substr)):
             repeat_str = substr[0:k + 1]
             multiple = len(substr) / len(repeat_str)
