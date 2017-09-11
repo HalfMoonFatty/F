@@ -1,30 +1,83 @@
 '''
-Problem 1: 给一个数字array, 有正有负数。给一个数， array中是否存在连续的数字，其和是给定的数。
+Problem 1: Subarray Sum Equals K
+
+Given an array of positive integers and a target total of X, find if there exists a contiguous subarray with sum = X 
+e.g. [1, 3, 5, 18] 
+X = 8  Output: True 
+X = 9  Output: True 
+X = 10 Output: False 
+X = 40 Output :False
 '''
 
-'''
-Solution:
-
-Use hashSet to store the sum, range[i ~ j] = sum[j] - sum[i] = k
-
-Set.contains(sum - k), return true
-'''
-
-def SubarrayEqualsK(nums, k):
-    sums = set()
-    accu = 0 
-    for n in nums:
-        accu += n
-        sums.add(accu)
-        if accu - k in sums:
+def subArraySum(nums, target):
+    dmap = {0:-1}
+    total = 0
+    for i, n in enumerate(nums):
+        total += n
+        if total not in dmap: 
+            dmap[total] = i
+        if dmap.has_key(total - target): 
             return True
+
     return False
 
 
 
+test = [1, 3, 5, 18] 
+for n in [8,9,10,40]:
+    print subArraySum(test,n)
+
+
+    
+    
+'''
+Problem 2:
+
+Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size 
+at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
+Example 1:
+Input: [23, 2, 4, 6, 7],  k=6
+Output: True
+Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
+Example 2:
+Input: [23, 2, 6, 4, 7],  k=6
+Output: True
+Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and sums up to 42.
+Note:
+The length of the array won't exceed 10,000.
+You may assume the sum of all the numbers is in the range of a signed 32-bit integer.
+'''
+
 
 '''
-Problem 2: Longest Subarray Sum Equals to K
+Solution:
+遍历数组nums，求前i项和total；对k取模，记模值为m
+利用dmap[m]记录模为m的前i项和的最小下标，初始令dmap[0] = -1
+若 i - dmap[m] > 1，则返回True
+'''
+
+
+class Solution(object):
+    def checkSubarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        
+        dmap = {0:-1}
+        total = 0
+        for i, n in enumerate(nums):
+            total += n
+            m = total % k if k else total
+            if m not in dmap: dmap[m] = i
+            elif i - dmap[m] > 1: return True
+        return False
+    
+
+
+'''
+Problem 3: Longest Subarray Sum Equals to K
 
 Given an array nums and a target value k, find the maximum length of a subarray that sums to k. 
 If there isn't one, return 0 instead.
@@ -63,7 +116,7 @@ class Solution(object):
     
     
 '''
-Problem 3: Shortest Subarray Sums eaquals K
+Problem 4: Shortest Subarray Sums eaquals K
 '''
 
 '''
@@ -87,7 +140,7 @@ def minSubArrayLen(nums, k):
 
 
 '''
-Problem 4:
+Problem 5:
 
 Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
 
