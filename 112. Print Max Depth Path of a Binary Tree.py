@@ -17,6 +17,17 @@ class Solution(object):
         
 # Follow-up: Print Max Depth Path of a Binary Tree
 
+class Solution(object):
+    def maxDepth(self, root):
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+        
+        
+        
+        
+# Follow-up: Print Max Depth Path of a Binary Tree
+
 class TreeNode(object):
     def __init__(self,val):
         self.val = val
@@ -31,11 +42,11 @@ def maxDepthPath(root):
         left = maxPath(root.left, path)
         right = maxPath(root.right, path)
         if left[0] > right[0]:
-            return (1+left[0], left[1]+str(root.val))
+            return (1+left[0], str(root.val)+left[1])
         else:
-            return (1+right[0], right[1]+str(root.val))
+            return (1+right[0], str(root.val)+right[1])
     
-    return maxPath(root, '')[1][::-1]
+    return maxPath(root, '')[1]
 
 
 n1 = TreeNode(1)
