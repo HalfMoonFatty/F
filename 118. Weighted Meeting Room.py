@@ -62,7 +62,7 @@ def findMaxProfitWithDp(jobs):
   dp = [0] * len(jobs)
   dp[0] = jobs[0].profit
 
-  for i in range(len(jobs)):
+  for i in range(1, len(jobs)):
     profit = jobs[i].profit
     j = latestNonConflict(jobs, i)
     if j != -1:
