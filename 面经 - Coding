@@ -171,10 +171,11 @@
 
 079. Find Smallest Binary Tree Path
 
-** 080. Find Number of Palindrom in a String
+** 080. Find Number of Palindrom Substring in a String
+        Find Number of Palindrom Subsequence in a String
 
-** 081. Longest Palindromic Substring
-     Longest Palindromic Subsequence
+** 081. Longest Palindromic Substring (expand)
+        Longest Palindromic Subsequence (DP)
 
 082. NextPermutation / Previous Permutation
 
