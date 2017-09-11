@@ -38,8 +38,8 @@ def findMaxProfitRec(jobs):
     return jobs[0].profit
 
   # Find profit when current job is included.
-  inclProf = jobs[len(jobs) - 1].profit
-  i = latestNonConflict(jobs, len(jobs) -1)
+  inclProf = jobs[-1].profit
+  i = latestNonConflict(jobs, len(jobs)-1)
   if i != -1:
     inclProf += findMaxProfitRec(jobs[:i+1])
 
@@ -69,7 +69,7 @@ def findMaxProfitWithDp(jobs):
       profit += dp[j]
     dp[i] = max(dp[i - 1], profit)
 
-  return dp[len(dp) - 1]
+  return dp[-1]
 
 
 jobs = [
