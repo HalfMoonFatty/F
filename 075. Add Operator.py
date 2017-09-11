@@ -44,24 +44,22 @@ class Solution(object):
     
     def addOperators(self, num, target):
         
-        def dfs(num, pos, target, cur_total, multed, path, result):
-            if pos == len(num) and cur_total == target:    
+        def dfs(num, index, target, cur_total, multed, path, result):
+            if index == len(num) and cur_total == target:    
                 result.append(path[:])
                 return
 
-            for i in range(pos,len(num)):
-                if i != pos and num[pos] == '0':
+            for i in range(index, len(num)):
+                if i != index and num[index] == '0':
                     return
                 
-                t = num[pos:i+1]
+                t = num[index:i+1]
                 t_val = int(t)
-                if pos == 0:
+                if index == 0:
                     dfs(num, i+1, target, t_val, t_val, t, result)
                 else:
                     dfs(num, i+1, target, cur_total+t_val, t_val, path+"+"+t, result)
-
                     dfs(num, i+1, target, cur_total-t_val, -t_val, path+"-"+t, result)
-
                     dfs(num, i+1, target, cur_total-multed+multed*t_val, multed*t_val, path+"*"+t, result)
 
         
