@@ -23,9 +23,10 @@ Time complexity: O(nlgm) -n is the number of numbers in array -m is the number o
 Space complexity: O(n)'
 '''
 
+
 import heapq
 def SortPartialSortedArray(nums):
-    result = [0] * len(nums)
+    result = []
 
     heap = []
     start = 0
@@ -35,12 +36,10 @@ def SortPartialSortedArray(nums):
             start = i
     heapq.heappush(heap, [nums[start], start, len(nums)-1])
 
-    
-    itr = 0
+
     while len(heap):
         minVal, index, end = heapq.heappop(heap)
-        result[itr] = minVal
-        itr += 1
+        result.append(minVal)
         if index < end:
             heapq.heappush(heap, [nums[index+1], index+1, end])
 
