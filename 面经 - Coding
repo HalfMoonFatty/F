@@ -5,15 +5,11 @@
     
 * 002. Prettify JSON
 
-* 009. 给2D平面上的N个点，求离原点最近的K个点
-
 * 016. Implement strStr()
 
 * 039. Task Schedule 
 
 * 045. Find Median of Lists
-
-* 046. Sort Partial Sorted Array
 
 * 053. Add and Search Word - Data structure design
 
@@ -26,7 +22,7 @@
 
 * 078. Binary Tree And Operation
 
-* 082. NextPermutation / Previous Permutation
+* 082. Next Permutation / Previous Permutation
 
 * 088. Remove Comments
 
@@ -42,9 +38,19 @@
 
 * 101. Serialize and deserialized Tree into LinkedList
 
-* 110. BST Preorder Leaves
+* 108. Maximum Subarray - follow up
+
+* 111. BST Preorder to Inorder
+
+* 113. String Replacement
+
+* 114. Rearrange an array in maximum minimum form
+
+* 118. Weighted Meeting Room 
+
+* 119. Circular Queue
 ==
-19
+25
 
 
 
@@ -59,10 +65,6 @@
 
 ** 048. Merge Interval from Sorted Arrays
 
-** 050. Common Substring (找两个字符串中长度为N以上的共同子串)
-        Follow-up: Longest common substring
-        Follow-up: Longest common subsequnce
-
 ** 054. Find Names in Post
 
 ** 068. Find the Theif
@@ -73,11 +75,22 @@
         Follow-up 1: Extend to 2D and find if rectangle sum = k
         Follow-up 2: LC363. Max Sum of Rectangle No Larger Than K
 
-** 080. Find Number of Palindrom Substring in a String
-        Find Number of Palindrom Subsequence in a String
+** 079. Common Substring (找两个字符串中长度为N以上的共同子串)
+        Follow-up: Longest common substring   
+        if s[i-1] == t[j-1]: dp[i][j] = dp[i-1][j-1]+1
+        Follow-up: Longest common subsequnce
+        if s[i-1] == t[j-1]: dp[i][j] = dp[i-1][j-1]+1
+        else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
 
-** 081. Longest Palindromic Substring (expand)
+
+** 080. Longest Palindromic Substring (expand)
         Longest Palindromic Subsequence (DP)
+        if s[i] == s[j]: dp[i][j] = dp[i+1][j-1] + 2
+        else: dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+
+
+** 081. Find Number of Palindrom Substring in a String
+        Find Number of Palindrom Subsequence in a String
 
 ** 083. Bipartite Graph / Paint House With M Colors
 
@@ -85,7 +98,7 @@
 
 ** 097. Find Least Number of Intervals from A That Can Fully Cover B
 
-
+** 110. BST Preorder Leaves
 ==
 16
 
@@ -96,51 +109,10 @@
 
 *** 091. Max 3k Sum
 
+*** 106. Decode/Encode String
+
 ==
-2
-
-
-
-
-
-102. Find the Maximum Peak or Drop
-
-103. Sort Array of Squares
-
-104. shortest continuous substring with all characters in input
-     * 76. Minimum Window Substring
-     * 30. Substring with Concatenation of All Words
-
-105. Find all Chars with Most Continuous Appearances (longest sequence) 
-
-** 106. Decode/Encode String
-
-** 107. Find Char Frequency in Sorted Array
-
-108. Maximum Subarray
-
-109. Continuous Subarray Sum
-
-
-
-
-111. BST Preorder to Inorder
-
-112. Print Max Depth Path of a Binary Tree
-
-113. String Replacement
-
-** 114. Rearrange an array in maximum minimum form
-
-115. Find Common Elements in 2 Arrays
-
-** 116. Matrix Path
-
-117. Valid Number
-
-** 118. Weighted Meeting Room 
-
-** 119. Circular Queue
+3
 
 
 
