@@ -122,8 +122,8 @@ def findLCAMulti(TreeNode root):
         if result[1] > deepest[1]:
             deepest2 = deepest
             deepest = result
-
     depth = 1 + deepest[1]
+
     if deepest[1] == deepest2[1]:
         return (root, depth)
     else: 
