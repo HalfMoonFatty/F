@@ -129,7 +129,7 @@ def minSubArrayLen(nums, k):
     sums = 0
     while fast < len(nums):
         sums += nums[fast]
-        while sums > k:
+        while sums > k and slow < fast:
             sums - nums[slow]
             slow += 1
         if sums == k:
@@ -139,6 +139,30 @@ def minSubArrayLen(nums, k):
 
 
 
+
+class Solution:
+
+    def minimumSize(self, nums, s):
+        if not nums: return -1
+
+        minSize = sys.maxint  
+        sum = 0
+        i = 0
+        for j in range(len(nums)):
+            sum += nums[j]
+            if sum >= s:
+                while i <= j: # try to shrink the current minSize
+                    if sum - nums[i] < s:
+                        break
+                    sum -= nums[i]
+                    i += 1  
+                minSize = min(minSize, j-i+1)    # update minSize
+
+        return minSize if minSize <= len(nums) else -1
+
+
+    
+    
 '''
 Problem 5:
 
