@@ -47,10 +47,10 @@ class Solution(object):
         queue = collections.deque([s])
 
         while queue:
-            size = len(queue)
             if len(result) > 0:
                 break    # note: already found optimal solution
-                
+            
+            size = len(queue)
             for i in range(size):
                 t = queue.popleft()
                 if isValid(t):
