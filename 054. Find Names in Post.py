@@ -68,7 +68,6 @@ class Trie(object):
         # for each index in post, search if any word starts from index i
         for i in range(len(post)):
             res = search(post, i)
-
             for word in res:
                 result[word].append(i)
 
