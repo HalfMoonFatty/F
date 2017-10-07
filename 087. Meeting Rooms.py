@@ -92,7 +92,7 @@ class Solution(object):
 '''
 Solution 2: using curRoom to keep track of the "up and downs" of current room numbers
 
-Time: O(n)
+Time: O(nlogn)
 Space: O(n)
 '''
 
@@ -106,7 +106,6 @@ class Solution(object):
             rooms[i.end] = rooms.get(i.end,0)-1
 
         curRoom, maxRoom = 0, 0
-        #odrooms = collections.OrderedDict(sorted(rooms.items()))
         for r in sorted(rooms):
             curRoom += rooms[r]   
             maxRoom = max(maxRoom, curRoom)
