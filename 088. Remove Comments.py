@@ -57,7 +57,7 @@ def removeComment(code):
         if singleLine and code[i] == '\n':
             singleLine = False
 
-        elif multiLine and (code[i] == '\'' or code[i] == '\"') and (code[i+1] == '\'' or code[i+1] == '\"') and (code[i+2] == '\'' or code[i+2] == '\"'):
+        elif multiLine and (code[i:i+3] == '\'\'\'' or code[i:i+3] == '\"\"\"'):
             multiLine = False
             i += 2
 
@@ -68,7 +68,7 @@ def removeComment(code):
         elif code[i] == '#':
             singleLine = True
 
-        elif (code[i] == '\'' or code[i] == '\"') and (code[i+1] == '\'' or code[i+1] == '\"') and (code[i+2] == '\'' or code[i+2] == '\"'):
+        elif (code[i:i+3] == '\'\'\'' or code[i:i+3] == '\"\"\"'):
             multiLine = True
             i += 2
 
@@ -80,6 +80,6 @@ def removeComment(code):
     return ''.join(result)
 
 
-test = '\'\'\'comment1 \n comment2\n comment3 \'\'\' a = 1'
+test = ''' """comment1 \n comment2\n comment3"""  a = 1'''
 test = '#comment\n a = 2'
 print removeComment(test)
