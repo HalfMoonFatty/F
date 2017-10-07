@@ -87,3 +87,27 @@ class Solution(object):
         return len(heap)
 
 
+    
+    
+'''
+Solution 2: using curRoom to keep track of the "up and downs" of current room numbers
+
+Time: O(n)
+Space: O(n)
+'''
+
+import collections
+class Solution(object):
+    def minMeetingRooms(self, intervals):
+
+        rooms = {}
+        for i in intervals:
+            rooms[i.start] = rooms.get(i.start,0)+1
+            rooms[i.end] = rooms.get(i.end,0)-1
+
+        curRoom, maxRoom = 0, 0
+        #odrooms = collections.OrderedDict(sorted(rooms.items()))
+        for r in sorted(rooms):
+            curRoom += rooms[r]   
+            maxRoom = max(maxRoom, curRoom)
+        return maxRoom
