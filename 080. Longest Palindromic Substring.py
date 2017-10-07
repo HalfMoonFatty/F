@@ -21,7 +21,7 @@ class Solution(object):
             return s[left+1:right]
             # note: real right index is: right-1; but we need to +1 to the interval to be inclusive
 
-        longestPali = s[0:1]
+        longestPali = s[0]
         for i in range(len(s)-1):   # note
             odd = expand(i,i)
             even = expand(i,i+1)
