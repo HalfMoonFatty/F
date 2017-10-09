@@ -42,7 +42,6 @@ def findLCARecursive(TreeNode root):
     if not root:
         return (None, 0)   # tuple(node, depth)
 
-    depth = 0
     left = findLCARecursive(root.left)
     right = findLCARecursive(root.right)
     depth = max(left[1], right[1])+1
