@@ -115,7 +115,6 @@ def findLCAMulti(TreeNode root):
     for child in root.children:
         next.append(findLCAMulti(child))
 
-    depth = 0
     deepest, deepest2 = (None, 0), (None, 0)
     for result in next:
         if result[1] > deepest[1]:
