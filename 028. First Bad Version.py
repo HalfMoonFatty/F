@@ -50,10 +50,11 @@ class Solution(object):
         """
         if n < 2: return n
         
-        start = end = 0
+        start = 0
+        end = 1
         while isBadVersion(end):
             start = end
-            end = end*end
+            end *= 2
         
         while start < end:
             mid = start + (end-start) / 2
