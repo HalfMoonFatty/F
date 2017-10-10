@@ -75,6 +75,7 @@ Note: Recursive solution is trivial, could you do it iteratively?
 '''
 
 # Iterative
+
 class Solution:
 
     def preorderTraversal(self, root):
@@ -96,7 +97,6 @@ class Solution:
         return result
         
         
-
 
 # Recursive
 
@@ -137,29 +137,28 @@ Note: Recursive solution is trivial, could you do it iteratively?
 # Iterative
 
 class Solution(object):
-
     def inorderTraversal(self, root):
-
-        if not root: return []
-
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        
+        stack = []
         result = []
-        stack = [root]
+        done = 0
 
-        while len(stack) > 0:
-            if root:            # go to the left most node
-                stack.append(root.left)
-                root = root.left
+        while not done:
+            if root:
+                stack.append(root)
+                root = root.left 
             else:
-                stack.pop()     # pop out None
-                if len(stack) > 0:
+                if len(stack):
                     root = stack.pop()
                     result.append(root.val)
-                    stack.append(root.right)    # go right
-                    root = root.right
+                    root = root.right 
                 else:
-                    break
+                    done = 1
         return result
-        
         
 
 # Recursive
