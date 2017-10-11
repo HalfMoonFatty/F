@@ -36,3 +36,28 @@ class BSTIterator:
         self.pushLeft(top.right)
         return top.val
     
+
+    
+# Iterative
+
+def inorder(root):
+
+    def pushLeft(node):
+        while node:
+            stack.push(node)
+            node = node.left
+        return
+
+    if not root: return True
+
+    stack = []
+    previous = -sys.maxint-1
+    pushLeft(root)
+    while len(stack):
+        cur = stack.pop()
+        if previous >= cur.val:
+            return False
+        previous = cur.val
+        if cur.right:
+            pushLeft(cur.right)
+    return True
