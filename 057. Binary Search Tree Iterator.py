@@ -57,6 +57,5 @@ def inorder(root):
         if previous >= cur.val:
             return False
         previous = cur.val
-        if cur.right:
-            pushLeft(cur.right)
+        pushLeft(cur.right)
     return True
