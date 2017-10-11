@@ -191,9 +191,6 @@ print minTaskTime([2,2,2,2,2,3,3,3,3,4,4,5,1,1,1,1,1], 5)
 
 
 
-
-
-
 import heapq
 import collections
 
@@ -203,44 +200,36 @@ def minTaskTime(tasks, cooldown):
     for key,value in count.items():
         heapq.heappush(heap, [-1*value,key])
 
-    index_map = {}
-    result = ''
-    waitq = collections.deque()
-    while True:
-        while len(heap):
-            v,k = heapq.heappop(heap)
-            if not index_map.has_key(k) or (index_map[k] + cooldown < len(result)):
-                result += str(k)
-                index_map[k] = len(result)-1
-                waitq.append([v+1,k])
-                found = True
-                break
-            else:
-                waitq.append([v,k])
+    result = []
+    while len(heap):
+        i = 0
+        temp = []
+        while i <= cooldown:
+            if len(heap) > 0:
+                v, k = heapq.heappop(heap)
+                result.append(k)
+                v += 1
+                if v < 0: temp.append([v,k])
 
-        if len(waitq) == 0:
-            break
+            if len(heap) == 0:
+                if len(temp) == 0:
+                    break
+                if i < cooldown-1:
+                    result.append("_")
+            i += 1
 
-        if not found: 
-            result += "_"
+        for elem in temp:
+            heapq.heappush(heap,elem)
 
-        while len(waitq):
-            elem = waitq.popleft()
-            if elem[0] < 0:
-                heapq.heappush(heap, [elem[0], elem[1]])
-        found = False
-
-
+        
     return result
-
 
 
 t1 = [1,1,1,2,2,2]
 k1 = 2
 
-t2 = [1,1,1,2]
+t2 = [1,1,1,1,2]
 k2 = 2
 
 print minTaskTime(t1, k1)
 print minTaskTime(t2, k2)
-
