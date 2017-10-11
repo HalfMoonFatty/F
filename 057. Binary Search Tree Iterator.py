@@ -46,7 +46,6 @@ def inorder(root):
         while node:
             stack.push(node)
             node = node.left
-        return
 
     if not root: return True
 
