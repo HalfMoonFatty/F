@@ -1,3 +1,400 @@
+重点复习
+
+039. Task Schedule 
+
+115. Find Common Elements in 2 Arrays
+
+055. Binary Tree to Doubly LinkedList
+
+300. 674. 673. LIS 
+
+053. Add and Search Word - Data structure design
+
+054. Find Names in Post
+
+111. BST Preorder to Inorder
+
+098. Validate Binary Search Tree
+
+100. Random Pick K Points in an Rectangle
+
+
+
+
+====
+
+* 001. BT LCA with deepest leaf
+    
+* 002. Prettify JSON
+
+** 004. Flatten Nested Linked List
+
+* 016. Implement strStr()
+
+* 018. Even Tree
+
+* 022. Stock Profit with Charges
+
+** 027. Permutation in String
+
+** 031. Find longest arithmetic subsequence in an unsorted array
+
+* 039. Task Schedule 
+
+* 045. Find Median of Lists
+
+** 048. Merge Interval from Sorted Arrays
+
+* 053. Add and Search Word - Data structure design
+
+** 054. Find Names in Post
+
+* 055. Binary Tree to Doubly LinkedList
+       Follow-up: Revert double linked list back to balanced BST
+
+* 056. Permutations / Unique permutations
+
+** 068. Find the Theif
+
+** 071. Contact Group
+
+** 072. Minimum Size Subarray Sum
+        Follow-up 1: Extend to 2D and find if rectangle sum = k
+        Follow-up 2: LC363. Max Sum of Rectangle No Larger Than K
+
+* 075. Add Operator
+
+* 078. Binary Tree And Operation
+
+** 079. Common Substring (找两个字符串中长度为N以上的共同子串)
+        Follow-up: Longest common substring   
+        if s[i-1] == t[j-1]: dp[i][j] = dp[i-1][j-1]+1
+        Follow-up: Longest common subsequnce
+        if s[i-1] == t[j-1]: dp[i][j] = dp[i-1][j-1]+1
+        else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+** 080. Longest Palindromic Substring (expand)
+        Longest Palindromic Subsequence (DP)
+        if s[i] == s[j]: dp[i][j] = dp[i+1][j-1] + 2
+        else: dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+
+* 082. Next Permutation / Previous Permutation
+
+* 083. Bipartite Graph / Paint House With M Colors
+
+* 088. Remove Comments
+
+* 092. Array to Binary Heap Tree
+       Follow-up: addNode()
+
+** 097. Find Least Number of Intervals from A That Can Fully Cover B
+
+* 099. Check Balance Parenthese
+
+* 100. Random Pick K Points in an Rectangle
+       Follow-up 1: LC 382. Linked List Random Node
+       Follow-up 2: LC 398. Random Pick Index (个数组和一个数N，随机返回该数组中任意一个不大于N的数)
+       Follow-up 3: LC 384. Shuffle an Array 
+
+** 110. BST Preorder Leaves
+
+* 111. BST Preorder to Inorder
+
+* 115. Find Common Elements in 2 Arrays
+
+* 118. Weighted Meeting Room 
+
+
+
+
+
+Design
+======
+- Design News Feed
+- Design Post Search
+- Design Chat
+- Design the data structures for a social network
+- Design FaceBook Event
+- Design POI
+- Design KV store  (Memcache)
+- Design Type Ahead
+- Design a system that scales to millions of users on AWS
+- Design TinyURL
+
+
+
+
+
+
+
+Performance
+===========
+
+
++ CPU
+
+  vmstat - system CPU utilization
+  mpstat - process CPU utilization
+  prstat - who is using the CPU
+
+
+
++ Memory
+
+  System Memory: vmstat -p
+
+  Process Memmory: 
+    Process Virtual and Resident Set Size – ps –eo pid,vsz,rss,args
+    Using pmap to Inspect Process Memory Usage – pmap –x pid
+
+  Swap: 
+    Swap Summary: swap –s
+    iostat to determine if the physical swap devices are currently busy with I/O
+
+
+
++ Disk
+
+Writing:
+  writeback mode: the completion interrupt issent as soon as the cache receives the data. 
+  writethrough mode, writes now suffer a delay as the storage array waits for them to write to disk, before an I/O completion is sent. 
+
+Reading:
+  The storage array tries its best to serve reads from (its very large) cache,especially effective if prefetch is enabled and the workload is sequential. 
+
+IO Size:
+  For sequential access, larger I/O sizes are better; 
+  For random access, I/O sizes should to be picked to match the workload. First need to know your workload.
+
+iostat:
+  3 Starting points of disk behavior: Utilization Saturation and Tput
+  %b: this is percent busy and tells us disk utilization.
+  wait: the average wait queue length; it is a measure of disk saturation. 
+  kr/s and kw/s: kilobytes read and written per second, which tells us the current disk throughput.
+
+
+
++ Network
+
+  • Packets. netstat –i Network interface packet counts.
+  • Bytes. Kstat, SNMP, nx.se, and nicstat Measuring throughput in terms of bytes/sec.
+  • Utilization. nicstat calculates utilization = current throughput / known maximum.
+  • Saturation. network applications usually experience delays.
+  • Errors. netstat -i to print error counts: collisions (small numbers are normal), input errors, and output errors (late collisions).
+
+
+  netstat : packet counts and error counts
+  nicstat Tool: network utilization and saturation by interface.
+  ping Tool – host up and resp time
+  traceroute Tool - discover the hops to a host (print response time to each hop)
+
+
+
++ Process
+  ps
+  prstat
+  • SIZE. The total virtual memory size of mappings within the process, including all mapped files and devices.
+  • RSS. Resident set size. The amount of physical memory mapped into the process.
+  • TIME. The cumulative execution time for the process, printed in CPU hours, minutes, and seconds.
+  • CPU. The percentage of recent CPU time used by the process.
+  • PROCESS/NLWP. The name of the process (name of executed file) and the number of threads in the process.
+
+
+  pstack - you can often determine where the process is spending most of its time
+  truss - traces system calls made on behalf of a process.
+  dtrace
+
+
+
++ Lockstat
+
+  Two main types of user-level locks:
+  • Mutex lock. An exclusive lock. A mutex lock attempts to spin while trying obtain the lock if the holder is running on a CPU, or blocks if the holder is not running or after trying to spin for a predetermined period.
+  • Reader/Writer Lock. A shared reader lock. Only one person can hold the write lock, but many people could hold a reader lock while there are no writers.
+
+
+
++ CPU Caches
+
+size, cache line size and  set-associativity.
+• A greater size improves cache hit ratio;
+• A larger cache line size can improve throughput;
+• A higher set-associativity improves the effect of the Least Recently Used policy, which can avoid hot spots where the cache would otherwise have flushed frequently accessed data.
+
+
+
+
+
+
+OS
+====
+
+
+process/thread区别，thread如何安全访问共享内存->mutex，
+
+Both processes and threads are independent sequences of execution. 
+The typical difference is that threads (of the same process) run in a shared memory space, 
+while processes run in separate memory spaces.
+
+
+==
+
+Race condition:
+
+A race condition occurs when two or more threads can access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time, you don't know the order in which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are "racing" to access/change the data.
+
+
+==
+
+semaphone/mutex区别
+
+
+Strictly speaking, a mutex is locking mechanism used to synchronize access to a resource. 
+Only one task (can be a thread or process based on OS abstraction) can acquire the mutex. 
+It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
+
+Mutexes are typically used to serialise access to a section of  re-entrant code that cannot be executed 
+concurrently by more than one thread. A mutex object only allows one thread into a controlled section, 
+forcing other threads which attempt to gain access to that section to wait until the first thread has exited from that section.
+
+--------
+
+Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). 
+
+A semaphore restricts the number of simultaneous users of a shared resource up to a maximum number. 
+Threads can request access to the resource (decrementing the semaphore), and can signal that they have 
+finished using the resource (incrementing the semaphore).
+
+
+==
+
+Deadlock
+
+Deadlock describes a situation where two or more threads are blocked forever, waiting for each other. 
+
+4 Conditions for deadlock:
+
+Mutual Exclusion
+Hold and Wait
+Circular Wait
+No Preemption
+
+==
+
+Virtual Memory
+
+It maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory. Main storage, as seen by a process or task, appears as a contiguous address space or collection of contiguous segments. The operating system manages virtual address spaces and the assignment of real memory to virtual memory. 
+
+Address translation hardware in the CPU, often referred to as a memory management unit or MMU, 
+automatically translates virtual addresses to physical addresses. 
+
+
+==
+
+Trashing
+
+Thrashing occurs on a program that works with huge data structures, as its large working set causes continual page faults that drastically slow down the system. Satisfying page faults may require freeing pages that will soon have to be re-read from disk. 
+ 
+ 
+==
+
+Page Fault 
+
+An interrupt that occurs when a program requests data that is not currently in real memory. 
+The interrupt triggers the operating system to fetch the data from a virtual memory and load it into RAM.
+
+
+==
+
+TLB
+
+A translation lookaside buffer (TLB) is a memory cache that stores recent translations of 
+virtual memory to physical addresses for faster retrieval.
+
+
+==
+
+
+
+
+
+
+BQ
+===
+
+1. Tell me about yourself
+
+- I have been with Performance Engineering group for about 5 years, focused on analyzing and improving database and OS performance and I also work on tool development.
+- I most recently worked on Oracle Cloud Service,“DBaaS”, and kernel optimization for Oracle database. 
+- I have hands-on experience at systems level.
+
+
+
+
+2. Where do you see yourself in five years?
+
+In 5 years, I would like to develop into a strong engineer whose work influences well beyond myself. I hope to be able to own a complex project end to end, and be able to set technical directions and priorities for a few other engineers working with me on the same project.
+
+I’m fairly confident with my CS fundamentals and coding skills, but I believe I will need to develop additional technical expertise early in my career in order to achieve my 5-year goal. This includes things like testing, productionization, documentation, and many more. So beyond excelling at my own projects, I also hope to learn those skills from senior engineers, so I can quickly ramp up and achieve my long-term goal. 
+
+
+
+
+3. Why facebook (vs. other companies)?
+
+Facebook is one of the most popular products in the world, with over 2 billion active users. This means there’s a very good chance the work at Facebook can have direct impacts to people. As a software engineer, that’s something very rewarding to think about, and motivates me a lot.
+
+
+
+
+
+4. What would you do if you have different opinion with your colleague? - prepare details
+   Have you ever had a conflict with the team? How was it resolved?
+
+The first thing I do is to try to communicate as clear as I can. Often times confusions arise due to miscommunications rather than different opinions. If that didn’t work, I’ll try to think from the other person’s point of view, and try to understand his or her reasonings for objecting my proposals. This will often help me revise my proposal and subsequently follow up with the person. This is an iterative process that may even improve my original design and let me learn something new, so I’m actually happy to have people be critical for any technical decisions I make.
+
+
+
+
+
+5. What are your weaknesses?
+   What are the areas where you need to improve your skills?
+   Are there areas where you need to develop your skills further?
+
+I’m afraid to ask bad questions. But it’s often hard to justify whether a question is good or bad, so I often spend a lot of time to do research and try to figure out the problem by myself. Sometimes this can be inefficient -- it could take me a few hours to research and find the answer, but it might only take an expert a few minutes to explain to me directly. I have been trying to improve this throughout my career. There were also a few cases where my questions led to more sophisticated discussions with many senior level engineers, and even revealed potential design issues. So I would say I’m more confident to speak out nowadays than in the past, but I still see room for improvement.
+
+
+
+
+
+6. What do you like least about your previous job/internship?
+    What do you dislike the most about your last job?
+    What do you wish you had done differently at your previous company?
+
+My currently job is too concentrated in one specific area, namely database performance and OS kernels, and it’s mostly focused on system-level programing. Sometimes it’s easy to get too deep into the project and forgot about the big picture. So for example, there isn’t much learning opportunities for web technologies and frontend systems. I hope to develop into a well-rounded engineer who knows how a product works end to end. I realize that I’m relatively weak on the front-end technologies, and I have been mostly studying these knowledge on my own, but unfortunately I didn’t have much hands-on experience. So I hope I can learn from my next job to fill in the gap.
+
+
+
+
+7. What do u expect to learn from company?  / Which team of product u wanna go?
+
+My previous job was too focused on system level programming. I would like to get exposed to the entire stack, that includes frontend and middleware systems. I really like the open culture at Facebook that encourages different teams to collaborate, and therefore help me learn all aspects of the tech stack.
+
+I’m also interested to learn about the productionization and monitoring for services built at Facebook. Facebook has over 2 billion users nowadays and its system is quite robust. I think I can learn a lot about how to build fail-tolerant and high-available systems at Facebook.
+
+
+
+
+My Question to the interviewer:
+Does your team have oncalls? How heavy are the oncall workload?
+What would you say is the most important skill to be successful here?
+What is your favorite part of working here?
+
+
+
+
+
+
 1. Tell me about yourself
 
 - I have been with Performance Engineering group for about 5 years, focused on analyzing and improving database and OS performance and I also work on tool development.
